@@ -1,1267 +1,669 @@
 [
   {
-    "brand_name": "ABECMA",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "ALDURAZYME",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "ALPHANINE SD",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "ALPROLIX",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "AMTAGVI",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "ANKTIVA",
+    "brand_name": "Abecma",
+    "indication": "Multiple myeloma",
+    "indicated_population": "MM (RR, TCE, atleast two prior lines)",
     "uhc": "No",
     "aetna": "Yes",
     "anthem": "No",
     "hcsc": "No",
     "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "AVEED",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
+    "humana": "Yes"
   },
   {
     "brand_name": "Abecma",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Abraxane",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Actemra",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Acthar Gel",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Adakveo",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Adcetris",
-    "uhc": "Yes",
+    "indication": "Multiple myeloma",
+    "indicated_population": "MM (RR, TCE, atleast four prior lines)",
+    "uhc": "No",
     "aetna": "No",
     "anthem": "No",
     "hcsc": "No",
     "cigna": "No",
+    "humana": "Yes"
+  },
+  {
+    "brand_name": "Adakveo",
+    "indication": "Sickle-cell syndrome",
+    "indicated_population": "Sickle-cell syndrome (in prevention of recurrent painful vaso-occlusive crises, in 16 years and older)",
+    "uhc": "No",
+    "aetna": "Yes",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "Yes"
+  },
+  {
+    "brand_name": "Adtralza/Adbry",
+    "indication": "Atopic dermatitis",
+    "indicated_population": "Atopic dermatitis (moderate to severe, topical therapies IR or IT)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "Adstiladrin",
+    "brand_name": "Adtralza/Adbry",
+    "indication": "Atopic dermatitis",
+    "indicated_population": "Atopic dermatitis (moderate to severe, topical Tx IR or IT, 12 years and older)",
     "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
+    "aetna": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Aduhelm",
+    "indication": "Alzheimers disease",
+    "indicated_population": "Alzheimers disease (in adults)",
     "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Advate",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
+    "aetna": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "Adynovate",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
+    "brand_name": "Aduhelm",
+    "indication": "Alzheimers disease",
+    "indicated_population": "Alzheimers disease (patients with mild cognitive impairment or dementia stage)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Adzynma",
-    "uhc": "Yes",
+    "indication": "Thrombotic Thrombocytopenic Purpura",
+    "indicated_population": "TTP (congenital, prophylactic or on-demand ERT)",
+    "uhc": "No",
     "aetna": "Yes",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Afstyla",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ahzantive",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
+    "humana": "Yes"
   },
   {
     "brand_name": "Aldurazyme",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Alhemo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Alimta",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Aliqopa",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "AlphaNine SD",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Alphanate",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Alprolix",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Altuviiio",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Alyglo",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Alygo",
+    "indication": "Mucopolysaccharidosis",
+    "indicated_population": "MPS I",
     "uhc": "No",
     "aetna": "No",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
-    "cigna": "Yes",
+    "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Alymsys",
-    "uhc": "Yes",
+    "indication": "Colorectal cancer",
+    "indicated_population": "CRC (met, naïve)",
+    "uhc": "No",
     "aetna": "Yes",
     "anthem": "No",
     "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
+    "cigna": "No",
+    "humana": "Yes"
+  },
+  {
+    "brand_name": "Alymsys",
+    "indication": "Colorectal cancer",
+    "indicated_population": "CRC (met, 2nd line, in combi with CT)",
+    "uhc": "No",
+    "aetna": "Yes",
+    "anthem": "No",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "Yes"
+  },
+  {
+    "brand_name": "Alymsys",
+    "indication": "Colorectal cancer",
+    "indicated_population": "CRC (met, 2nd line)",
+    "uhc": "No",
+    "aetna": "Yes",
+    "anthem": "No",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "Yes"
+  },
+  {
+    "brand_name": "Alymsys",
+    "indication": "Non-small cell lung carcinoma",
+    "indicated_population": "NSCLC (non-squamous, met, naïve)",
+    "uhc": "No",
+    "aetna": "Yes",
+    "anthem": "No",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "Yes"
+  },
+  {
+    "brand_name": "Alymsys",
+    "indication": "Glioblastoma",
+    "indicated_population": "Glioblastoma (2nd line)",
+    "uhc": "No",
+    "aetna": "Yes",
+    "anthem": "No",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "Yes"
+  },
+  {
+    "brand_name": "Alymsys",
+    "indication": "Renal cell carcinoma",
+    "indicated_population": "RCC (met, naïve)",
+    "uhc": "No",
+    "aetna": "Yes",
+    "anthem": "No",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "Yes"
+  },
+  {
+    "brand_name": "Alymsys",
+    "indication": "Cervical cancer",
+    "indicated_population": "Cervical cancer (met, CT IT)",
+    "uhc": "No",
+    "aetna": "Yes",
+    "anthem": "No",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "Yes"
+  },
+  {
+    "brand_name": "Alymsys",
+    "indication": "Ovarian cancer",
+    "indicated_population": "Ovarian, Peritoneal, Fallopian tube cancer (in combi with CT, 2nd line)",
+    "uhc": "No",
+    "aetna": "Yes",
+    "anthem": "No",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "Yes"
   },
   {
     "brand_name": "Amondys 45",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Amtagvi",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
+    "indication": "Duchenne muscular dystrophy",
+    "indicated_population": "DMD (DMD gene amenable to exon 45 skipping)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Amvuttra",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Aprepitant",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Aralast NP",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Aranesp",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Arranon",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Arzerra",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Asceniv",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Asparlas",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Aucatzyl",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Avastin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Aveed",
+    "indication": "Amyloidosis",
+    "indicated_population": "hATTR amyloidosis (polyneuropathy, in adults)",
     "uhc": "No",
     "aetna": "Yes",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
+    "cigna": "No",
+    "humana": "Yes"
   },
   {
-    "brand_name": "Avsola",
-    "uhc": "Yes",
+    "brand_name": "Amvuttra",
+    "indication": "Amyloidosis",
+    "indicated_population": "Amyloidosis (with wild-type or hATTR cardiomyopathy, adults)",
+    "uhc": "No",
     "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Avtozma",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Avzivi",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
+    "humana": "Yes"
   },
   {
     "brand_name": "Axtle",
-    "uhc": "Yes",
+    "indication": "Non-small cell lung carcinoma",
+    "indicated_population": "NSCLC (non-squamous, met, naive in combi with cisplatin)",
+    "uhc": "No",
+    "aetna": "Yes",
+    "anthem": "No",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "Yes"
+  },
+  {
+    "brand_name": "Axtle",
+    "indication": "Non-small cell lung carcinoma",
+    "indicated_population": "NSCLC (non-squamous, maintenance Tx, no progression post 1L pt CT)",
+    "uhc": "No",
+    "aetna": "Yes",
+    "anthem": "No",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "Yes"
+  },
+  {
+    "brand_name": "Axtle",
+    "indication": "Non-small cell lung carcinoma",
+    "indicated_population": "NSCLC (non-squamous, recurrent, met, post CT)",
+    "uhc": "No",
+    "aetna": "Yes",
+    "anthem": "No",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "Yes"
+  },
+  {
+    "brand_name": "Benlysta",
+    "indication": "Systemic lupus erythematosus",
+    "indicated_population": "SLE (active, autoantibody positive, adjunct, in adults, SoC IR)",
+    "uhc": "No",
     "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Azmiro",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "BEOVU",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "BREYANZI",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "BYOOVIZ",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Bavencio",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Beleodaq",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Belrapzo",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Bendamustine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Bendeka",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "BeneFIX",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Benlysta",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Beovu",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Beqvez",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Berinert",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Besponsa",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "BiCNU",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Bivigam",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Bizengri",
+    "indication": "Systemic lupus erythematosus",
+    "indicated_population": "SLE (in 5 years and older, active, autoantibody positive, adjunct, SoC IR)",
     "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Bkemv",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Blenrep",
-    "uhc": "Yes",
     "aetna": "No",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "Bleomycin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Blincyto",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Bomyntra",
+    "brand_name": "Benlysta",
+    "indication": "Lupus nephritis",
+    "indicated_population": "Lupus nephritis (active)",
     "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Bortezomib",
-    "uhc": "Yes",
     "aetna": "No",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "Boruzu",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
+    "brand_name": "Benlysta",
+    "indication": "Lupus nephritis",
+    "indicated_population": "Lupus nephritis (active, 5 years and older, candidates of standard therapy)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "Breyanzi",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
+    "brand_name": "Beyfortus",
+    "indication": "Lower Respiratory Tract Infections",
+    "indicated_population": "Lower Respiratory Tract Infections (caused by RSV, prophylaxis, neonates and infants)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
     "hcsc": "No",
-    "cigna": "Yes",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Beyfortus",
+    "indication": "Lower Respiratory Tract Infections",
+    "indicated_population": "Lower Respiratory Tract Infections (caused by RSV, prophylaxis, up to 24 months of age)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Brineura",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
+    "indication": "Ceroid lipofuscinosis type 2 disease",
+    "indicated_population": "CLN2 (TPP1 deficiency)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Brineura",
+    "indication": "Ceroid lipofuscinosis type 2 disease",
+    "indicated_population": "CLN2 (37 weeks post-menstrual age and older, weighing >2.5 kg, pediatrics)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Briumvi",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Busulfan",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Byooviz",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "CAMCEVI",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "CARVYKTI",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "CIMERLI",
+    "indication": "Multiple sclerosis",
+    "indicated_population": "MS (relapsing-remitting, adults)",
     "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
+    "aetna": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "CINQAIR",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "CORIFACT",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "COSENTYX IV",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
+    "brand_name": "Briumvi",
+    "indication": "Multiple sclerosis",
+    "indicated_population": "MS (active secondary progressive, adults)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Cabenuva",
+    "indication": "HIV Infection",
+    "indicated_population": "HIV-1 (adults, HIV-1 RNA less than 50 copies per mL)",
     "uhc": "No",
     "aetna": "No",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
-    "cigna": "Yes",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Cabenuva",
+    "indication": "HIV Infection",
+    "indicated_population": "HIV-1 (in patients of age 12 years and older, HIV-1 RNA less than 50 copies per mL)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Cablivi",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Camcevi",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Carboplatin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Carmustine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Carvykti",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Casgevy",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cerezyme",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cimzia",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cinqair",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cinryze",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cipla leuprolide",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cisplatin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cladribine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Clofarabine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Coagadex",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Columvi",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Conexxence",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Corifact",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cortrophin Gel",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cosela",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cosentyx (IV)",
+    "indication": "Immune thrombocytopenic purpura",
+    "indicated_population": "aTTP (conjunction with plasma exchange and immunosuppression)",
     "uhc": "No",
     "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cosentyx IV",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cosmegen",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Crysvita",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cutaquig",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cuvitru",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cyclophospha- mide",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cyramza",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cytarabine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Cytogam",
+    "indication": "Hypophosphataemia",
+    "indicated_population": "Hypophosphataemia (FGF23-related, tumor-induced osteomalacia, in 2 years and older)",
     "uhc": "No",
     "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "DANYELZA",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "Dacarbazine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Danyelza",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Darzalex",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Darzalex Faspro",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Datroway",
+    "brand_name": "Crysvita",
+    "indication": "Hypophosphataemia",
+    "indicated_population": "Hypophosphataemia (X-linked, adults)",
     "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Daunorubicin",
-    "uhc": "Yes",
     "aetna": "No",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "Daxxify",
+    "brand_name": "Crysvita",
+    "indication": "Hypophosphataemia",
+    "indicated_population": "Hypophosphataemia (X-linked, pediatrics of 1 year and older)",
     "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Dexrazoxane",
-    "uhc": "Yes",
     "aetna": "No",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "Docetaxel",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Docivyx",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Doxil",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Doxorubicin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Dysport",
+    "brand_name": "Crysvita",
+    "indication": "Hypophosphataemia",
+    "indicated_population": "Hypophosphataemia (X-linked, pediatrics of 6 months and older)",
     "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
+    "aetna": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "ELAPRASE",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "ELELYSO",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "ELREXFIO",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "EVENITY",
+    "brand_name": "Duopa",
+    "indication": "Parkinson’s disease",
+    "indicated_population": "Parkinson’s disease (advanced)",
     "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "Elahere",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
+    "brand_name": "Dupixent",
+    "indication": "Asthma",
+    "indicated_population": "Asthma (moderate-to-severe, maintenance, inhaled corticosteroid + long-acting β2-agonist IR, 6 years and older)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Dupixent",
+    "indication": "Asthma",
+    "indicated_population": "Asthma (moderate-to-severe, maintenance, inhaled corticosteroid + long-acting β2-agonist IR, 12 years and older)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Dupixent",
+    "indication": "Chronic obstructive pulmonary disease",
+    "indicated_population": "COPD (add-on maintenance Tx, combi with ICS+LABA+LAMA)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Dupixent",
+    "indication": "Chronic obstructive pulmonary disease",
+    "indicated_population": "COPD (add-on maintenance Tx, combi LABA+LAMA, ICS IT)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Dupixent",
+    "indication": "Atopic dermatitis",
+    "indicated_population": "Atopic dermatitis (moderate to severe, systemic therapy IR)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Dupixent",
+    "indication": "Atopic dermatitis",
+    "indicated_population": "Atopic dermatitis (moderate to severe, pediatrics 12 - 17 yrs, systemic therapy IR)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Dupixent",
+    "indication": "Atopic dermatitis",
+    "indicated_population": "Atopic dermatitis (moderate to severe, pediatrics 6 - 11 yrs, systemic therapy IR)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Dupixent",
+    "indication": "Atopic dermatitis",
+    "indicated_population": "Atopic dermatitis (moderate to severe, 6 months and older, systemic therapies IR or IT)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Dupixent",
+    "indication": "Chronic rhinosinusitis with nasal polyps",
+    "indicated_population": "CRSwNP (severe, systemic corticosteroids or surgery IR)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Dupixent",
+    "indication": "Chronic rhinosinusitis with nasal polyps",
+    "indicated_population": "CRSwNP (inadequately controlled, maintenance Tx, 12 years and older)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Dupixent",
+    "indication": "Prurigo nodularis",
+    "indicated_population": "Prurigo nodularis (in adults)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Dupixent",
+    "indication": "Eosinophilic esophagitis",
+    "indicated_population": "Eosinophilic esophagitis (patients ≥ 12 years, weighing at least 40 kg)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Dupixent",
+    "indication": "Eosinophilic esophagitis",
+    "indicated_population": "Eosinophilic esophagitis (1 year and older, weighing at least 15 kg)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Dupixent",
+    "indication": "Urticaria",
+    "indicated_population": "Urticaria (chronic spontaneous, H1 antihistamine Tx IR, 12 years and older)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Durysta",
+    "indication": "Intraocular pressure",
+    "indicated_population": "IOP (in open-angle glaucoma or ocular hypertension)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Ebglyss",
+    "indication": "Atopic dermatitis",
+    "indicated_population": "Atopic dermatitis (moderate to severe, candidates for systemic Tx, 12 years and older)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Egrifta",
+    "indication": "Lipodystrophy",
+    "indicated_population": "Lipodystrophy (reduction of excess abdominal fat in HIV-infected patients)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Elaprase",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Elelyso",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Elevidys",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
+    "indication": "Hunter syndrome",
+    "indicated_population": "Hunter syndrome (MPS-II)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Elfabrio",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Eligard",
-    "uhc": "Yes",
+    "indication": "Fabry disease",
+    "indicated_population": "Fabry disease (adults)",
+    "uhc": "No",
     "aetna": "No",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "Eligard4",
+    "brand_name": "Eligard",
+    "indication": "Prostate cancer",
+    "indicated_population": "Prostate cancer (advanced)",
     "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Eloctate",
-    "uhc": "Yes",
     "aetna": "Yes",
     "anthem": "No",
     "hcsc": "No",
@@ -1270,3546 +672,121 @@
   },
   {
     "brand_name": "Elrexfio",
-    "uhc": "Yes",
+    "indication": "Multiple myeloma",
+    "indicated_population": "MM (RR, TCE, atleast four prior lines)",
+    "uhc": "No",
     "aetna": "Yes",
     "anthem": "No",
     "hcsc": "No",
     "cigna": "No",
-    "humana": "No"
+    "humana": "Yes"
   },
   {
-    "brand_name": "Elzonris",
-    "uhc": "Yes",
+    "brand_name": "Empaveli/Aspaveli",
+    "indication": "Paroxysmal nocturnal hemoglobinuria",
+    "indicated_population": "PNH (in adults)",
+    "uhc": "No",
     "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Empliciti",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Encelto",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Enhertu",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Enjaymo",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Entyvio",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Entyvio IV",
+    "indication": "Cold agglutinin disease",
+    "indicated_population": "Cold agglutinin disease (in adults)",
     "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Enzeevu",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Epirubicin",
-    "uhc": "Yes",
     "aetna": "No",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "Epkinly",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Epogen",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Epysqli",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Erbitux",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Erwinaze",
-    "uhc": "Yes",
+    "brand_name": "Enspryng",
+    "indication": "Neuromyelitis optica spectrum disorder",
+    "indicated_population": "NMOSD (in adults, AQP4 antibody +ve)",
+    "uhc": "No",
     "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Esperoct",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Etoposide",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Evenity",
+    "indication": "Osteoporosis",
+    "indicated_population": "Osteoporosis (in post-menopausal women at increased risk of fracture)",
     "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Evkeeza",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
+    "indication": "Familial hypercholesterolemia",
+    "indicated_population": "FH (homozygous, adjunct to low fat diet and LDL therapies, in adults)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "Evomela",
-    "uhc": "Yes",
+    "brand_name": "Evkeeza",
+    "indication": "Familial hypercholesterolemia",
+    "indicated_population": "Familial hypercholesterolemia (homozygous, adjunct to low fat diet and LDL therapies, in pediatrics)",
+    "uhc": "No",
     "aetna": "No",
-    "anthem": "No",
+    "anthem": "Yes",
+    "hcsc": "No",
+    "cigna": "No",
+    "humana": "No"
+  },
+  {
+    "brand_name": "Evkeeza",
+    "indication": "Familial hypercholesterolemia",
+    "indicated_population": "FH (homozygous, adjunct to LDL therapies, 5 years and older)",
+    "uhc": "No",
+    "aetna": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Exondys 51",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Eylea",
+    "indication": "Duchenne muscular dystrophy",
+    "indicated_population": "DMD (DMD gene amenable to exon 51 skipping)",
     "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Eylea HD",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "FABRAZYME",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "FEIBA",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "FORTEO",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "FYARRO",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
+    "aetna": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
     "brand_name": "Fabrazyme",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Fasenra",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Faslodex",
+    "indication": "Fabry disease",
+    "indicated_population": "Fabry disease (in adults)",
     "uhc": "No",
     "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Feiba NF",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"
   },
   {
-    "brand_name": "Fensolvi",
+    "brand_name": "Fabrazyme",
+    "indication": "Fabry disease",
+    "indicated_population": "Fabry disease (in pediatrics)",
     "uhc": "No",
     "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Feraheme",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Fibryga",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Firazyr",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Firmagon",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Flebogamma",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Flebogamma DIF",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Flebogamma/Flebogamma dif",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Flolan",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Floxuridine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Fludarabine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Fluorouracil",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Focinvez",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Folotyn",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Fosaprepitant",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Fosnetupitant and palonosetron",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Frindovyx",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Fulphila",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Fulvestrant",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Fusilev",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Fyarro",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Fylnetra",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Gamastan",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Gamifant",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Gammagard",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Gammagard Liquid",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Gammagard S/D",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Gammaked",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Gammaplex",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Gamunex-C",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Gamunex-C/Gammaked",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Gazyva",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Gel-One",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Gemcitabine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "GenVisc 850",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Givlaari",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Glassia",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Granisetron ER",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Granix",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Halaven",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Hemgenix",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Hemlibra",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Hemofil M",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Herceptin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Herceptin Hylecta",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Hercessi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "HercessiTM",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Herzuma",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Hizentra",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Humate-P",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "HyQvia",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Hyalgan",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Hycamtin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Hymovis",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Hympavzi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Hyqvia",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Idarubicin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Idelvion",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ifosfamide",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ilaris",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ilumya",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Imaavy",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Imfinzi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Imjudo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Imlygic",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Immune globulin",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Imuldosa",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Inflectra",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Infugem",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Injectafer",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Irinotecan",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Istodax",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ixempra",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ixinity",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Izervay",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Jakafi",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Jelmyto",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Jemperli",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Jevtana",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Jivi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Jubbonti",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Kadcyla",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Kalbitor",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Kanjinti",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Kanuma",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Keytruda",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Khapzory",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Kimmtrak",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Kisunla",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Koate",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Kogenate FS",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Korsuva",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Kovaltry",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Krystexxa",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Kymriah",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Kyprolis",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Lamzede",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Lanreotide",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Lanreotide (Cipla)",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Lantidra",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Lartruvo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Lemtrada",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Lenmeldy",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Leqembi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Leqvio",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Leucovorin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Leukine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Leuprolide",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Leuprolide Depot",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Levoleucovorin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Libtayo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Loqtorzi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Lumizyme",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Lumoxiti",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Lunsumio",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Lupron Depot (3.75 mg)",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Lupron Depot (7.5 mg)",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Lupron Depot4",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Luxturna",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Lyfgenia",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Margenza",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Marqibo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Melphalan",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Mepsevii",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Mesna",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Methotrexate",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Mircera",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Mitomycin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Mitoxantrone",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Monjuvi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "MonoFerric",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Mononine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Monovisc",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Mvasi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Mylotarg",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Naglazyme",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Neulasta",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Neulasta (syringe)",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Neulasta OnPro",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Neupogen",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Nexviazyme",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Niktimvo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Nipent",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Nivestym",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "NovoSeven RT",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Novoeight",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Nplate",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Nucala",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Nulibry",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Nulojix",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Nuwiq",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Nypozi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Nyvepria",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Obizur",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ocrevus",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ocrevus Zunovo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Octagam",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ogivri",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Omvoh",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Omvoh IV",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Oncaspar",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Onivyde",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Onpattro",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ontruzant",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Opdivo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Opdivo Quantig",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Opdivo QvantigTM",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Opdualag",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Orencia",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Orencia IV",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Orthovisc",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Osenvelt",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Otulfi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Oxaliplatin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Oxlumo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Paclitaxel",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Padcev",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Palonosetron",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Panzyga",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Parsabiv",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Pemetrexed",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Pemfexy",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Pemrydi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Perjeta",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Phesgo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "PiaSky",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Piasky",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Polivy",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Pombiliti",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Posfrea",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Poteligeo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Privigen",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Procrit",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Procrit/Epogen",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Profilnine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Prolastin-C",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Proleukin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Prolia",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Provenge",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Purified Cortrophin Gel",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Pyzchiva",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Qalsody",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Qfitlia",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Radicava",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Rebinyn",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Reblozyl",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Recombinate",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Releuko",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Remicade",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Renflexis",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Retacrit",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Revcovi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "RiaSTAP",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Riabni",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Rituxan",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Rituxan Hycela",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Rituxan4",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Rivfloza",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Rixubis",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Roctavian",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Rolvedon",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ruconest",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ruxience",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ruxience4",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Rybrevant",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Rylaze",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ryoncil",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ryplazim",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Rystiggo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ryzenuta",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Sandimmune, Neoral",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Sandostatin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Sandostatin LAR",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Sandostatin LAR Depot",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Saphnelo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Sarclisa",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Scenesse",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Selarsdi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Sevenfact",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Signifor LAR",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Simponi ARIA",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Simponi Aria",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Skyrizi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Skyrizi IV",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Skysona",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Soliris",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Somatuline Depot",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Spevego IV",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Spevego SC",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Spinraza",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Starjemza",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Stelara",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Steqeyma",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Stimufend",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Stoboclo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Sunlenca",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Supartz/Supartz FX",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Supprelin LA",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Syfovre",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Sylatron",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Sylvant",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Synagis",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "SynoJoynt",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Synribo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Synvisc",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Synvisc-One",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Talvey",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Taxotere",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tecartus",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tecelra",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tecentriq",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tecentriq Hybreza",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tecentriq HybrezaTM",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tecvayli",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Temodar",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tepezza",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tevimbra",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tezspire",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Thiotepa",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tivdak",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tofidence",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Torisel",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Trazimera",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Treanda",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Trelstar",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tremfya IV",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tretten",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "TriVisc",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Triluron",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Triptodur",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Trisenox",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Trodelvy",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Trogarzo",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Truxima",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Truxima4",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tyenne",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tyruko",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tysabri",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Tzield",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Udenyca",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Udenyca (autoinjector)",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Udenyca (syringe)",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Udenyca OnbodyTM",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ultomiris",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Unituxin",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Uplizna",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Uptravi",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "VPRIV",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Valstar",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vectibix",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vegzelma",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Velcade",
-    "uhc": "Yes",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Veletri",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Veopoz",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vidaza",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Viltepso",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vimizim",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vinblastine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vincristine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vinorelbine",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Visco-3",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vivaglobin",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vivimusta",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vonvendi",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vpriv",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vyepti",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vyjuvek",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vyondys 53",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vyvgart",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vyvgart Hytrulo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vyvgart HytruloTM",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Vyxeos",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Wezlana",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Wilate",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Wyost",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Xembify",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Xenpozyme",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Xgeva",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Xiaflex",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Xolair",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "Yes",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Xyntha",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Yervoy",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Yescarta",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Yesintek",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Yeztugo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Yimmugo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Yondelis",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Zaltrap",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Zanosar",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Zarxio",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Zemaira",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Zepzelca",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ziextenzo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Ziihera",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Zirabev",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Zokinvy",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Zoladex",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Zoledronic acid",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Zolgensma",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Zymfentra",
-    "uhc": "No",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "Yes",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Zynlonta",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Zynteglo",
-    "uhc": "Yes",
-    "aetna": "No",
-    "anthem": "No",
-    "hcsc": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "epoprostenol injection",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
+    "anthem": "Yes",
     "hcsc": "No",
     "cigna": "No",
     "humana": "No"

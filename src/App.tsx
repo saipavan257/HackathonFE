@@ -3,31 +3,23 @@ import { ThemeProvider, CssBaseline, Box } from '@mui/material';
 import { theme } from './theme/theme';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
-import InsurerList from './components/InsurerList';
 import BrandDataGrid from './components/BrandDataGrid';
+import InsurerCompareView from './components/InsurerCompareView';
 import Loading from './components/Loading';
-import { mockInsurers, mockBrands } from './data/mockData';
-import type { Insurer, Brand } from './types';
 
-type ViewType = 'home' | 'insurers' | 'brands' | 'insurer-brands';
+type ViewType = 'home' | 'insurers' | 'brands' | 'insurer-brands' | 'compare';
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewType>('home');
-  const [selectedInsurer, setSelectedInsurer] = useState<Insurer | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleNavigation = async (view: ViewType, insurer?: Insurer) => {
+  const handleNavigation = async (view: ViewType) => {
     setIsLoading(true);
     
     // Simulate loading time for better UX
     await new Promise(resolve => setTimeout(resolve, 300));
     
     setCurrentView(view);
-    if (insurer) {
-      setSelectedInsurer(insurer);
-    } else if (view !== 'insurer-brands') {
-      setSelectedInsurer(null);
-    }
     
     setIsLoading(false);
   };
@@ -35,14 +27,7 @@ function App() {
   const handleNavigateHome = () => handleNavigation('home');
   const handleNavigateToInsurers = () => handleNavigation('insurers');
   const handleNavigateToBrands = () => handleNavigation('brands');
-  
-  const handleInsurerSelect = (insurer: Insurer) => {
-    handleNavigation('insurer-brands', insurer);
-  };
-
-  const getInsurerBrands = (insurer: Insurer): Brand[] => {
-    return mockBrands.filter(brand => insurer.brands.includes(brand.id));
-  };
+  const handleNavigateToCompare = () => handleNavigation('compare');
 
   const renderCurrentView = () => {
     if (isLoading) {
@@ -60,9 +45,7 @@ function App() {
       
       case 'insurers':
         return (
-          <InsurerList
-            insurers={mockInsurers}
-            onInsurerSelect={handleInsurerSelect}
+          <InsurerCompareView
             onBack={handleNavigateHome}
           />
         );
@@ -77,20 +60,10 @@ function App() {
           />
         );
       
-      case 'insurer-brands':
-        if (!selectedInsurer) {
-          handleNavigateHome();
-          return null;
-        }
-        
-        const insurerBrands = getInsurerBrands(selectedInsurer);
+      case 'compare':
         return (
-          <BrandDataGrid
-            brands={insurerBrands}
-            title={`${selectedInsurer.name} - Brands`}
-            subtitle={`Brands associated with ${selectedInsurer.name}`}
-            onBack={handleNavigateToInsurers}
-            selectedInsurer={selectedInsurer}
+          <InsurerCompareView
+            onBack={handleNavigateHome}
           />
         );
       
@@ -113,6 +86,7 @@ function App() {
           onNavigateHome={handleNavigateHome}
           onNavigateToInsurers={handleNavigateToInsurers}
           onNavigateToBrands={handleNavigateToBrands}
+          onNavigateToCompare={handleNavigateToCompare}
         />
         
         <main>

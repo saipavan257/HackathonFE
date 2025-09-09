@@ -27,28 +27,32 @@ const HomePage: React.FC<HomePageProps> = ({
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      <Box textAlign="center" mb={6}>
+    <Container maxWidth="lg" sx={{ py: 6, px: { xs: 2, md: 4 } }}>
+      <Box textAlign="center" mb={8}>
         <Typography 
           variant="h3" 
           component="h1" 
           gutterBottom
           sx={{ 
             fontWeight: 700,
-            background: 'linear-gradient(45deg, #1976d2 30%, #9c27b0 90%)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
+            color: 'text.primary',
+            mb: 3,
           }}
         >
           Insurance Management Dashboard
         </Typography>
         <Typography 
           variant="h6" 
-          color="text.secondary"
-          sx={{ maxWidth: '600px', mx: 'auto', mb: 4 }}
+          sx={{ 
+            maxWidth: '700px', 
+            mx: 'auto', 
+            mb: 6,
+            color: 'text.secondary',
+            lineHeight: 1.6,
+            fontWeight: 400,
+          }}
         >
-          Navigate through insurers and brands to explore comprehensive insurance data
+          Navigate through insurers and brands to explore comprehensive insurance data with advanced analytics and insights
         </Typography>
       </Box>
 
@@ -56,29 +60,25 @@ const HomePage: React.FC<HomePageProps> = ({
         sx={{
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
-          gap: 4,
+          gap: 6,
           justifyItems: 'center'
         }}
       >
-        <Box sx={{ width: '100%', maxWidth: '500px' }}>
+        {/* Insurers Card */}
+        <Box sx={{ width: '100%', maxWidth: '520px' }}>
           <Card 
             sx={{ 
               height: '100%',
-              minHeight: isMobile ? 200 : 250,
-              background: 'linear-gradient(135deg, #1976d2 0%, #42a5f5 100%)',
-              color: 'white',
+              minHeight: isMobile ? 280 : 320,
+              background: 'linear-gradient(135deg, #EBF4FF 0%, #DBEAFE 100%)',
+              border: '2px solid #3B82F6',
+              color: '#1E293B',
               position: 'relative',
               overflow: 'hidden',
-              '&::before': {
-                content: '""',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: 'rgba(255,255,255,0.1)',
-                backdropFilter: 'blur(10px)',
-                zIndex: 0,
+              '&:hover': {
+                transform: 'translateY(-8px)',
+                boxShadow: '0 20px 40px rgba(59, 130, 246, 0.15)',
+                background: 'linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%)',
               }
             }}
           >
@@ -90,43 +90,53 @@ const HomePage: React.FC<HomePageProps> = ({
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                p: 3,
+                p: 4,
                 position: 'relative',
                 zIndex: 1,
               }}
             >
-              <BusinessIcon sx={{ fontSize: 64, mb: 2, opacity: 0.9 }} />
+              <Box
+                sx={{
+                  width: 80,
+                  height: 80,
+                  borderRadius: '50%',
+                  backgroundColor: '#3B82F6',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mb: 3,
+                  boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)',
+                }}
+              >
+                <BusinessIcon sx={{ fontSize: 48, color: 'white' }} />
+              </Box>
               <CardContent sx={{ textAlign: 'center', p: 0 }}>
-                <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 600 }}>
+                <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 700, mb: 2, color: '#1E293B' }}>
                   Insurers
                 </Typography>
-                <Typography variant="body1" sx={{ opacity: 0.9, fontSize: '1.1rem' }}>
-                  Browse and explore insurance companies with detailed brand information
+                <Typography variant="body1" sx={{ color: '#475569', fontSize: '1.1rem', lineHeight: 1.5 }}>
+                  Browse and explore insurance companies with detailed brand information and coverage analysis
                 </Typography>
               </CardContent>
             </CardActionArea>
           </Card>
         </Box>
 
-        <Box sx={{ width: '100%', maxWidth: '500px' }}>
+        {/* Brands Card */}
+        <Box sx={{ width: '100%', maxWidth: '520px' }}>
           <Card 
             sx={{ 
               height: '100%',
-              minHeight: isMobile ? 200 : 250,
-              background: 'linear-gradient(135deg, #9c27b0 0%, #ba68c8 100%)',
-              color: 'white',
+              minHeight: isMobile ? 280 : 320,
+              background: 'linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%)',
+              border: '2px solid #BE185D',
+              color: '#1E293B',
               position: 'relative',
               overflow: 'hidden',
-              '&::before': {
-                content: '""',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: 'rgba(255,255,255,0.1)',
-                backdropFilter: 'blur(10px)',
-                zIndex: 0,
+              '&:hover': {
+                transform: 'translateY(-8px)',
+                boxShadow: '0 20px 40px rgba(190, 24, 93, 0.15)',
+                background: 'linear-gradient(135deg, #FCE7F3 0%, #FBCFE8 100%)',
               }
             }}
           >
@@ -138,18 +148,32 @@ const HomePage: React.FC<HomePageProps> = ({
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                p: 3,
+                p: 4,
                 position: 'relative',
                 zIndex: 1,
               }}
             >
-              <BrandIcon sx={{ fontSize: 64, mb: 2, opacity: 0.9 }} />
+              <Box
+                sx={{
+                  width: 80,
+                  height: 80,
+                  borderRadius: '50%',
+                  backgroundColor: '#BE185D',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mb: 3,
+                  boxShadow: '0 4px 12px rgba(190, 24, 93, 0.3)',
+                }}
+              >
+                <BrandIcon sx={{ fontSize: 48, color: 'white' }} />
+              </Box>
               <CardContent sx={{ textAlign: 'center', p: 0 }}>
-                <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 600 }}>
+                <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 700, mb: 2, color: '#1E293B' }}>
                   Brands
                 </Typography>
-                <Typography variant="body1" sx={{ opacity: 0.9, fontSize: '1.1rem' }}>
-                  View all brands with cross-reference data and insurer associations
+                <Typography variant="body1" sx={{ color: '#475569', fontSize: '1.1rem', lineHeight: 1.5 }}>
+                  View all brands with cross-reference data and comprehensive insurer associations
                 </Typography>
               </CardContent>
             </CardActionArea>
