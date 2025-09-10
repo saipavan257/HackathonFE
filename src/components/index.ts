@@ -1,5 +1,7 @@
 export { default as HomePage } from './HomePage';
 export { default as InsurerList } from './InsurerList';
+export { default as InsurerCharts } from './InsurerCharts';
+export { default as InsurerDetailedAnalytics } from './InsurerDetailedAnalytics';
 export { default as BrandDataGrid } from './BrandDataGrid';
 export { default as Navigation } from './Navigation';
 export { default as Loading } from './Loading';

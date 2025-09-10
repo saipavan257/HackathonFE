@@ -20,6 +20,8 @@ import {
   useTheme,
   Divider,
   Stack,
+  ToggleButton,
+  ToggleButtonGroup,
 } from '@mui/material';
 import {
   ArrowBack as ArrowBackIcon,
@@ -30,9 +32,12 @@ import {
   Security as SecurityIcon,
   CheckCircle as CheckCircleIcon,
   Cancel as CancelIcon,
+  BarChart as BarChartIcon,
+  ViewModule as ViewModuleIcon,
 } from '@mui/icons-material';
 import type { InsurerStats } from '../types';
 import { parseInsurerData, getAllInsurerStats } from '../utils/insurerDataParser';
+import InsurerCharts from './InsurerCharts';
 
 // Helper function to parse HCPCS codes according to specifications
 const parseHCPCSCodes = (hcpcsString: string): string[] => {
@@ -134,6 +139,7 @@ const InsurerCompareView: React.FC<InsurerCompareViewProps> = ({ onBack, onBrand
   const [selectedInsurer, setSelectedInsurer] = useState<InsurerStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'cards' | 'charts'>('cards');
 
   useEffect(() => {
     const loadData = async () => {
@@ -354,6 +360,51 @@ const InsurerCompareView: React.FC<InsurerCompareViewProps> = ({ onBack, onBrand
     );
   }
 
+  // If charts view is selected, render the charts component
+  if (viewMode === 'charts') {
+    return (
+      <Container maxWidth="xl" sx={{ py: 4 }}>
+        <Box mb={4}>
+          <Button
+            startIcon={<ArrowBackIcon />}
+            onClick={onBack}
+            sx={{ mb: 2 }}
+            variant="outlined"
+          >
+            Back
+          </Button>
+          
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+            <Box>
+              <Typography variant="h4" component="h1" gutterBottom>
+                Insurance Coverage Analytics
+              </Typography>
+              <Typography variant="body1" color="text.secondary">
+                Professional charts showing population coverage with advanced filtering
+              </Typography>
+            </Box>
+            
+            <ToggleButtonGroup
+              value={viewMode}
+              exclusive
+              onChange={(_, newView) => newView && setViewMode(newView)}
+              aria-label="view mode"
+            >
+              <ToggleButton value="cards" aria-label="cards view">
+                <ViewModuleIcon />
+              </ToggleButton>
+              <ToggleButton value="charts" aria-label="charts view">
+                <BarChartIcon />
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </Box>
+        </Box>
+        
+        <InsurerCharts />
+      </Container>
+    );
+  }
+
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Box mb={4}>
@@ -366,13 +417,30 @@ const InsurerCompareView: React.FC<InsurerCompareViewProps> = ({ onBack, onBrand
           Back
         </Button>
         
-        <Typography variant="h4" component="h1" gutterBottom>
-          Insurer Coverage Comparison
-        </Typography>
-        
-        <Typography variant="body1" color="text.secondary" mb={3}>
-          Compare coverage data across different insurance providers
-        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+          <Box>
+            <Typography variant="h4" component="h1" gutterBottom>
+              Insurer Coverage Comparison
+            </Typography>
+            <Typography variant="body1" color="text.secondary">
+              Compare coverage data across different insurance providers
+            </Typography>
+          </Box>
+          
+          <ToggleButtonGroup
+            value={viewMode}
+            exclusive
+            onChange={(_, newView) => newView && setViewMode(newView)}
+            aria-label="view mode"
+          >
+            <ToggleButton value="cards" aria-label="cards view">
+              <ViewModuleIcon />
+            </ToggleButton>
+            <ToggleButton value="charts" aria-label="charts view">
+              <BarChartIcon />
+            </ToggleButton>
+          </ToggleButtonGroup>
+        </Box>
       </Box>
 
       <Box 

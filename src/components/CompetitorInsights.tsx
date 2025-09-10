@@ -518,13 +518,30 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
           <Typography variant="h6" gutterBottom>
             Primary Filters (Indication → Drug → Insurer Hierarchy)
           </Typography>
-          <Box display="flex" flexWrap="wrap" gap={3} mt={2}>
-            <FormControl sx={{ minWidth: 250 }}>
+          <Box display="flex" flexWrap="wrap" gap={3} mt={2} alignItems="start">
+            <FormControl sx={{ minWidth: 280 }}>
               <InputLabel>Indication (Disease/Condition)</InputLabel>
               <Select
                 value={filters.indication}
                 label="Indication (Disease/Condition)"
                 onChange={(e) => handleFilterChange('indication', e.target.value)}
+                sx={{
+                  '& .MuiSelect-icon': {
+                    visibility: 'visible',
+                    opacity: 1,
+                    color: 'rgba(0, 0, 0, 0.54)',
+                    right: '12px',
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                  },
+                  '&:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgba(0, 0, 0, 0.87)',
+                  },
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'primary.main',
+                  },
+                }}
               >
                 <MenuItem value="">All Indications</MenuItem>
                 {uniqueIndications.map(indication => (
@@ -540,36 +557,55 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
               value={filters.brand}
               onChange={(e) => handleFilterChange('brand', e.target.value)}
               placeholder="Search brands..."
-              sx={{ minWidth: 200 }}
+              sx={{ minWidth: 220 }}
             />
-            
+
             <TextField
               label="HCPCS Code"
               value={filters.hcpcsCode}
               onChange={(e) => handleFilterChange('hcpcsCode', e.target.value)}
               placeholder="Enter HCPCS code..."
-              sx={{ minWidth: 150 }}
+              sx={{ minWidth: 180 }}
             />
             
-            <FormControl sx={{ minWidth: 150 }}>
+            <FormControl sx={{ minWidth: 200 }}>
               <InputLabel>Insurer Coverage</InputLabel>
               <Select
                 value={filters.insurer}
                 label="Insurer Coverage"
                 onChange={(e) => handleFilterChange('insurer', e.target.value)}
+                sx={{
+                  '& .MuiSelect-icon': {
+                    visibility: 'visible',
+                    opacity: 1,
+                    color: 'rgba(0, 0, 0, 0.54)',
+                    right: '12px',
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                  },
+                  '&:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgba(0, 0, 0, 0.87)',
+                  },
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'primary.main',
+                  },
+                }}
               >
                 <MenuItem value="">All Insurers</MenuItem>
                 <MenuItem value="aetna">Aetna</MenuItem>
                 <MenuItem value="anthem">Anthem</MenuItem>
                 <MenuItem value="humana">Humana</MenuItem>
               </Select>
-            </FormControl>
-            
-            <Button
+            </FormControl>            <Button
               variant="outlined"
               startIcon={<ClearIcon />}
               onClick={handleClearFilters}
-              sx={{ height: 'fit-content', mt: 1 }}
+              sx={{ 
+                height: '56px', // Match the height of TextField/Select components
+                minWidth: '120px',
+                alignSelf: 'stretch', // Ensure it stretches to match container height
+              }}
             >
               Clear All
             </Button>

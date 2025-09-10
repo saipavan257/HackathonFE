@@ -14,7 +14,9 @@ import {
   Chip,
   Button,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
+  ToggleButton,
+  ToggleButtonGroup
 } from '@mui/material';
 import {
   Business as BusinessIcon,
@@ -23,22 +25,32 @@ import {
   LocationOn as LocationIcon,
   CalendarToday as CalendarIcon,
   Category as CategoryIcon,
+  BarChart as BarChartIcon,
+  ViewList as ViewListIcon,
 } from '@mui/icons-material';
 import type { Insurer } from '../types';
+import InsurerCharts from './InsurerCharts';
 
 interface InsurerListProps {
   insurers: Insurer[];
   onInsurerSelect: (insurer: Insurer) => void;
   onBack: () => void;
+  selectedFilters?: {
+    indication?: string;
+    brand?: string;
+    hcpcsCode?: string;
+  };
 }
 
 const InsurerList: React.FC<InsurerListProps> = ({
   insurers,
   onInsurerSelect,
   onBack,
+  selectedFilters = {},
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState<string>('');
+  const [viewMode, setViewMode] = useState<'list' | 'charts'>('list');
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -50,6 +62,46 @@ const InsurerList: React.FC<InsurerListProps> = ({
   });
 
   const uniqueTypes = Array.from(new Set(insurers.map(insurer => insurer.type)));
+
+  // If charts view is selected, render the charts component
+  if (viewMode === 'charts') {
+    return (
+      <Box>
+        <Container maxWidth="lg" sx={{ py: 2 }}>
+          <Button
+            startIcon={<ArrowBackIcon />}
+            onClick={onBack}
+            sx={{ mb: 2 }}
+            variant="outlined"
+          >
+            Back to Home
+          </Button>
+          
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+            <Typography variant="h4" component="h1">
+              Insurance Coverage Analytics
+            </Typography>
+            
+            <ToggleButtonGroup
+              value={viewMode}
+              exclusive
+              onChange={(_, newView) => newView && setViewMode(newView)}
+              aria-label="view mode"
+            >
+              <ToggleButton value="list" aria-label="list view">
+                <ViewListIcon />
+              </ToggleButton>
+              <ToggleButton value="charts" aria-label="charts view">
+                <BarChartIcon />
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </Box>
+        </Container>
+        
+        <InsurerCharts selectedFilters={selectedFilters} />
+      </Box>
+    );
+  }
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
@@ -67,9 +119,26 @@ const InsurerList: React.FC<InsurerListProps> = ({
           Insurance Companies
         </Typography>
         
-        <Typography variant="body1" color="text.secondary" mb={3}>
-          Select an insurer to view their associated brands
-        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+          <Typography variant="body1" color="text.secondary">
+            Select an insurer to view their associated brands
+          </Typography>
+          
+          <ToggleButtonGroup
+            value={viewMode}
+            exclusive
+            onChange={(_, newView) => newView && setViewMode(newView)}
+            aria-label="view mode"
+            size="small"
+          >
+            <ToggleButton value="list" aria-label="list view">
+              <ViewListIcon fontSize="small" />
+            </ToggleButton>
+            <ToggleButton value="charts" aria-label="charts view">
+              <BarChartIcon fontSize="small" />
+            </ToggleButton>
+          </ToggleButtonGroup>
+        </Box>
 
         <Box sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: 2, mb: 3 }}>
           <TextField
