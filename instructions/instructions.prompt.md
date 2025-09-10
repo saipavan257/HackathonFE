@@ -18,6 +18,23 @@ Requirements:
       - Include cross-reference data for associated insurers
       - Implement robust filtering and sorting options
 
+   c. Competitor Insight Tile Path (Indication Level):
+      - On click: Display competitor insights dashboard
+      - Filtering options:
+        * Indication (disease/condition)
+        * Brand
+        * HCPCS code
+        * Insurer
+      - When indication selected:
+        * Show table comparing all drugs approved/covered for that indication across insurers
+        * Include brand–indication mapping, HCPCS codes, and insurer coverage rules
+      - Capabilities:
+        * Cross-comparison at indication → drug → insurer hierarchy
+        * Filtering/sorting by insurer, brand, or HCPCS
+        * Insights into competitor presence: which drugs are dominant for the indication, gaps in coverage, or restrictive policies
+        * Visual dashboards (bar/pie charts for coverage % per indication, insurer-wise comparison, etc.)
+        * Export functionality (Excel/CSV/PDF)
+
 3. Technical Implementation
    - Use Material UI v5+ components for consistent styling
    - Implement responsive design patterns for all screen sizes
@@ -33,3 +50,15 @@ Requirements:
    - Implement column sorting and filtering
    - Add pagination for large datasets
    - Enable row selection where applicable
+   
+   5. Professional Chat Box
+      - Integrate a chat box component styled with Material UI for a professional look
+      - The chat box should read from a global JSON data source containing information about brands, coverage, drugs, and insurers
+      - Users can ask questions such as:
+        * "Which insurer covers Drug X?"
+        * "What brands are associated with Indication Y?"
+        * "Show all drugs covered by Insurer Z"
+      - The chat box should provide concise, professional answers including all relevant details (brand, coverage, insurer, drug, indication, HCPCS code, etc.)
+      - Support follow-up questions and context-aware responses
+      - Ensure accessibility and responsive design
+      - Include loading and error states for data fetching

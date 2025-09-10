@@ -12,16 +12,19 @@ import {
 import {
   Business as BusinessIcon,
   LocalOffer as BrandIcon,
+  Analytics as AnalyticsIcon,
 } from '@mui/icons-material';
 
 interface HomePageProps {
   onNavigateToInsurers: () => void;
   onNavigateToBrands: () => void;
+  onNavigateToCompetitorInsights: () => void;
 }
 
 const HomePage: React.FC<HomePageProps> = ({
   onNavigateToInsurers,
   onNavigateToBrands,
+  onNavigateToCompetitorInsights,
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -59,7 +62,7 @@ const HomePage: React.FC<HomePageProps> = ({
       <Box 
         sx={{
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+          gridTemplateColumns: { xs: '1fr', md: '1fr 1fr', lg: '1fr 1fr 1fr' },
           gap: 6,
           justifyItems: 'center'
         }}
@@ -174,6 +177,64 @@ const HomePage: React.FC<HomePageProps> = ({
                 </Typography>
                 <Typography variant="body1" sx={{ color: '#475569', fontSize: '1.1rem', lineHeight: 1.5 }}>
                   View all brands with cross-reference data and comprehensive insurer associations
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Box>
+
+        {/* Competitor Insights Card */}
+        <Box sx={{ width: '100%', maxWidth: '520px' }}>
+          <Card 
+            sx={{ 
+              height: '100%',
+              minHeight: isMobile ? 280 : 320,
+              background: 'linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%)',
+              border: '2px solid #059669',
+              color: '#1E293B',
+              position: 'relative',
+              overflow: 'hidden',
+              '&:hover': {
+                transform: 'translateY(-8px)',
+                boxShadow: '0 20px 40px rgba(5, 150, 105, 0.15)',
+                background: 'linear-gradient(135deg, #DCFCE7 0%, #BBF7D0 100%)',
+              }
+            }}
+          >
+            <CardActionArea 
+              onClick={onNavigateToCompetitorInsights}
+              sx={{ 
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                p: 4,
+                position: 'relative',
+                zIndex: 1,
+              }}
+            >
+              <Box
+                sx={{
+                  width: 80,
+                  height: 80,
+                  borderRadius: '50%',
+                  backgroundColor: '#059669',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mb: 3,
+                  boxShadow: '0 4px 12px rgba(5, 150, 105, 0.3)',
+                }}
+              >
+                <AnalyticsIcon sx={{ fontSize: 48, color: 'white' }} />
+              </Box>
+              <CardContent sx={{ textAlign: 'center', p: 0 }}>
+                <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 700, mb: 2, color: '#1E293B' }}>
+                  Competitor Insights
+                </Typography>
+                <Typography variant="body1" sx={{ color: '#475569', fontSize: '1.1rem', lineHeight: 1.5 }}>
+                  Cross-comparison of drugs across insurers with comprehensive analytics and competitor insights
                 </Typography>
               </CardContent>
             </CardActionArea>

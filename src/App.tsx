@@ -5,9 +5,11 @@ import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
 import BrandDataGrid from './components/BrandDataGrid';
 import InsurerCompareView from './components/InsurerCompareView';
+import CompetitorInsights from './components/CompetitorInsights';
+import ChatBox from './components/ChatBox';
 import Loading from './components/Loading';
 
-type ViewType = 'home' | 'insurers' | 'brands' | 'insurer-brands' | 'compare';
+type ViewType = 'home' | 'insurers' | 'brands' | 'insurer-brands' | 'compare' | 'competitor-insights';
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewType>('home');
@@ -28,6 +30,7 @@ function App() {
   const handleNavigateToInsurers = () => handleNavigation('insurers');
   const handleNavigateToBrands = () => handleNavigation('brands');
   const handleNavigateToCompare = () => handleNavigation('compare');
+  const handleNavigateToCompetitorInsights = () => handleNavigation('competitor-insights');
 
   const renderCurrentView = () => {
     if (isLoading) {
@@ -40,6 +43,7 @@ function App() {
           <HomePage
             onNavigateToInsurers={handleNavigateToInsurers}
             onNavigateToBrands={handleNavigateToBrands}
+            onNavigateToCompetitorInsights={handleNavigateToCompetitorInsights}
           />
         );
       
@@ -67,11 +71,19 @@ function App() {
           />
         );
       
+      case 'competitor-insights':
+        return (
+          <CompetitorInsights
+            onBack={handleNavigateHome}
+          />
+        );
+      
       default:
         return (
           <HomePage
             onNavigateToInsurers={handleNavigateToInsurers}
             onNavigateToBrands={handleNavigateToBrands}
+            onNavigateToCompetitorInsights={handleNavigateToCompetitorInsights}
           />
         );
     }
@@ -87,11 +99,15 @@ function App() {
           onNavigateToInsurers={handleNavigateToInsurers}
           onNavigateToBrands={handleNavigateToBrands}
           onNavigateToCompare={handleNavigateToCompare}
+          onNavigateToCompetitorInsights={handleNavigateToCompetitorInsights}
         />
         
         <main>
           {renderCurrentView()}
         </main>
+        
+        {/* Global Chat Box - Available on all pages */}
+       <ChatBox />
       </Box>
     </ThemeProvider>
   );
