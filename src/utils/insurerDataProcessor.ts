@@ -125,7 +125,11 @@ export const getProcessedInsurerData = (filters?: {
 export const getFilterOptions = () => {
   const uniqueIndications = [...new Set(allDrugData.map(drug => drug.indication))].filter(Boolean).sort();
   const uniqueBrands = [...new Set(allDrugData.map(drug => drug.brand_name))].filter(Boolean).sort();
-  const uniqueHcpcsCodes = [...new Set(allDrugData.map(drug => drug.hcpc_code || drug.hcpcs_code).filter(Boolean))].sort();
+  const uniqueHcpcsCodes = [...new Set(allDrugData.map(drug => {
+    const code = drug.hcpc_code || drug.hcpcs_code;
+    // Extract only the code part before the colon (e.g., "J0791" from "J0791: Injection, crizanlizumab-tmca, 5 mg [Adakveo]")
+    return code ? code.toString().split(':')[0].trim() : '';
+  }).filter(Boolean))].sort();
   
   return {
     indications: uniqueIndications,
@@ -155,10 +159,11 @@ export const getInsurerDrugStats = (insurerName: string, filters?: {
   }
   
   if (filters?.hcpcsCode) {
-    insurerDrugs = insurerDrugs.filter(drug => 
-      (drug.hcpc_code && drug.hcpc_code.toLowerCase().includes(filters.hcpcsCode!.toLowerCase())) ||
-      (drug.hcpcs_code && drug.hcpcs_code.toLowerCase().includes(filters.hcpcsCode!.toLowerCase()))
-    );
+    insurerDrugs = insurerDrugs.filter(drug => {
+      const hcpcCode = drug.hcpc_code ? drug.hcpc_code.toString().split(':')[0].trim() : '';
+      const hcpcsCode = drug.hcpcs_code ? drug.hcpcs_code.toString().split(':')[0].trim() : '';
+      return hcpcCode === filters.hcpcsCode || hcpcsCode === filters.hcpcsCode;
+    });
   }
 
   const priorAuthRequired = insurerDrugs.filter(drug => drug.prior_authorization_required === 'Yes').length;
@@ -171,7 +176,10 @@ export const getInsurerDrugStats = (insurerName: string, filters?: {
     priorAuthPercentage,
     uniqueBrands: [...new Set(insurerDrugs.map(drug => drug.brand_name))],
     uniqueIndications: [...new Set(insurerDrugs.map(drug => drug.indication))],
-    uniqueHcpcsCodes: [...new Set(insurerDrugs.map(drug => drug.hcpc_code || drug.hcpcs_code).filter(Boolean))]
+    uniqueHcpcsCodes: [...new Set(insurerDrugs.map(drug => {
+      const code = drug.hcpc_code || drug.hcpcs_code;
+      return code ? code.toString().split(':')[0].trim() : '';
+    }).filter(Boolean))]
   };
 };
 

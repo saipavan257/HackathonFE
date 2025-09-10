@@ -27,9 +27,11 @@ export const parseInsurerData = async (insurerName: string): Promise<InsurerStat
     const stepTherapyRequired = data.filter(item => 
       item.step_therapy_required?.toLowerCase() === 'yes'
     ).length;
-    const uniqueHCPCS = new Set(data.map(item => 
-      item.hcpcs_code || item.hcpc_code
-    ).filter(Boolean)).size;
+    const uniqueHCPCS = new Set(data.map(item => {
+      const code = item.hcpcs_code || item.hcpc_code;
+      // Extract only the code part before the colon (e.g., "J0791" from "J0791: Injection, crizanlizumab-tmca, 5 mg [Adakveo]")
+      return code ? code.toString().split(':')[0].trim() : '';
+    }).filter(Boolean)).size;
 
     // Find the most recent update date
     const dates = data.map(item => {

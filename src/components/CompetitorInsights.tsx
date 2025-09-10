@@ -5,7 +5,6 @@ import {
   Typography,
   Card,
   CardContent,
-  TextField,
   Select,
   MenuItem,
   FormControl,
@@ -55,6 +54,8 @@ interface EnhancedCoverageData {
   prior_authorization: string;
   insurer: string;
   source_link: string;
+  hcpc_code?: string;
+  hcpcs_code?: string;
 }
 
 interface FilterState {
@@ -133,6 +134,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
         prior_authorization: item.prior_authorization_required === 'Yes' ? 'Prior Authorization' : 'Medical Necessity',
         insurer: 'Aetna',
         source_link: item.link || '',
+        hcpcs_code: item.hcpcs_code || '',
       });
     });
 
@@ -147,6 +149,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
         prior_authorization: item.prior_authorization_required === 'Yes' ? 'Prior Authorization' : 'Medical Necessity',
         insurer: 'Anthem',
         source_link: item.links || '',
+        hcpcs_code: item.hcpcs_code || item.hcpc_code || '',
       });
     });
 
@@ -161,6 +164,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
         prior_authorization: item.prior_authorization_required === 'Yes' ? 'Prior Authorization' : 'Medical Necessity',
         insurer: 'Humana',
         source_link: item.links || '',
+        hcpcs_code: item.hcpcs_code || item.hcpc_code || '',
       });
     });
 
@@ -173,17 +177,38 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
     return indications.sort();
   }, [processedData]);
 
+  const uniqueBrands = useMemo(() => {
+    const brands = [...new Set(processedData.map(item => item.brand_name))];
+    return brands.sort();
+  }, [processedData]);
+
+  const uniqueHcpcsCodes = useMemo(() => {
+    const codes = [...new Set(processedData
+      .map(item => {
+        // Extract HCPCS codes from the hcpcs_code field
+        const code = item.hcpcs_code || '';
+        // Extract only the code part before the colon (e.g., "J0791" from "J0791: Injection, crizanlizumab-tmca, 5 mg [Adakveo]")
+        const codeOnly = code.toString().split(':')[0].trim();
+        return codeOnly;
+      })
+      .filter(code => code && code !== '' && code !== 'N/A')
+    )];
+    return codes.sort();
+  }, [processedData]);
+
   // Filter data based on current filters and enabled insurers
   const filteredData = useMemo(() => {
     return processedData.filter(item => {
       const matchesIndication = !filters.indication || item.indication === filters.indication;
-      const matchesBrand = !filters.brand || item.brand_name.toLowerCase().includes(filters.brand.toLowerCase());
+      const matchesBrand = !filters.brand || item.brand_name === filters.brand;
+      const matchesHcpcsCode = !filters.hcpcsCode || 
+        (item.hcpcs_code && item.hcpcs_code.toString().split(':')[0].trim() === filters.hcpcsCode);
       const matchesInsurer = !filters.insurer || item.insurer.toLowerCase() === filters.insurer.toLowerCase();
       
       // Filter by enabled insurers
       const insurerEnabled = enabledInsurers[item.insurer.toLowerCase() as keyof typeof enabledInsurers];
       
-      return matchesIndication && matchesBrand && matchesInsurer && insurerEnabled;
+      return matchesIndication && matchesBrand && matchesHcpcsCode && matchesInsurer && insurerEnabled;
     });
   }, [processedData, filters, enabledInsurers]);
 
@@ -383,6 +408,34 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
       headerClassName: 'data-grid-header',
     },
     {
+      field: 'hcpcs_code',
+      headerName: 'HCPCS Code',
+      width: 120,
+      headerClassName: 'data-grid-header',
+      renderCell: (params: any) => {
+        const code = params.value;
+        // Extract only the code part before the colon (e.g., "J0791" from "J0791: Injection, crizanlizumab-tmca, 5 mg [Adakveo]")
+        const codeOnly = code ? code.toString().split(':')[0].trim() : '';
+        
+        return (
+          <Typography 
+            variant="body2" 
+            sx={{ 
+              fontFamily: 'monospace',
+              fontWeight: 'bold',
+              color: theme.palette.primary.main,
+              backgroundColor: theme.palette.primary.main + '0A',
+              padding: '2px 6px',
+              borderRadius: 1,
+              border: `1px solid ${theme.palette.primary.main}30`
+            }}
+          >
+            {codeOnly || 'N/A'}
+          </Typography>
+        );
+      },
+    },
+    {
       field: 'indicated_population',
       headerName: 'Indicated Population',
       width: 300,
@@ -552,21 +605,71 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
               </Select>
             </FormControl>
             
-            <TextField
-              label="Brand Name"
-              value={filters.brand}
-              onChange={(e) => handleFilterChange('brand', e.target.value)}
-              placeholder="Search brands..."
-              sx={{ minWidth: 220 }}
-            />
+            <FormControl sx={{ minWidth: 220 }}>
+              <InputLabel>Brand Name</InputLabel>
+              <Select
+                value={filters.brand}
+                label="Brand Name"
+                onChange={(e) => handleFilterChange('brand', e.target.value)}
+                sx={{
+                  '& .MuiSelect-icon': {
+                    visibility: 'visible',
+                    opacity: 1,
+                    color: 'rgba(0, 0, 0, 0.54)',
+                    right: '12px',
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                  },
+                  '&:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgba(0, 0, 0, 0.87)',
+                  },
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'primary.main',
+                  },
+                }}
+              >
+                <MenuItem value="">All Brands</MenuItem>
+                {uniqueBrands.map(brand => (
+                  <MenuItem key={brand} value={brand}>
+                    {brand}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
 
-            <TextField
-              label="HCPCS Code"
-              value={filters.hcpcsCode}
-              onChange={(e) => handleFilterChange('hcpcsCode', e.target.value)}
-              placeholder="Enter HCPCS code..."
-              sx={{ minWidth: 180 }}
-            />
+            <FormControl sx={{ minWidth: 180 }}>
+              <InputLabel>HCPCS Code</InputLabel>
+              <Select
+                value={filters.hcpcsCode}
+                label="HCPCS Code"
+                onChange={(e) => handleFilterChange('hcpcsCode', e.target.value)}
+                sx={{
+                  '& .MuiSelect-icon': {
+                    visibility: 'visible',
+                    opacity: 1,
+                    color: 'rgba(0, 0, 0, 0.54)',
+                    right: '12px',
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                  },
+                  '&:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'rgba(0, 0, 0, 0.87)',
+                  },
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'primary.main',
+                  },
+                }}
+              >
+                <MenuItem value="">All HCPCS Codes</MenuItem>
+                {uniqueHcpcsCodes.map(code => (
+                  <MenuItem key={code} value={code}>
+                    {code}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
             
             <FormControl sx={{ minWidth: 200 }}>
               <InputLabel>Insurer Coverage</InputLabel>
