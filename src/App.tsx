@@ -5,13 +5,15 @@ import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
 import BrandDataGrid from './components/BrandDataGrid';
 import InsurerCompareView from './components/InsurerCompareView';
+import BrandDetailsView from './components/BrandDetailsView';
 import Loading from './components/Loading';
 
-type ViewType = 'home' | 'insurers' | 'brands' | 'insurer-brands' | 'compare';
+type ViewType = 'home' | 'insurers' | 'brands' | 'insurer-brands' | 'compare' | 'brand-details';
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewType>('home');
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedBrandData, setSelectedBrandData] = useState<any>(null);
 
   const handleNavigation = async (view: ViewType) => {
     setIsLoading(true);
@@ -22,6 +24,11 @@ function App() {
     setCurrentView(view);
     
     setIsLoading(false);
+  };
+
+  const handleBrandClick = async (brandData: any) => {
+    setSelectedBrandData(brandData);
+    await handleNavigation('brand-details');
   };
 
   const handleNavigateHome = () => handleNavigation('home');
@@ -47,6 +54,7 @@ function App() {
         return (
           <InsurerCompareView
             onBack={handleNavigateHome}
+            onBrandClick={handleBrandClick}
           />
         );
       
@@ -64,6 +72,20 @@ function App() {
         return (
           <InsurerCompareView
             onBack={handleNavigateHome}
+            onBrandClick={handleBrandClick}
+          />
+        );
+
+      case 'brand-details':
+        return selectedBrandData ? (
+          <BrandDetailsView
+            brandData={selectedBrandData}
+            onBack={handleNavigateToInsurers}
+          />
+        ) : (
+          <HomePage
+            onNavigateToInsurers={handleNavigateToInsurers}
+            onNavigateToBrands={handleNavigateToBrands}
           />
         );
       

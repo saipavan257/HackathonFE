@@ -15,7 +15,7 @@ import {
 } from '@mui/icons-material';
 
 interface NavigationProps {
-  currentView: 'home' | 'insurers' | 'brands' | 'insurer-brands' | 'compare';
+  currentView: 'home' | 'insurers' | 'brands' | 'insurer-brands' | 'compare' | 'brand-details';
   onNavigateHome: () => void;
   onNavigateToInsurers: () => void;
   onNavigateToBrands: () => void;
