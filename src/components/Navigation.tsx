@@ -12,14 +12,16 @@ import {
   Home as HomeIcon,
   LocalOffer as BrandIcon,
   Compare as CompareIcon,
+  Analytics as AnalyticsIcon,
 } from '@mui/icons-material';
 
 interface NavigationProps {
-  currentView: 'home' | 'insurers' | 'brands' | 'insurer-brands' | 'compare';
+  currentView: 'home' | 'insurers' | 'brands' | 'insurer-brands' | 'compare' | 'competitor-insights';
   onNavigateHome: () => void;
   onNavigateToInsurers: () => void;
   onNavigateToBrands: () => void;
   onNavigateToCompare: () => void;
+  onNavigateToCompetitorInsights: () => void;
 }
 
 const Navigation: React.FC<NavigationProps> = ({
@@ -27,6 +29,7 @@ const Navigation: React.FC<NavigationProps> = ({
   onNavigateHome,
   onNavigateToBrands,
   onNavigateToCompare,
+  onNavigateToCompetitorInsights,
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -107,6 +110,23 @@ const Navigation: React.FC<NavigationProps> = ({
             }}
           >
             <CompareIcon />
+          </IconButton>
+          <IconButton
+            color={currentView === 'competitor-insights' ? 'inherit' : 'inherit'}
+            onClick={onNavigateToCompetitorInsights}
+            title="Competitor Insights"
+            sx={{
+              backgroundColor: currentView === 'competitor-insights' ? 'rgba(255,255,255,0.2)' : 'transparent',
+              '&:hover': {
+                backgroundColor: 'rgba(255,255,255,0.15)',
+              },
+              '&:focus': {
+                outline: '2px solid #2563EB',
+                outlineOffset: '2px',
+              },
+            }}
+          >
+            <AnalyticsIcon />
           </IconButton>
         </Box>
       </Toolbar>
