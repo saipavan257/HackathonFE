@@ -19,6 +19,7 @@ import {
   Paper,
   useTheme,
   Divider,
+  Stack,
 } from '@mui/material';
 import {
   ArrowBack as ArrowBackIcon,
@@ -33,11 +34,101 @@ import {
 import type { InsurerStats } from '../types';
 import { parseInsurerData, getAllInsurerStats } from '../utils/insurerDataParser';
 
+// Helper function to parse HCPCS codes according to specifications
+const parseHCPCSCodes = (hcpcsString: string): string[] => {
+  if (!hcpcsString || hcpcsString === 'N/A' || hcpcsString.trim() === '') {
+    return [];
+  }
+
+  // Handle multiple codes separated by newlines first (priority over other separators)
+  if (hcpcsString.includes('\n')) {
+    return hcpcsString
+      .split('\n')
+      .map(line => line.split(':')[0].trim())
+      .filter(code => code && code !== '');
+  }
+  
+  // Split by colon first to get the codes part (before description)
+  const beforeColon = hcpcsString.split(':')[0].trim();
+  
+  // Handle multiple codes separated by commas or semicolons in the first part
+  if (beforeColon.includes(',') || beforeColon.includes(';')) {
+    return beforeColon
+      .split(/[,;]/)
+      .map(code => code.trim())
+      .filter(code => code && code !== '');
+  }
+  
+  // Single code case
+  return [beforeColon];
+};
+
+// Component for rendering HCPCS code badges
+const HCPCSBadges: React.FC<{ hcpcsString: string }> = ({ hcpcsString }) => {
+  const theme = useTheme();
+  const codes = parseHCPCSCodes(hcpcsString);
+  
+  if (codes.length === 0) {
+    return (
+      <Chip
+        label="N/A"
+        size="small"
+        variant="outlined"
+        sx={{
+          backgroundColor: theme.palette.grey[50],
+          borderColor: theme.palette.grey[300],
+          color: theme.palette.grey[600],
+          fontWeight: 500,
+          fontSize: '0.75rem',
+        }}
+      />
+    );
+  }
+  
+  return (
+    <Stack 
+      direction="row" 
+      spacing={0.5} 
+      flexWrap="wrap" 
+      useFlexGap
+      sx={{ maxWidth: '100%' }}
+    >
+      {codes.map((code, index) => (
+        <Chip
+          key={index}
+          label={code}
+          size="small"
+          sx={{
+            backgroundColor: theme.palette.info.main,
+            color: 'white',
+            fontWeight: 600,
+            fontSize: '0.75rem',
+            height: '28px',
+            borderRadius: '14px',
+            '&:hover': {
+              backgroundColor: theme.palette.info.dark,
+              transform: 'translateY(-1px)',
+              boxShadow: '0 2px 4px rgba(59, 130, 246, 0.2)',
+            },
+            transition: 'all 0.2s ease-in-out',
+            cursor: 'default',
+            '& .MuiChip-label': {
+              paddingX: '10px',
+              fontFamily: 'monospace',
+            },
+          }}
+        />
+      ))}
+    </Stack>
+  );
+};
+
 interface InsurerCompareViewProps {
   onBack: () => void;
+  onBrandClick?: (brandData: any) => void;
 }
 
-const InsurerCompareView: React.FC<InsurerCompareViewProps> = ({ onBack }) => {
+const InsurerCompareView: React.FC<InsurerCompareViewProps> = ({ onBack, onBrandClick }) => {
   const theme = useTheme();
   const [insurerStats, setInsurerStats] = useState<InsurerStats[]>([]);
   const [selectedInsurer, setSelectedInsurer] = useState<InsurerStats | null>(null);
@@ -201,32 +292,58 @@ const InsurerCompareView: React.FC<InsurerCompareViewProps> = ({ onBack }) => {
                   <TableCell sx={{ fontWeight: 600 }}>Population</TableCell>
                   <TableCell sx={{ fontWeight: 600 }} align="center">Prior Auth</TableCell>
                   <TableCell sx={{ fontWeight: 600 }} align="center">Step Therapy</TableCell>
-                  <TableCell sx={{ fontWeight: 600 }}>HCPCS Code</TableCell>
+                  <TableCell sx={{ fontWeight: 600, minWidth: 160 }}>HCPCS Codes</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {selectedInsurer.coverageData.map((item, index) => (
                   <TableRow key={index} hover>
-                    <TableCell sx={{ fontWeight: 500 }}>{item.brand_name}</TableCell>
+                    <TableCell sx={{ fontWeight: 500 }}>
+                      {onBrandClick ? (
+                        <Button
+                          variant="text"
+                          onClick={() => onBrandClick(item)}
+                          sx={{
+                            textAlign: 'left',
+                            justifyContent: 'flex-start',
+                            p: 0,
+                            minWidth: 'auto',
+                            color: theme.palette.primary.main,
+                            fontWeight: 500,
+                            fontSize: '0.875rem',
+                            '&:hover': {
+                              backgroundColor: 'transparent',
+                              textDecoration: 'underline',
+                            },
+                          }}
+                        >
+                          {item.brand_name}
+                        </Button>
+                      ) : (
+                        item.brand_name
+                      )}
+                    </TableCell>
                     <TableCell>{item.indication}</TableCell>
                     <TableCell sx={{ maxWidth: 300, wordBreak: 'break-word' }}>
                       {item.indicated_population}
                     </TableCell>
                     <TableCell align="center">
                       {item.prior_authorization_required?.toLowerCase() === 'yes' ? (
-                        <CheckCircleIcon color="error" />
+                        <CheckCircleIcon color="success" />
                       ) : (
-                        <CancelIcon color="success" />
+                        <CancelIcon color="error" />
                       )}
                     </TableCell>
                     <TableCell align="center">
                       {item.step_therapy_required?.toLowerCase() === 'yes' ? (
-                        <CheckCircleIcon color="warning" />
+                        <CheckCircleIcon color="success" />
                       ) : (
-                        <CancelIcon color="success" />
+                        <CancelIcon color="error" />
                       )}
                     </TableCell>
-                    <TableCell>{item.hcpcs_code || item.hcpc_code || 'N/A'}</TableCell>
+                    <TableCell sx={{ maxWidth: 200 }}>
+                      <HCPCSBadges hcpcsString={item.hcpcs_code || item.hcpc_code || ''} />
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

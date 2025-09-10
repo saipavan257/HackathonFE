@@ -5,3 +5,5 @@ export { default as Navigation } from './Navigation';
 export { default as Loading } from './Loading';
 export { default as CompetitorInsights } from './CompetitorInsights';
 export { default as ChatBox } from './ChatBox';
+export { default as InsurerCompareView } from './InsurerCompareView';
+export { default as BrandDetailsView } from './BrandDetailsView';
