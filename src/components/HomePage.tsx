@@ -19,12 +19,14 @@ interface HomePageProps {
   onNavigateToInsurers: () => void;
   onNavigateToBrands: () => void;
   onNavigateToCompetitorInsights: () => void;
+  onNavigateToInsurerDetails?: () => void;
 }
 
 const HomePage: React.FC<HomePageProps> = ({
   onNavigateToInsurers,
   onNavigateToBrands,
   onNavigateToCompetitorInsights,
+  onNavigateToInsurerDetails,
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));

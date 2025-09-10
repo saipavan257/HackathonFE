@@ -362,17 +362,44 @@ const BrandDetailsView: React.FC<BrandDetailsProps> = ({ brandData, onBack }) =>
             >
               Coverage Details - {brandData.insurer}
             </Typography>
-            {brandData.indication && (
-              <Chip
-                label={brandData.indication}
-                sx={{
-                  backgroundColor: '#2D6BB5',
-                  color: 'white',
-                  fontWeight: 500,
-                  mr: 1,
-                }}
-              />
-            )}
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
+              {brandData.indication && (
+                <Chip
+                  label={brandData.indication}
+                  sx={{
+                    backgroundColor: '#2D6BB5',
+                    color: 'white',
+                    fontWeight: 500,
+                  }}
+                />
+              )}
+              {(brandData.link || brandData.links) && (
+                <Link
+                  href={brandData.link || brandData.links}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    color: '#2D6BB5',
+                    textDecoration: 'none',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 0.5,
+                    backgroundColor: '#F0F8FF',
+                    px: 2,
+                    py: 1,
+                    borderRadius: 1,
+                    fontWeight: 500,
+                    '&:hover': {
+                      backgroundColor: '#E6F3FF',
+                      textDecoration: 'underline',
+                    },
+                  }}
+                >
+                  <LaunchIcon fontSize="small" />
+                  Policy Document
+                </Link>
+              )}
+            </Box>
           </Box>
         </Box>
 
@@ -456,7 +483,7 @@ const BrandDetailsView: React.FC<BrandDetailsProps> = ({ brandData, onBack }) =>
             </Box>
           </Box>
 
-          {/* Second Row: Remaining 3 sections in equal width */}
+          {/* Second Row: Policy & Authorization (30%) + Evidence & Documentation (70%) */}
           <Box
             sx={{
               display: 'flex',
@@ -481,9 +508,9 @@ const BrandDetailsView: React.FC<BrandDetailsProps> = ({ brandData, onBack }) =>
               },
             }}
           >
-            {/* Policy & Authorization Details */}
+            {/* Policy & Authorization Details - 30% */}
             <Box sx={{ 
-              flex: { xs: '0 0 280px', lg: '1' },
+              flex: { xs: '0 0 280px', lg: '0 0 30%' },
               minWidth: { xs: '280px', lg: '0' }
             }}>
               <InfoCard title="Policy & Authorization Details">
@@ -517,9 +544,9 @@ const BrandDetailsView: React.FC<BrandDetailsProps> = ({ brandData, onBack }) =>
               </InfoCard>
             </Box>
 
-            {/* Evidence & Documentation */}
+            {/* Evidence & Documentation - 70% */}
             <Box sx={{ 
-              flex: { xs: '0 0 280px', lg: '1' },
+              flex: { xs: '0 0 280px', lg: '0 0 70%' },
               minWidth: { xs: '280px', lg: '0' }
             }}>
               <InfoCard title="Evidence & Documentation">
@@ -534,31 +561,6 @@ const BrandDetailsView: React.FC<BrandDetailsProps> = ({ brandData, onBack }) =>
                 )}
               </InfoCard>
             </Box>
-
-            {/* Additional Resources */}
-            {(brandData.link || brandData.links) ? (
-              <Box sx={{ 
-                flex: { xs: '0 0 280px', lg: '1' },
-                minWidth: { xs: '280px', lg: '0' }
-              }}>
-                <InfoCard title="Additional Resources">
-                  <InfoField 
-                    label="Policy Document" 
-                    value={brandData.link || brandData.links} 
-                    type="link" 
-                  />
-                </InfoCard>
-              </Box>
-            ) : (
-              <Box sx={{ 
-                flex: { xs: '0 0 280px', lg: '1' },
-                minWidth: { xs: '280px', lg: '0' }
-              }}>
-                <InfoCard title="Additional Resources">
-                  <InfoField label="Policy Document" value="Not available" />
-                </InfoCard>
-              </Box>
-            )}
           </Box>
         </Box>
       </Container>

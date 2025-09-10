@@ -1,0 +1,585 @@
+{
+	"uhc": {
+		"insurer": "UnitedHealthcare (UHC)",
+		"overview": {
+			"companyBackground": {
+				"parentCompany": "UnitedHealth Group",
+				"headquarters": "Eden Prairie, Minnesota, USA",
+				"coreBusinessAreas": {
+					"UnitedHealthcare": "Medical insurance (commercial, Medicare, Medicaid, ACA)",
+					"Optum": "Pharmacy benefit services, data analytics, care delivery, specialty pharmacy"
+				},
+				"scale": "Largest U.S. insurer by membership and revenue; world’s largest health care company by revenue"
+			},
+			"membershipAndMarketShare": {
+				"usMedicalMembers": "≈50.5 million (mid-2025)",
+				"marketShare": "≈15% of the U.S. population (~332M)",
+				"membershipMix": {
+					"commercialEmployerSponsored": "Largest portion",
+					"medicareAdvantage": "≈8.5 million members",
+					"medicaid": "≈7.6 million members",
+					"acaMarketplace": "Participates in exchanges nationwide"
+				}
+			},
+			"benefitTypes": {
+				"pharmacyBenefit": {
+					"managedBy": "OptumRx",
+					"coverage": "Retail and mail-order drugs"
+				},
+				"medicalBenefit": {
+					"coverage": [
+						"Provider-administered drugs (infused/injected)",
+						"Oncology biologics",
+						"CAR-T therapies",
+						"Immunology drugs",
+						"Rare disease therapies",
+						"Supportive infusions"
+					],
+					"billingCodes": "HCPCS/CPT codes (J-codes, Q-codes, C-codes)"
+				}
+			},
+			"medicalBenefitDrugManagement": {
+				"programs": [
+					{
+						"name": "Medical Benefit Drug Clinical Program List",
+						"description": "PDF list of covered medical drugs with prior-authorization status",
+						"link": "https://www.uhcprovider.com/content/dam/provider/docs/public/resources/pharmacy/Medical-Benefit-Drug-Clinical-Program-Drug-List.pdf"
+					},
+					{
+						"name": "Commercial Medical & Drug Policies",
+						"description": "Detailed clinical criteria for high-cost drugs, updated monthly",
+						"link": "https://www.uhcprovider.com/policies?topic=Medical%20&%20Drug%20Policies"
+					},
+					{
+						"name": "Medical Necessity Criteria",
+						"criteria": [
+							"FDA-approved use",
+							"Diagnosis confirmation",
+							"Biomarker testing",
+							"Prior therapy failures",
+							"Specialist requirement"
+						]
+					},
+					{
+						"name": "Prior Authorization",
+						"description": "Required for nearly all specialty/medical-benefit drugs; can be submitted via provider portal"
+					},
+					{
+						"name": "Step Therapy / Fail-First",
+						"description": "Providers may need to try preferred products (often biosimilars) before higher-cost brands"
+					},
+					{
+						"name": "Site of Care Management",
+						"description": "Encourages infusions in lower-cost settings unless hospital outpatient is justified"
+					}
+				]
+			},
+			"reimbursementApproach": {
+				"billing": "HCPCS codes (J, Q, C codes)",
+				"method": "Typically reimbursed at ASP plus margin (~6%)",
+				"note": "Biosimilars often reimbursed more favorably than reference biologics"
+			},
+			"stateAndPlanVariation": {
+				"medicaid": "Policies vary by state",
+				"commercialMedicareAdvantage": "Policies largely uniform nationwide"
+			},
+			"strengths": [
+				"Massive membership base (~50M+) → broad influence",
+				"Transparent, regularly updated drug policies and PA requirements",
+				"Strong site-of-care management to lower costs",
+				"Leading footprint in Medicare Advantage and Medicaid"
+			],
+			"limitations": [
+				"Frequent policy updates → requires constant provider monitoring",
+				"Complex prior authorization processes → administrative burden",
+				"Coverage criteria sometimes stricter than FDA labeling",
+				"AI-driven prior authorization tools have raised provider concerns over delays/denials"
+			],
+			"recentChangesAndInitiatives": {
+				"medicareAdvantageStarPlans": "≈78% of MA members enrolled in 4-star or higher plans, improving reimbursement and bonuses",
+				"optumRxPriorAuthReduction": "Eliminated annual reauthorization for ~80 drugs (~10–25% of drugs), easing administrative burden",
+				"priorAuthProcessReforms": "Promised to streamline and standardize PA processes across all plan types including real-time responses"
+			},
+			"keyLinks": {
+				"medicalBenefitDrugClinicalProgramList": "https://www.uhcprovider.com/content/dam/provider/docs/public/resources/pharmacy/Medical-Benefit-Drug-Clinical-Program-Drug-List.pdf",
+				"commercialMedicalDrugPolicies": "https://www.uhcprovider.com/policies?topic=Medical%20&%20Drug%20Policies",
+				"administrativeGuide": "https://www.unitedhealthgroup.com/"
+			},
+			"companyDescription": "UnitedHealthcare is the health benefits business of UnitedHealth Group, the largest healthcare company in the U.S. and among the largest globally. UnitedHealthcare delivers a comprehensive suite of medical insurance products—including employer-sponsored, individual, Medicare Advantage, Medicaid, and international plans—under its main divisions: Employer & Individual, Medicare & Retirement, Community & State, and Global. It serves over 50 million Americans and generated approximately $281.4 billion in revenue in 2023, nearly double its next-largest competitor. UnitedHealthcare’s performance is bolstered by Optum, which provides pharmacy services (OptumRx), data analytics, care delivery, and technology-enabled health solutions."
+		}
+	},
+	"cigna": {
+		"insurer": "Cigna Healthcare",
+		"overview": {
+			"companyBackground": {
+				"parentCompany": "The Cigna Group",
+				"headquarters": "Bloomfield, Connecticut, USA",
+				"coreBusinessAreas": {
+					"Cigna Healthcare": "Medical insurance (commercial, Medicare, ACA, Medicaid)",
+					"Evernorth Health Services": "Pharmacy benefit management (via Express Scripts), specialty pharmacy, care management, telehealth"
+				},
+				"scale": "One of the “Big 5” U.S. health insurers"
+			},
+			"membershipAndMarketShare": {
+				"usMedicalMembers": "≈19 million (2024)",
+				"globalCustomerRelationships": "178 million+ (2022)",
+				"marketShareUS": "≈5–6% of U.S. population (~332M)",
+				"membershipMix": {
+					"commercialEmployerSponsored": "Largest portion",
+					"medicareAdvantage": "≈600K+ members",
+					"acaMarketplace": "Strong presence in multiple states",
+					"medicaid": "Limited compared to Medicaid-focused insurers"
+				}
+			},
+			"benefitTypes": {
+				"pharmacyBenefit": {
+					"managedBy": "Express Scripts (via Evernorth)",
+					"coverage": "Retail and mail-order drugs"
+				},
+				"medicalBenefit": {
+					"coverage": [
+						"Provider-administered drugs (infused/injected)",
+						"Oncology biologics",
+						"CAR-T therapies",
+						"IVIG",
+						"Hemophilia products",
+						"Rare disease therapies"
+					],
+					"billingCodes": "HCPCS/CPT codes (J-codes, Q-codes, etc.)"
+				}
+			},
+			"medicalBenefitDrugManagement": {
+				"programs": [
+					{
+						"name": "Coverage Policies (MCPs)",
+						"description": "Drug-specific criteria published online (Coverage Policies for Providers page)",
+						"link": "https://static.cigna.com/assets/chcp/resourceLibrary/coveragePolicies/pharmacy_a-z.html"
+					},
+					{
+						"name": "Medical Necessity Criteria",
+						"description": "Based on FDA labeling plus restrictions like prior therapies and severity"
+					},
+					{
+						"name": "Prior Authorization",
+						"description": "Required for nearly all specialty/medical-benefit drugs"
+					},
+					{
+						"name": "Site-of-Care Policies",
+						"description": "Shifts infusions from hospital outpatient to home or infusion centers",
+						"link": "https://static.cigna.com/assets/chcp/pdf/coveragePolicies/pharmacy/ph_1605_coveragepositioncriteria_site_of_care.pdf"
+					}
+				]
+			},
+			"reimbursementApproach": {
+				"method": "ASP+% (similar to Medicare ASP+6%)",
+				"billing": "Markup varies by provider contract and state",
+				"note": "Value-based contracts and rebates via Evernorth"
+			},
+			"stateAndPlanVariation": {
+				"commercialMedicareAdvantage": "Policies generally nationwide",
+				"medicaid": "Policy varies state-by-state"
+			},
+			"strengths": [
+				"Integrated PBM (Express Scripts via Evernorth) and specialty pharmacy capabilities",
+				"Transparent, public Coverage Policies for drug management",
+				"Active site-of-care management to reduce costs",
+				"Strong commercial/employer-sponsored insurance presence"
+			],
+			"limitations": [
+				"Smaller U.S. medical member base than major insurers",
+				"Limited Medicaid footprint",
+				"Reimbursement markups not publicly transparent"
+			],
+			"recentChangesAndInitiatives": {
+				"medicareAdvantageDivestiture": "Sold Medicare Advantage, Part D, and supplemental business (~3.6 million customers) to HCSC for ~US$3.7B; Evernorth continues PBM role (closed March 19, 2025)",
+				"weightLossDrugBenefit": "Introduced $200/month out-of-pocket cap for Wegovy & Zepbound through PBM plans (2025)",
+				"drugFormularyUpdate": "Published updated 2025 formulary as of 09/01/2025, with periodic updates via Prescription Drug List tools",
+				"networkExpansion": "Became Geisinger Health Plan’s new wrap network starting June 1, 2025"
+			},
+			"keyLinks": {
+				"coveragePolicies": "https://static.cigna.com/assets/chcp/pdf/coveragePolicies/pharmacy/ph_1605_coveragepositioncriteria_site_of_care.pdf",
+				"siteOfCarePolicy": "https://static.cigna.com/assets/chcp/pdf/coveragePolicies/pharmacy/ph_1605_coveragepositioncriteria_site_of_care.pdf",
+				"companyInfo": "https://static.cigna.com/assets/chcp/pdf/coveragePolicies/pharmacy/ph_1605_coveragepositioncriteria_site_of_care.pdf"
+			},
+			"companyDescription": "Cigna Healthcare, a core division of The Cigna Group, delivers medical insurance across segments like commercial, Medicare, Medicaid, and ACA plans. It's integrated with Evernorth Health Services, which includes Express Scripts, specializing in pharmacy benefit management, specialty pharmacy, care management, and telehealth services.\n\nWhile Cigna’s U.S. medical membership (~19 million circa 2024) is smaller than the largest insurers, it stands among the “Big 5” U.S. players, commanding approximately 5–6% of the U.S. population’s health insurance market. Its extensive global reach spans over 170 million customer relationships.\n\nCigna efficiently manages medical-benefit drugs using Coverage Policies (MCPs), enforced via prior authorization, medical necessity assessments, and site-of-care protocols. This strategic framework, combined with its integration with Express Scripts (via Evernorth), strengthens its proficiency in both pharmacy and medical benefit drug management. Even though Cigna isn't the largest insurer, its PBM integration gives it a notable edge in drug management operations."
+		}
+	},
+	"aetna": {
+		"insurer": "Aetna (CVS Health)",
+		"overview": {
+			"companyBackground": {
+				"parentCompany": "CVS Health (acquired Aetna in 2018)",
+				"headquarters": "Hartford, Connecticut, USA",
+				"coreBusinessAreas": {
+					"Aetna Health Plans": "Commercial, Medicare Advantage, Medicaid managed care, ACA exchange",
+					"CVS Caremark": "Pharmacy benefit management",
+					"CVS Specialty & Retail": "Specialty pharmacy and nationwide CVS retail network"
+				},
+				"scale": "One of the largest integrated healthcare companies in the U.S., combining insurance, PBM, and retail"
+			},
+			"membershipAndMarketShare": {
+				"usMedicalMembers": "≈36 million (2024)",
+				"marketShareUS": "≈11% of U.S. population (~332M)",
+				"membershipMix": {
+					"commercialEmployerSponsored": "Largest portion",
+					"medicareAdvantage": "≈3.5 million members",
+					"medicaidManagedCare": "Contracts across multiple states",
+					"acaMarketplace": "Offered in select states"
+				}
+			},
+			"benefitTypes": {
+				"pharmacyBenefit": {
+					"managedBy": "CVS Caremark",
+					"coverage": "Retail and mail-order drugs"
+				},
+				"medicalBenefit": {
+					"coverage": [
+						"Provider-administered drugs (infused/injected)",
+						"Oncology biologics",
+						"CAR-T therapies",
+						"Immunology drugs",
+						"Rare disease therapies",
+						"Supportive infusions"
+					],
+					"billingCodes": "HCPCS/CPT codes (J-codes, Q-codes)"
+				}
+			},
+			"medicalBenefitDrugManagement": {
+				"programs": [
+					{
+						"name": "Clinical Policy Bulletins (CPBs)",
+						"description": "Drug-specific coverage criteria including indications, prior therapy, reauthorization"
+					},
+					{
+						"name": "Prior Authorization",
+						"description": "Required for nearly all specialty/medical-benefit drugs; documentation includes diagnosis, labs, ICD-10, prior therapies"
+					},
+					{
+						"name": "Medical Necessity Criteria",
+						"description": "Based on FDA labeling plus additional restrictions (e.g., therapy failures, prescriber specialty)"
+					},
+					{
+						"name": "Step Therapy / Preferred Products",
+						"description": "Often requires biosimilars (e.g., infliximab biosimilar) before brand drugs"
+					},
+					{
+						"name": "Site of Care Optimization",
+						"description": "Infusions directed to lower-cost settings (home/ambulatory) unless hospital outpatient is medically warranted"
+					}
+				]
+			},
+			"reimbursementApproach": {
+				"method": "ASP+% (aligned with Medicare ASP+6%)",
+				"billing": "Across provider contracts and networks",
+				"note": "May require CVS Specialty Pharmacy for drug distribution"
+			},
+			"stateAndPlanVariation": {
+				"commercialMedicareAdvantage": "Generally uniform policies nationwide",
+				"medicaid": "Varies by state (state-administered)"
+			},
+			"strengths": [
+				"Deep integration with CVS Caremark PBM and CVS Specialty Pharmacy",
+				"Public and transparent coverage criteria via CPBs",
+				"Strong site-of-care cost management strategy",
+				"Large commercial and Medicare Advantage footprint"
+			],
+			"limitations": [
+				"Smaller Medicaid footprint compared to insurers like Centene or Molina",
+				"Complex and potentially burdensome prior authorization processes",
+				"Coverage criteria may sometimes be more restrictive than FDA labeling"
+			],
+			"recentChangesAndInitiatives": {
+				"ACAExchangeExit": "Aetna will exit Affordable Care Act individual & family marketplace in 2026, affecting ~1 million members across 17 states; coverage continues through end of 2025. :contentReference[oaicite:0]{index=0}",
+				"MedicareAdvantageRatings": "CVS reported 88% of Aetna MA members enrolled in plans rated 4+ stars for 2025. :contentReference[oaicite:1]{index=1}"
+			},
+			"keyLinks": {
+				"clinicalPolicyBulletins": "https://www.aetna.com/health-care-professionals/clinical-policy-bulletins.html",
+				"specialtyDrugList": "https://www.aetna.com/pharmacy-insurance/individuals-families/specialty-drugs.html",
+				"companyInfo": "https://investors.cvshealth.com/"
+			},
+			"companyDescription": "Aetna, a subsidiary of CVS Health since its acquisition in 2018, is a major U.S. health insurance provider offering a range of plans, including commercial employer-based coverage, Medicare Advantage, Medicaid managed care, and ACA marketplace offerings. Serving over 36 million Americans, Aetna represents roughly 11% of the U.S. population. By integrating insurance with CVS Health's pharmacy assets—CVS Caremark (PBM) and CVS Specialty & Retail—it stands out as one of the most integrated insurers in the U.S., combining benefits, pharmacy management, and retail pharmacy reach into a single healthcare ecosystem.\n\nAetna oversees medical-benefit drugs through comprehensive policies like Clinical Policy Bulletins (CPBs), along with requirements for prior authorization, medical necessity evaluations, step therapy, and site-of-care optimization directing infusions toward cost-effective settings. Reimbursement typically follows an ASP+% model, akin to Medicare benchmarks, with some distribution handled through CVS Specialty Pharmacy. This tightly integrated framework gives Aetna a distinct capability in managing both medical and pharmacy benefits cohesively"
+		}
+	},
+	"anthem": {
+		"insurer": "Elevance Health (formerly Anthem)",
+		"overview": {
+			"companyBackground": {
+				"parentCompany": "Elevance Health (rebranded from Anthem in 2022)",
+				"headquarters": "Indianapolis, Indiana, USA",
+				"coreBusinessAreas": {
+					"Commercial & Specialty Business": "Employer-sponsored insurance, ACA marketplace",
+					"Government Programs": "Medicare Advantage, Medicaid managed care",
+					"CarelonRx": "Pharmacy benefit management and specialty pharmacy services"
+				},
+				"scale": "Second-largest U.S. insurer by membership; operates Blue Cross Blue Shield branded plans in 14 states"
+			},
+			"membershipAndMarketShare": {
+				"usMedicalMembers": "≈47 million (2025)",
+				"marketShareUS": "≈14% of U.S. population (~332M)",
+				"membershipMix": {
+					"commercialEmployerSponsored": "Largest portion",
+					"medicaidManagedCare": "Strong presence in many states",
+					"medicareAdvantage": "≈2 million+ members",
+					"acaMarketplace": "Offered in multiple states"
+				}
+			},
+			"benefitTypes": {
+				"pharmacyBenefit": {
+					"managedBy": "CarelonRx (formerly IngenioRx)",
+					"coverage": "Retail and mail-order prescriptions"
+				},
+				"medicalBenefit": {
+					"coverage": [
+						"Provider-administered drugs (infused/injected)",
+						"Oncology, CAR-T, immunology, enzyme replacement, supportive infusions"
+					],
+					"billingCodes": "HCPCS/CPT codes (J, Q, C codes)"
+				}
+			},
+			"medicalBenefitDrugManagement": {
+				"programs": [
+					{
+						"name": "Medical Policies & Clinical UM Guidelines",
+						"description": "Published drug-specific coverage criteria defining medical necessity and prior therapy rules",
+						"link": "https://www.anthem.com/dam/medpolicies/abc/active/mp_pw_a050131.html"
+					},
+					{
+						"name": "Prior Authorization",
+						"description": "Required for most medical benefit specialty drugs with clinical documentation"
+					},
+					{
+						"name": "Medical Necessity Criteria",
+						"description": "Based on FDA labeling, compendia support, may require severity thresholds or genetic testing"
+					},
+					{
+						"name": "Step Therapy / Preferred Products",
+						"description": "Biosimilars and lower-cost alternatives preferred; reference biologics require biosimilar failure first"
+					},
+					{
+						"name": "Site of Care Management",
+						"description": "Shifts infusions from hospital outpatient to lower-cost settings like home or ambulatory centers"
+					}
+				]
+			},
+			"reimbursementApproach": {
+				"method": "ASP+% margin, aligned with Medicare ASP+6%",
+				"billing": "Rates vary across state-specific contracts",
+				"note": "May require use of CarelonRx specialty pharmacy"
+			},
+			"stateAndPlanVariation": {
+				"blueCrossBlueShieldPlans": "Operates in 14 states",
+				"commercialMedicareAdvantage": "Mostly uniform policies nationwide",
+				"medicaid": "Varies by state based on state-run administration"
+			},
+			"strengths": [
+				"Very large national footprint (~47M members)",
+				"Operates under trusted Blue Cross Blue Shield brand",
+				"Clear, accessible medical policies published online",
+				"Aggressive use of site-of-care programs to reduce costs"
+			],
+			"limitations": [
+				"Medicaid and Marketplace footprint smaller than Centene",
+				"Prior authorization rules often stricter than FDA labels",
+				"Operational complexity due to multiple state BCBS plans"
+			],
+			"recentChangesAndInitiatives": {
+				"rebranding": "Rebranded from Anthem to Elevance Health in 2022; launched Carelon and Wellpoint as subsidiary brands",
+				"membershipGrowth": "Total membership ≈45.8M as of March 31, 2025; expects Medicare Advantage growth of at least 7% in 2025",
+				"financialPerformance": "Q1 2025 revenue +15.4% to $48.77B; MLR 86.4% (better than expected); reaffirmed full-year EPS guidance",
+				"medicaidChallenges": "Q3 2024 saw 19% decline in Medicaid membership (~8.9M), led to lowered EPS outlook",
+				"dataPrivacyHistory": "2015 data breach exposed up to 78.8 million records across multiple subsidiaries"
+			},
+			"keyLinks": {
+				"medicalPolicies": "https://www.anthem.com/dam/medpolicies/abc/active/mp_pw_a050131.html",
+				"companyInfo": "https://www.anthem.com/dam/medpolicies/abc/active/mp_pw_a050131.html"
+			},
+			"companyDescription": "Elevance Health (formerly Anthem) is the health insurance and services division of a leading U.S. healthcare conglomerate, rebranded in 2022 to reflect its mission of 'elevating whole health.' Headquartered in Indianapolis, Indiana, Elevance operates Blue Cross Blue Shield plans across 14 states, serving approximately 45.8 million members as of March 31, 2025. It offers an extensive portfolio of insurance coverage—including employer-sponsored plans, ACA marketplace products, Medicare Advantage, and Medicaid managed care—and delivers pharmacy benefits through its own CarelonRx (formerly IngenioRx) network.\n\nElevance’s integrated care model emphasizes unified coverage and streamlined services via its insurance and PBM infrastructure. The company leverages clearly documented medical and utilization management (UM) policies—which cover prior authorization, medical necessity thresholds, step therapy, and site-of-care optimization—to manage high-cost specialty medical benefits. Reimbursement models typically follow an ASP+% framework, adjusted per regional provider contracts. Elevance also maintains one of the largest market footprints, commanding around 12% of national commercial health insurance share."
+		}
+	},
+	"centene": {
+		"insurer": "Centene Corporation",
+		"overview": {
+			"companyBackground": {
+				"parentCompany": "Centene Corporation",
+				"headquarters": "St. Louis, Missouri, USA",
+				"coreBusinessAreas": {
+					"Medicaid Managed Care": "Primary focus with extensive state contracts",
+					"ACA Marketplace (Ambetter)": "Leading exchange insurer nationwide",
+					"Medicare Advantage & PDP": "Growing but smaller segment",
+					"Specialty Services": "Behavioral health, correctional health, TRICARE contracts"
+				},
+				"scale": "Largest Medicaid managed care organization in the U.S."
+			},
+			"membershipAndMarketShare": {
+				"usMedicalMembers": "≈28 million (mid-2025)",
+				"marketShareUS": "≈8–9% of U.S. population (~332 M)",
+				"membershipMix": {
+					"medicaid": "≈12.8 million members (largest player)",
+					"acaMarketplace": "≈5.8 million Ambetter members (largest marketplace insurer)",
+					"medicareAdvantage": "≈1.03 million members",
+					"commercial": "Smaller compared to UHC/Aetna/Anthem"
+				}
+			},
+			"benefitTypes": {
+				"pharmacyBenefit": {
+					"managedBy": "Envolve Pharmacy Solutions",
+					"coverage": "Retail and mail-order drugs"
+				},
+				"medicalBenefit": {
+					"coverage": [
+						"Provider-administered therapies (infusions/injections)",
+						"Oncology biologics, CAR-T, hemophilia drugs, enzyme replacement, immunology, IVIG"
+					],
+					"billingCodes": "HCPCS/CPT (J, Q codes)"
+				}
+			},
+			"medicalBenefitDrugManagement": {
+				"programs": [
+					{
+						"name": "Clinical Policies",
+						"description": "Drug- and disease-specific medical necessity criteria, often state-specific"
+					},
+					{
+						"name": "Prior Authorization",
+						"description": "Required for most high-cost drugs; documentation includes ICD-10, labs, treatment history"
+					},
+					{
+						"name": "Medical Necessity Criteria",
+						"description": "Based on FDA labels, compendia, and state Medicaid regulations"
+					},
+					{
+						"name": "Step Therapy / Preferred Drugs",
+						"description": "Biosimilars/generics preferred before reference drugs"
+					},
+					{
+						"name": "Site of Care Management",
+						"description": "Less aggressive than peers; some state-enforced infusion site restrictions"
+					}
+				]
+			},
+			"reimbursementApproach": {
+				"method": "ASP+% aligned with Medicaid/Medicare fee schedules",
+				"billing": "Highly dependent on state Medicaid contracts",
+				"note": "ASP-based with negotiated network discounts"
+			},
+			"stateAndPlanVariation": {
+				"medicaid": "Extensive state-level variation; operates via state-specific subsidiaries",
+				"acaMarketplace": "Offers Ambetter across multiple states",
+				"medicareAdvantage": "Growing footprint, contracted state-by-state"
+			},
+			"strengths": [
+				"Dominant Medicaid MCO and ACA exchange insurer",
+				"Strong state-level operational footprint",
+				"Clear clinical policies supporting Medicaid populations",
+				"Expanding Medicare Advantage presence"
+			],
+			"limitations": [
+				"Smaller commercial segment",
+				"Fragmentation due to state-specific operations",
+				"PA and UM often stricter under Medicaid constraints"
+			],
+			"recentChangesAndInitiatives": {
+				"membershipGrowth": "Total at-risk membership ≈28.0M as of Q2 2025 (Medicaid ≈12.82M; Marketplace ≈5.86M; Medicare ≈1.03M; Commercial ≈6.31M; PDP ≈7.85M) :contentReference[oaicite:0]{index=0}",
+				"acaMembershipUpdate": "ACA Marketplace members increased to ~5.8M across 29 states :contentReference[oaicite:1]{index=1}",
+				"withdrawnGuidance": "Withdrew 2025 EPS guidance after actuarial data revealed higher morbidity and lower Marketplace morbidity assumptions, reducing risk adjustment by ~$1.8B (~$2.75 EPS impact) :contentReference[oaicite:2]{index=2}",
+				"2024Performance": "Marketplace membership up 12% and Medicare PDP up 50% from Q4 2023; repurchased $3B in shares; adjusted EPS $7.17 full year :contentReference[oaicite:3]{index=3}"
+			},
+			"keyLinks": {
+				"clinicalPolicies": "https://www.centene.com/providers/clinical-policies.html",
+				"investorRelations": "https://investors.centene.com"
+			},
+			"companyDescription": "Centene is the largest Medicaid managed care organization and top ACA Marketplace insurer (Ambetter), serving approximately 28 million at-risk members as of mid-2025. It manages medical benefit drugs with state-level clinical policies, prior authorization, medical necessity, step therapy, and site-of-care management. Reimbursement is ASP-based but varies greatly across Medicaid contracts. Recent dynamics include strong membership growth in Marketplace and PDP products, but significant financial uncertainty—prompting withdrawal of 2025 guidance due to risk adjustment and morbidity pressure."
+		}
+	},
+	"humana": {
+		"insurer": "Humana Inc.",
+		"overview": {
+			"companyBackground": {
+				"parentCompany": "Humana Inc.",
+				"headquarters": "Louisville, Kentucky, USA",
+				"coreBusinessAreas": {
+					"Medicare Advantage & PDP": "Primary focus; largest segment",
+					"Medicaid Managed Care": "Operates in select states",
+					"Military Health Services": "TRICARE contracts",
+					"Commercial Employer-sponsored Insurance": "Scaled down significantly"
+				},
+				"scale": "One of the largest Medicare Advantage insurers in the U.S."
+			},
+			"membershipAndMarketShare": {
+				"usMedicalMembers": "≈16.3 million (march 2025, excluding employer-commercial)",
+				"marketShareUS": "≈5% of U.S. population",
+				"membershipMix": {
+					"medicareAdvantage": "≈5.8 million members (Q2 2025); 16.6% MA market share—2nd largest MA insurer",
+					"medicaid": "≈1 million members (estimated)",
+					"commercial": "Much smaller footprint after employer-market exit"
+				}
+			},
+			"benefitTypes": {
+				"pharmacyBenefit": {
+					"managedBy": "CenterWell Specialty Pharmacy (internal)",
+					"coverage": "Retail and mail-order drugs"
+				},
+				"medicalBenefit": {
+					"coverage": [
+						"Provider-administered therapies: oncology, immunology, rare disease, supportive infusions"
+					],
+					"billingCodes": "HCPCS/CPT codes (J, Q codes)"
+				}
+			},
+			"medicalBenefitDrugManagement": {
+				"programs": [
+					{
+						"name": "Medical Coverage Policies (MCPs)",
+						"description": "Published online defining indications, prior therapies, and reauthorization"
+					},
+					{
+						"name": "Prior Authorization",
+						"description": "Required for most specialty/medical drugs with detailed clinical documentation"
+					},
+					{
+						"name": "Medical Necessity Criteria",
+						"description": "Typically aligned with FDA label; compendia-supported off-label use may be considered"
+					},
+					{
+						"name": "Step Therapy / Preferred Agents",
+						"description": "Biosimilars and cost-effective therapies recommended before brand products"
+					},
+					{
+						"name": "Site of Care Management",
+						"description": "Optimization toward home or outpatient infusion for cost-effective delivery"
+					}
+				]
+			},
+			"reimbursementApproach": {
+				"method": "ASP+% margin, aligned with Medicare benchmarks",
+				"billing": "Contracted provider rates vary across networks"
+			},
+			"stateAndPlanVariation": {
+				"medicareAdvantage": "Uniform policy structure nationwide",
+				"medicaid": "Varies by state",
+				"commercial": "Significantly reduced market presence"
+			},
+			"strengths": [
+				"Market-leading Medicare Advantage presence",
+				"Clear and public medical policies via MCPs",
+				"Integrated specialty pharmacy via CenterWell"
+			],
+			"limitations": [
+				"Small commercial footprint",
+				"Limited Medicaid membership versus peers",
+				"ASP+% margin details not publicly disclosed"
+			],
+			"recentChangesAndInitiatives": {
+				"Q1Financials": "Reported Q1 2025 adjusted EPS of $11.58; affirmed full-year guidance of ~$16.25 and Insurance benefit ratio near 87.5%. Membership decline of ~550K in Medicare Advantage anticipated. :contentReference[oaicite:0]{index=0}",
+				"Q2OutlookBoost": "Raised full-year adjusted EPS guidance to ~$17.00, revenue projection to ≥ $128B, owing to better-than-expected MA enrollment and CenterWell performance. :contentReference[oaicite:1]{index=1}",
+				"StarRatingsDrop": "Only ~25% of MA members will be in 4-star or higher plans for 2025—down from 94% in 2024—following CMS downgrades. Humana is appealing the rating. :contentReference[oaicite:2]{index=2}",
+				"EmployerMarketExit": "Exited employer-sponsored commercial insurance to focus on Medicare and government programs. :contentReference[oaicite:3]{index=3}"
+			},
+			"keyLinks": {
+				"clinicalPolicies": "https://mcp.humana.com/tad/tad_new/home.aspx?type=provider",
+				"investorRelations": "https://mcp.humana.com/tad/tad_new/home.aspx?type=provider"
+			},
+			"companyDescription": "Humana is a leading Medicare Advantage insurer with ~5.8M MA members (~16.6% market share) as of Q2 2025. It manages medical benefit drugs via transparent Medical Coverage Policies and extensive utilization controls. While primarily serving seniors through MA and PDP products—and growing its CenterWell network—it has reduced its commercial and Medicaid operations. Despite recent financial boost and improved outlook, it faces quality rating challenges that may affect future reimbursements."
+		}
+	}
+}

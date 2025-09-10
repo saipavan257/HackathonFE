@@ -8,15 +8,17 @@ import InsurerCompareView from './components/InsurerCompareView';
 import CompetitorInsights from './components/CompetitorInsights';
 import ChatBox from './components/ChatBox';
 import Loading from './components/Loading';
-
-type ViewType = 'home' | 'insurers' | 'brands' | 'insurer-brands' | 'compare' | 'brand-details' | 'competitor-insights';
 import BrandDetailsView from './components/BrandDetailsView';
+import InsurerDetailsPage from './components/InsurerDetailsPage';
+
+type ViewType = 'home' | 'insurers' | 'brands' | 'insurer-brands' | 'compare' | 'brand-details' | 'competitor-insights' | 'insurer-details';
 
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewType>('home');
   const [isLoading, setIsLoading] = useState(false);
   const [selectedBrandData, setSelectedBrandData] = useState<any>(null);
+  const [selectedInsurerKey, setSelectedInsurerKey] = useState<string>('uhc');
 
   const handleNavigation = async (view: ViewType) => {
     setIsLoading(true);
@@ -34,11 +36,17 @@ function App() {
     await handleNavigation('brand-details');
   };
 
+  const handleInsurerClick = async (insurerKey: string) => {
+    setSelectedInsurerKey(insurerKey);
+    await handleNavigation('insurer-details');
+  };
+
   const handleNavigateHome = () => handleNavigation('home');
   const handleNavigateToInsurers = () => handleNavigation('insurers');
   const handleNavigateToBrands = () => handleNavigation('brands');
   const handleNavigateToCompare = () => handleNavigation('compare');
   const handleNavigateToCompetitorInsights = () => handleNavigation('competitor-insights');
+  const handleNavigateToInsurerDetails = () => handleNavigation('insurer-details');
 
   const renderCurrentView = () => {
     if (isLoading) {
@@ -52,6 +60,7 @@ function App() {
             onNavigateToInsurers={handleNavigateToInsurers}
             onNavigateToBrands={handleNavigateToBrands}
             onNavigateToCompetitorInsights={handleNavigateToCompetitorInsights}
+            onNavigateToInsurerDetails={handleNavigateToInsurerDetails}
           />
         );
       
@@ -94,6 +103,14 @@ function App() {
                 throw new Error('Function not implemented.');
               } }          />
         );
+
+      case 'insurer-details':
+        return (
+          <InsurerDetailsPage
+            insurerKey={selectedInsurerKey}
+            onBack={handleNavigateHome}
+          />
+        );
       
       case 'competitor-insights':
         return (
@@ -108,6 +125,7 @@ function App() {
             onNavigateToInsurers={handleNavigateToInsurers}
             onNavigateToBrands={handleNavigateToBrands}
             onNavigateToCompetitorInsights={handleNavigateToCompetitorInsights}
+            onNavigateToInsurerDetails={handleNavigateToInsurerDetails}
           />
         );
     }

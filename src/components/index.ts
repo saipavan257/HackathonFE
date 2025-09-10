@@ -9,3 +9,4 @@ export { default as CompetitorInsights } from './CompetitorInsights';
 export { default as ChatBox } from './ChatBox';
 export { default as InsurerCompareView } from './InsurerCompareView';
 export { default as BrandDetailsView } from './BrandDetailsView';
+export { default as InsurerDetailsPage } from './InsurerDetailsPage';

@@ -1,6 +1,6 @@
 [
   {
-    "insurer": "UnitedHealthcare (UHC)",
+    "insurer": "UnitedHealthcare",
     "approx_covered_lives": "~50 million",
     "percentage_us_population": "~15%",
     "notes": "Covers broad commercial, Medicare Advantage, Medicaid membership. (Wikipedia)"
@@ -30,13 +30,13 @@
     "notes": "Includes Medicare Advantage membership. (Medicare Guidance Simplified | Chapter)"
   },
   {
-    "insurer": "Aetna (CVS Health)",
+    "insurer": "Aetna",
     "approx_covered_lives": "~36 million",
     "percentage_us_population": "~10.8%",
     "notes": "Based on Aetna statement of 36 million relying on their services, including medical coverage (Aetna)."
   },
   {
-    "insurer": "Anthem (Elevance Health)",
+    "insurer": "Anthem",
     "approx_covered_lives": "~47 million (incl. BlueCard)",
     "percentage_us_population": "~14.2%",
     "notes": "Elevance reported 47.2M members in Q3 2022 including BlueCard members (Healthcare Dive). Excluding BlueCard (6.5M), still ~40.7M (~12.3%)."
