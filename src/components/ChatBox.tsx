@@ -141,7 +141,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({ isVisible = true }) => {
         uhc: item.uhc,
         aetna: item.aetna,
         anthem: item.anthem,
-        hcsc: item.hcsc,
+        centene: item.centene,
         cigna: item.cigna,
         humana: item.humana,
       },
@@ -262,6 +262,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({ isVisible = true }) => {
           
           drugEntries.forEach(entry => {
             const labelPop = entry.label_population || entry['Label Population'] || '';
+            const indication = entry.indication || '';
             
             // Extract specific cancer types and indications
             if (labelPop.includes('cervical cancer')) indications.add('Cervical cancer');
@@ -273,6 +274,39 @@ const ChatBox: React.FC<ChatBoxProps> = ({ isVisible = true }) => {
             }
             if (labelPop.includes('renal cell carcinoma')) indications.add('Renal cell carcinoma');
             if (labelPop.includes('glioblastoma')) indications.add('Glioblastoma');
+            
+            // Extract sickle cell disease subtypes as separate indications
+            if (labelPop.includes('sickle cell') || indication.toLowerCase().includes('sickle')) {
+              if (labelPop.includes('homozygous hemoglobin S') || labelPop.includes('HbSS')) {
+                indications.add('Sickle cell disease (HbSS)');
+              }
+              if (labelPop.includes('sickle hemoglobin C') || labelPop.includes('HbSC')) {
+                indications.add('Sickle cell disease (HbSC)');
+              }
+              if (labelPop.includes('sickle beta0 thalassemia') || labelPop.includes('sickle β0 thalassemia')) {
+                indications.add('Sickle cell disease (sickle beta0 thalassemia)');
+              }
+              if (labelPop.includes('sickle beta+ thalassemia') || labelPop.includes('sickle β+ thalassemia')) {
+                indications.add('Sickle cell disease (sickle beta+ thalassemia)');
+              }
+              // If none of the specific subtypes are found, add general sickle cell indication
+              if (!labelPop.includes('HbSS') && !labelPop.includes('HbSC') && 
+                  !labelPop.includes('beta0') && !labelPop.includes('beta+') && 
+                  !labelPop.includes('β0') && !labelPop.includes('β+')) {
+                indications.add('Sickle cell disease');
+              }
+            }
+            
+            // Handle multiple myeloma subtypes
+            if (labelPop.includes('multiple myeloma') || indication.toLowerCase().includes('multiple myeloma')) {
+              if (labelPop.includes('relapsed or refractory')) {
+                indications.add('Multiple myeloma (relapsed or refractory)');
+              } else if (labelPop.includes('newly diagnosed')) {
+                indications.add('Multiple myeloma (newly diagnosed)');
+              } else {
+                indications.add('Multiple myeloma');
+              }
+            }
           });
           
           const indicationList = Array.from(indications).sort();
@@ -293,11 +327,14 @@ const ChatBox: React.FC<ChatBoxProps> = ({ isVisible = true }) => {
       if (drugMatch) {
         const drugName = drugMatch[1];
         
-        // Find entries for this drug across all insurers
+        // Find entries for this drug across all insurers - exact match preferred
         const drugEntries = competitorInsightsData.filter(item => {
           const brandName = item.brand_name || item['Brand Name'] || '';
-          return brandName.toLowerCase().includes(drugName.toLowerCase());
+          return brandName.toLowerCase() === drugName.toLowerCase() || 
+                 brandName.toLowerCase().includes(drugName.toLowerCase());
         });
+        
+
         
         if (drugEntries.length > 0) {
           let response = `**Population Coverage Comparison for ${drugName} across insurers:**\n\n`;
@@ -307,28 +344,71 @@ const ChatBox: React.FC<ChatBoxProps> = ({ isVisible = true }) => {
           drugEntries.forEach(entry => {
             const insurer = entry.insurer || entry.Insurer || 'Unknown';
             const labelPop = entry.label_population || entry['Label Population'] || '';
+            const docSummary = entry.document_summary || entry.Conclusion || '';
+            const clinicalCriteria = entry.clinical_criteria || '';
+            const combinedText = (labelPop + ' ' + docSummary + ' ' + clinicalCriteria).toLowerCase();
+            
+
             
             if (!insurerData[insurer]) {
               insurerData[insurer] = [];
             }
             
-            // Extract key population criteria
-            if (labelPop.includes('adult patients')) insurerData[insurer].push('Adults');
-            if (labelPop.includes('pediatric') || labelPop.includes('children')) insurerData[insurer].push('Pediatric');
-            if (labelPop.includes('relapsed or refractory')) insurerData[insurer].push('Relapsed/Refractory');
-            if (labelPop.includes('after two or more prior lines')) insurerData[insurer].push('≥2 prior therapies');
-            if (labelPop.includes('first-line') || labelPop.includes('newly diagnosed')) insurerData[insurer].push('First-line');
-            if (labelPop.includes('metastatic')) insurerData[insurer].push('Metastatic disease');
+            // Extract key population criteria - comprehensive matching
+            if (combinedText.includes('adult patients') || combinedText.includes('≥ 18 years') || combinedText.includes('18 years or older') || 
+                combinedText.includes('patient is ≥ 18') || combinedText.includes('adults') ||
+                combinedText.includes('patients 18 years') || /\b18\s+years?\s+or\s+older/i.test(combinedText) ||
+                /patient\s+is\s+≥?\s*18/i.test(combinedText)) {
+              insurerData[insurer].push('Adults');
+            }
+            if (combinedText.includes('pediatric') || combinedText.includes('children')) {
+              insurerData[insurer].push('Pediatric');
+            }
+            if (combinedText.includes('relapsed or refractory') || combinedText.includes('relapsed/refractory') ||
+                /relapsed\s+or\s+refractory/i.test(combinedText) || 
+                /treatment\s+of\s+.+\s+relapsed\s+or\s+refractory/i.test(combinedText)) {
+              insurerData[insurer].push('Relapsed/Refractory');
+            }
+            if (combinedText.includes('after two or more prior lines') || combinedText.includes('two or more lines of') || 
+                combinedText.includes('at least two prior lines') || combinedText.includes('≥2 prior therapies') ||
+                combinedText.includes('two or more lines of systemic therapy') || combinedText.includes('received two or more lines') ||
+                /two\s+or\s+more\s+(prior\s+)?lines/i.test(combinedText) || /at\s+least\s+two\s+prior/i.test(combinedText) ||
+                /received\s+two\s+or\s+more\s+lines/i.test(combinedText)) {
+              insurerData[insurer].push('≥2 prior therapies');
+            }
+            if (combinedText.includes('at least three prior lines') || combinedText.includes('three or more prior lines') ||
+                combinedText.includes('received at least three prior lines') || /at\s+least\s+three\s+prior/i.test(combinedText) ||
+                /received\s+at\s+least\s+three\s+prior/i.test(combinedText)) {
+              insurerData[insurer].push('≥3 prior therapies');
+            }
+            if (combinedText.includes('first-line') || combinedText.includes('newly diagnosed')) {
+              insurerData[insurer].push('First-line');
+            }
+            if (combinedText.includes('metastatic')) {
+              insurerData[insurer].push('Metastatic disease');
+            }
+            
+
           });
           
-          Object.keys(insurerData).forEach(insurer => {
+          // Only show insurers that have meaningful criteria data
+          const insurersWithData = Object.keys(insurerData).filter(insurer => {
             const uniqueCriteria = [...new Set(insurerData[insurer])];
-            response += `**${insurer}:**\n`;
-            uniqueCriteria.forEach(criteria => {
-              response += `  • ${criteria}\n`;
-            });
-            response += '\n';
+            return uniqueCriteria.length > 0;
           });
+
+          if (insurersWithData.length === 0) {
+            response += `No detailed population coverage criteria found for ${drugName}.\n`;
+          } else {
+            insurersWithData.forEach(insurer => {
+              const uniqueCriteria = [...new Set(insurerData[insurer])];
+              response += `**${insurer}:**\n`;
+              uniqueCriteria.forEach(criteria => {
+                response += ` • ${criteria}\n`;
+              });
+              response += '\n';
+            });
+          }
           
           return response;
         }
@@ -510,7 +590,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({ isVisible = true }) => {
     }
     
     // Search by insurer
-    const insurerKeywords = ['uhc', 'aetna', 'anthem', 'hcsc', 'cigna', 'humana'];
+    const insurerKeywords = ['uhc', 'aetna', 'anthem', 'centene', 'cigna', 'humana'];
     const mentionedInsurer = insurerKeywords.find(insurer => 
       lowerQuery.includes(insurer)
     );

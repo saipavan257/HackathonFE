@@ -52,7 +52,7 @@ interface CoverageData {
   uhc: string;
   aetna: string;
   anthem: string;
-  hcsc: string;
+  centene: string;
   cigna: string;
   humana: string;
   clinical_criteria?: string;
@@ -106,7 +106,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
     uhc: true,
     aetna: true,
     anthem: true,
-    hcsc: true,
+    centene: true,
     cigna: true,
     humana: true,
   });
@@ -212,7 +212,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
     if (!selectedIndication) return null;
 
     const indicationData = processedData.filter(item => item.indication === selectedIndication);
-    const insurers = ['uhc', 'aetna', 'anthem', 'hcsc', 'cigna', 'humana'];
+    const insurers = ['uhc', 'aetna', 'anthem', 'centene', 'cigna', 'humana'];
     
     // Coverage by insurer for the selected indication
     const coverageByInsurer = insurers.map(insurer => {
@@ -448,7 +448,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
                 <MenuItem value="uhc">UHC</MenuItem>
                 <MenuItem value="aetna">Aetna</MenuItem>
                 <MenuItem value="anthem">Anthem</MenuItem>
-                <MenuItem value="hcsc">HCSC</MenuItem>
+                <MenuItem value="centene">Centene</MenuItem>
                 <MenuItem value="cigna">Cigna</MenuItem>
                 <MenuItem value="humana">Humana</MenuItem>
               </Select>
@@ -653,7 +653,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
                 variant="outlined" 
                 size="small"
                 onClick={() => setVisibleInsurerColumns({
-                  uhc: true, aetna: true, anthem: true, hcsc: true, cigna: true, humana: true
+                  uhc: true, aetna: true, anthem: true, centene: true, cigna: true, humana: true
                 })}
               >
                 Show All
@@ -662,7 +662,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
                 variant="outlined" 
                 size="small"
                 onClick={() => setVisibleInsurerColumns({
-                  uhc: false, aetna: false, anthem: false, hcsc: false, cigna: false, humana: false
+                  uhc: false, aetna: false, anthem: false, centene: false, cigna: false, humana: false
                 })}
               >
                 Hide All
