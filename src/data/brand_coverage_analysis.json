@@ -1,17 +1,6 @@
 ﻿[
   {
     "brand_name": "Abecma",
-    "indication": "Thrombotic Thrombocytopenic Purpura",
-    "indicated_population": "TTP (congenital, prophylactic or on-demand ERT)",
-    "uhc": "No",
-    "aetna": "Yes",
-    "anthem": "No",
-    "centene": "No",
-    "cigna": "No",
-    "humana": "No"
-  },
-  {
-    "brand_name": "Abecma",
     "indication": "Multiple myeloma",
     "indicated_population": "MM (RR, TCE, atleast four prior lines)",
     "uhc": "No",
