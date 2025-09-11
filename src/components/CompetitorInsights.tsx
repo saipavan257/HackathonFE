@@ -42,7 +42,7 @@ import anthemNuroData from '../data/anthem_nuro.json';
 import humanaNuroData from '../data/humana_nuro.json';
 import cignaCompetitorData from '../data/Cigna_competitor.json';
 import uhcCompetitorData from '../data/UHC_competitor.json';
-import brandCoverageData from '../data/brand_coverage_analysis.json';
+import brandCoverageAnalysis from '../data/brand_coverage_analysis.json';
 import { 
   getUniqueHCPCSCodesForCompetitorInsights, 
   extractHCPCSCodes,
@@ -144,7 +144,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
         indication: item.indication,
         indicated_population: item.indicated_population,
         clinical_criteria: item.clinical_criteria || 'Not available',
-        prior_authorization: item.prior_authorization_required === 'Yes' ? 'Prior Authorization' : 'Medical Necessity',
+        prior_authorization: item.prior_authorization_required === 'Yes' ? 'Yes' : 'No',
         insurer: 'Aetna',
         source_link: item.link || '',
         hcpcs_code: item.hcpcs_code || '',
@@ -159,7 +159,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
         indication: item.indication,
         indicated_population: item.indicated_population,
         clinical_criteria: item.clinical_criteria || 'Not available',
-        prior_authorization: item.prior_authorization_required === 'Yes' ? 'Prior Authorization' : 'Medical Necessity',
+        prior_authorization: item.prior_authorization_required === 'Yes' ? 'Yes' : 'No',
         insurer: 'Anthem',
         source_link: item.links || '',
         hcpcs_code: item.hcpcs_code || item.hcpc_code || '',
@@ -174,7 +174,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
         indication: item.indication,
         indicated_population: item.indicated_population,
         clinical_criteria: item.clinical_criteria || 'Not available',
-        prior_authorization: item.prior_authorization_required === 'Yes' ? 'Prior Authorization' : 'Medical Necessity',
+        prior_authorization: item.prior_authorization_required === 'Yes' ? 'Yes' : 'No',
         insurer: 'Humana',
         source_link: item.links || '',
         hcpcs_code: item.hcpcs_code || item.hcpc_code || '',
@@ -189,7 +189,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
         indication: item.indication || '',
         indicated_population: item.indicated_population || '',
         clinical_criteria: item.clinical_criteria || 'Not available',
-        prior_authorization: item['Prior Authorisation/Medical necessity/notification'] === 'Yes' ? 'Prior Authorization' : 'Medical Necessity',
+        prior_authorization: item['Prior Authorisation/Medical necessity/notification'] === 'Yes' ? 'Yes' : 'No',
         insurer: 'Cigna',
         source_link: item.link || '',
         hcpcs_code: item['HCPCS Code'] || '',
@@ -204,7 +204,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
         indication: item.indication || '',
         indicated_population: item.indicated_population || '',
         clinical_criteria: item.clinical_criteria || 'Not available',
-        prior_authorization: item['Prior Authorisation/Medical necessity/notification'] === 'Yes' ? 'Prior Authorization' : 'Medical Necessity',
+        prior_authorization: item['Prior Authorisation/Medical necessity/notification'] === 'Yes' ? 'Yes' : 'No',
         insurer: 'UHC',
         source_link: item.link || '',
         hcpcs_code: item['HCPCS Code'] || '',
@@ -251,81 +251,96 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
     });
   }, [processedData, filters, enabledInsurers]);
 
-  // Calculate indication-level analytics with TRUE coverage data
+  // Calculate indication-level analytics
   const indicationAnalytics = useMemo(() => {
     if (!selectedIndication) return null;
 
-    // Get all drugs for this indication from the complete coverage dataset
-    const allDrugsForIndication = brandCoverageData.filter(
+    const indicationData = processedData.filter(item => item.indication === selectedIndication);
+    
+    // Get total drugs for this indication from the complete dataset
+    const totalDrugsForIndication = brandCoverageAnalysis.filter(
       (item: any) => item.indication === selectedIndication
     );
-
-    const insurers = ['aetna', 'anthem', 'humana', 'cigna', 'uhc'];
+    
+    // Debug logging (remove in production)
+    console.log(`📊 Analysis for ${selectedIndication}:`, {
+      totalDrugsFound: totalDrugsForIndication.length,
+      sampleData: totalDrugsForIndication.slice(0, 2)
+    });
     
     // Calculate TRUE coverage by insurer for the selected indication
-    const coverageByInsurer = insurers.map(insurer => {
-      const totalDrugs = allDrugsForIndication.length;
-      const coveredDrugs = allDrugsForIndication.filter(
-        (item: any) => item[insurer.toLowerCase()] === 'Yes'
+    const coverageByInsurer = ['Aetna', 'Anthem', 'Humana', 'Cigna', 'UHC'].map(insurer => {
+      const insurerKey = insurer.toLowerCase();
+      
+      // Count covered drugs from complete dataset
+      const coveredDrugs = totalDrugsForIndication.filter(
+        (item: any) => item[insurerKey] === 'Yes'
       ).length;
+      
+      // Total drugs available for this indication
+      const totalDrugs = totalDrugsForIndication.length;
+      
+      // Calculate true coverage percentage
+      const coveragePercentage = totalDrugs > 0 ? Math.round((coveredDrugs / totalDrugs) * 100) : 0;
+      
+      // Debug logging for each insurer
+      console.log(`${insurer}: ${coveredDrugs}/${totalDrugs} = ${coveragePercentage}%`);
       
       return {
         insurer: insurer.toUpperCase(),
         covered: coveredDrugs,
         total: totalDrugs,
-        coverage: totalDrugs > 0 ? Math.round((coveredDrugs / totalDrugs) * 100) : 0,
+        coverage: coveragePercentage,
+        drugsAvailable: coveredDrugs, // Keep for backwards compatibility
       };
     });
 
-    // Calculate brand-level coverage analysis
-    const brandCoverage = allDrugsForIndication.reduce((acc: any, item: any) => {
+    // Calculate brand coverage across all insurers for this indication
+    const brandCoverageMap = totalDrugsForIndication.reduce((acc: any, item: any) => {
       const brandName = item.brand_name;
       if (!acc[brandName]) {
         acc[brandName] = { 
-          totalRecords: 0,
-          coverageByInsurer: {} as Record<string, boolean>
+          totalInsurers: 0, 
+          coveredByInsurers: 0,
+          insurerCoverage: {} as Record<string, boolean>
         };
       }
-      acc[brandName].totalRecords += 1;
       
-      // Track coverage across insurers for this brand
+      // Count coverage across all insurers for this brand
+      const insurers = ['aetna', 'anthem', 'humana', 'cigna', 'uhc'];
       insurers.forEach(insurer => {
-        const covered = item[insurer.toLowerCase()] === 'Yes';
-        if (!acc[brandName].coverageByInsurer[insurer]) {
-          acc[brandName].coverageByInsurer[insurer] = covered;
-        } else {
-          acc[brandName].coverageByInsurer[insurer] = acc[brandName].coverageByInsurer[insurer] || covered;
+        const isCovered = item[insurer] === 'Yes';
+        acc[brandName].insurerCoverage[insurer] = isCovered;
+        if (isCovered) {
+          acc[brandName].coveredByInsurers += 1;
         }
       });
-
+      acc[brandName].totalInsurers = insurers.length;
+      
       return acc;
     }, {});
 
-    const dominantBrands = Object.entries(brandCoverage)
+    const dominantBrands = Object.entries(brandCoverageMap)
       .map(([brand, data]: [string, any]) => {
-        // Calculate market presence based on how many insurers cover this brand
-        const insurersCovering = Object.values(data.coverageByInsurer).filter(Boolean).length;
-        const marketPresence = Math.round((insurersCovering / insurers.length) * 100);
-        
+        const coveragePercentage = Math.round((data.coveredByInsurers / data.totalInsurers) * 100);
         return {
           brand,
-          totalRecords: data.totalRecords,
-          marketPresence,
-          coverageScore: marketPresence, // Use market presence as coverage score
+          totalInsurers: data.totalInsurers,
+          coveredByInsurers: data.coveredByInsurers,
+          coveragePercentage,
+          marketPresence: data.coveredByInsurers, // Keep for backwards compatibility
         };
       })
-      .sort((a, b) => b.marketPresence - a.marketPresence || b.totalRecords - a.totalRecords);
+      .sort((a, b) => b.coveragePercentage - a.coveragePercentage);
 
     return {
       coverageByInsurer,
       dominantBrands,
-      totalDrugs: allDrugsForIndication.length,
-      uniqueBrands: [...new Set(allDrugsForIndication.map((item: any) => item.brand_name))].length,
-      avgCoverageRate: Math.round(
-        coverageByInsurer.reduce((sum, insurer) => sum + insurer.coverage, 0) / coverageByInsurer.length
-      ),
+      totalDrugs: totalDrugsForIndication.length, // True total from complete dataset
+      uniqueBrands: [...new Set(totalDrugsForIndication.map((item: any) => item.brand_name))].length,
+      totalCoveredRecords: indicationData.length, // Keep track of detailed records available
     };
-  }, [selectedIndication]);
+  }, [selectedIndication, processedData]);
 
   const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
@@ -556,15 +571,15 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
     },
     {
       field: 'prior_authorization',
-      headerName: 'Medical Necessity / Prior Authorization',
+      headerName: 'Prior Authorization Required',
       width: 200,
       headerClassName: 'data-grid-header',
       renderCell: (params: any) => (
         <Chip
           label={params.value}
-          color={params.value === 'Prior Authorization' ? 'warning' : 'info'}
+          color={params.value === 'Yes' ? 'error' : 'success'}
           size="small"
-          variant="outlined"
+          variant="filled"
         />
       ),
     },
@@ -777,22 +792,35 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
         </CardContent>
       </Card>
 
+      {/* No Data Message */}
+      {selectedIndication && indicationAnalytics && indicationAnalytics.totalDrugs === 0 && (
+        <Alert severity="warning" sx={{ mb: 4 }}>
+          <AlertTitle>No Coverage Data Found</AlertTitle>
+          No coverage analysis data found for "{selectedIndication}". This indication may not be in our complete drug universe dataset.
+        </Alert>
+      )}
+
       {/* Indication-Level Insights */}
-      {selectedIndication && indicationAnalytics && (
+      {selectedIndication && indicationAnalytics && indicationAnalytics.totalDrugs > 0 && (
         <Card sx={{ mb: 4 }}>
           <CardContent>
-            <Typography variant="h6" gutterBottom>
-                          <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
+            <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
               {selectedIndication} - Comparative Analytics
             </Typography>
-            </Typography>
             
-            <Alert severity="info" sx={{ mb: 3 }}>
-              <AlertTitle>✅ True Coverage Analysis</AlertTitle>
-              This analysis now shows <strong>accurate coverage percentages</strong> based on the complete drug universe. 
-              Coverage is calculated as: <em>Covered Drugs ÷ Total Available Drugs × 100</em>
-              <br />
-              <strong>Previous issue:</strong> Data only contained covered drugs, showing misleading 100% rates.
+            {/* True Coverage Analysis Banner */}
+            <Alert severity="success" sx={{ mb: 3 }}>
+              <Box display="flex" alignItems="center" gap={1}>
+                <Typography component="span" sx={{ fontWeight: 'bold' }}>
+                  ✅ True Coverage Analysis
+                </Typography>
+              </Box>
+              <Typography variant="body2" sx={{ mt: 1 }}>
+                This analysis now shows <strong>accurate coverage percentages</strong> based on the complete drug universe. 
+                Coverage is calculated as: <em>Covered Drugs ÷ Total Available Drugs × 100</em>
+                <br />
+                <strong>Previous Issue:</strong> Data only contained covered drugs, showing misleading 100% rates.
+              </Typography>
             </Alert>
             
             <Box display="flex" flexWrap="wrap" gap={3} mb={3}>
@@ -813,33 +841,33 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
                   Unique Brands
                 </Typography>
               </Paper>
-              
+
               <Paper sx={{ p: 2, minWidth: 120, textAlign: 'center' }}>
-                <Typography variant="h4" color={indicationAnalytics.avgCoverageRate >= 50 ? "success.main" : "warning.main"}>
-                  {indicationAnalytics.avgCoverageRate}%
+                <Typography variant="h4" color="success.main">
+                  {Math.round(indicationAnalytics.coverageByInsurer.reduce((sum, insurer) => sum + insurer.coverage, 0) / indicationAnalytics.coverageByInsurer.length)}%
                 </Typography>
                 <Typography variant="caption">
                   Avg Coverage Rate
                 </Typography>
               </Paper>
-              
+
               <Paper sx={{ p: 2, minWidth: 120, textAlign: 'center' }}>
                 <Typography variant="h4" color="info.main">
-                  {indicationAnalytics.coverageByInsurer.reduce((sum, insurer) => sum + insurer.covered, 0)}
+                  {indicationAnalytics.totalCoveredRecords}
                 </Typography>
                 <Typography variant="caption">
-                  Total Covered Records
+                  Detailed Records
                 </Typography>
               </Paper>
             </Box>
 
-            {/* True Coverage Chart */}
+            {/* Coverage Chart */}
             <Box display="flex" flexWrap="wrap" gap={4}>
               <Box sx={{ flex: 1, minWidth: 400 }}>
                 <Typography variant="subtitle1" gutterBottom>
                   True Coverage by Insurer (%)
                 </Typography>
-                <Typography variant="caption" color="text.secondary" display="block" mb={2}>
+                <Typography variant="caption" color="text.secondary" display="block" sx={{ mb: 2 }}>
                   Based on {indicationAnalytics.totalDrugs} total drugs available for {selectedIndication}
                 </Typography>
                 <ResponsiveContainer width="100%" height={300}>
@@ -849,46 +877,39 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
                     <YAxis domain={[0, 100]} />
                     <Tooltip 
                       formatter={(value, name) => [
-                        `${value}%`,
-                        'Coverage Rate'
+                        name === 'coverage' ? `${value}%` : value, 
+                        name === 'coverage' ? 'Coverage' : 'Covered Drugs'
                       ]}
-                      labelFormatter={(label) => {
-                        const insurer = indicationAnalytics.coverageByInsurer.find(i => i.insurer === label);
-                        return `${label}: ${insurer?.covered}/${insurer?.total} drugs covered`;
-                      }}
+                      labelFormatter={(label) => `Insurer: ${label}`}
                     />
-                    <Bar 
-                      dataKey="coverage" 
-                      fill="#3B82F6"
-                      name="Coverage %"
-                    />
+                    <Bar dataKey="coverage" fill="#3B82F6" />
                   </BarChart>
                 </ResponsiveContainer>
               </Box>
 
               <Box sx={{ flex: 1, minWidth: 300 }}>
                 <Typography variant="subtitle1" gutterBottom>
-                  Brand Market Presence
+                  Brand Coverage Analysis
                 </Typography>
-                <Typography variant="caption" color="text.secondary" display="block" mb={2}>
+                <Typography variant="caption" color="text.secondary" display="block" sx={{ mb: 2 }}>
                   Percentage of insurers covering each brand
                 </Typography>
                 <Box>
                   {indicationAnalytics.dominantBrands.slice(0, 5).map((brand, index) => (
                     <Box key={brand.brand} display="flex" justifyContent="space-between" alignItems="center" py={1}>
-                      <Box sx={{ flex: 1 }}>
-                        <Typography variant="body2" sx={{ fontWeight: index === 0 ? 'bold' : 'normal' }}>
-                          {brand.brand}
-                        </Typography>
+                      <Typography variant="body2" sx={{ fontWeight: index === 0 ? 'bold' : 'normal' }}>
+                        {brand.brand}
+                      </Typography>
+                      <Box display="flex" alignItems="center" gap={1}>
+                        <Chip 
+                          label={`${brand.coveragePercentage}%`}
+                          color={brand.coveragePercentage >= 60 ? 'success' : brand.coveragePercentage >= 40 ? 'warning' : 'error'}
+                          size="small"
+                        />
                         <Typography variant="caption" color="text.secondary">
-                          {brand.totalRecords} drug record{brand.totalRecords > 1 ? 's' : ''}
+                          ({brand.coveredByInsurers}/{brand.totalInsurers})
                         </Typography>
                       </Box>
-                      <Chip 
-                        label={`${brand.marketPresence}%`}
-                        color={brand.marketPresence >= 80 ? 'success' : brand.marketPresence >= 40 ? 'warning' : 'default'}
-                        size="small"
-                      />
                     </Box>
                   ))}
                 </Box>
