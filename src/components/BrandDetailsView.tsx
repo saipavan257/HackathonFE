@@ -377,7 +377,7 @@ const BrandDetailsView: React.FC<BrandDetailsProps> = ({ brandData, onBack }) =>
               )}
               {(brandData.link || brandData.links || brandData.pdf_link) && (
                 <Link
-                  href={brandData.link || brandData.links}
+                  href={brandData.link || brandData.links || brandData.pdf_link}
                   target="_blank"
                   rel="noopener noreferrer"
                   sx={{
