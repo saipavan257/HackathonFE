@@ -42,6 +42,7 @@ import anthemNuroData from '../data/anthem_nuro.json';
 import humanaNuroData from '../data/humana_nuro.json';
 import cignaCompetitorData from '../data/Cigna_competitor.json';
 import uhcCompetitorData from '../data/UHC_competitor.json';
+import brandCoverageData from '../data/brand_coverage_analysis.json';
 import { 
   getUniqueHCPCSCodesForCompetitorInsights, 
   extractHCPCSCodes,
@@ -250,50 +251,81 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
     });
   }, [processedData, filters, enabledInsurers]);
 
-  // Calculate indication-level analytics
+  // Calculate indication-level analytics with TRUE coverage data
   const indicationAnalytics = useMemo(() => {
     if (!selectedIndication) return null;
 
-    const indicationData = processedData.filter(item => item.indication === selectedIndication);
-    const insurers = ['Aetna', 'Anthem', 'Humana'];
+    // Get all drugs for this indication from the complete coverage dataset
+    const allDrugsForIndication = brandCoverageData.filter(
+      (item: any) => item.indication === selectedIndication
+    );
+
+    const insurers = ['aetna', 'anthem', 'humana', 'cigna', 'uhc'];
     
-    // Coverage by insurer for the selected indication
+    // Calculate TRUE coverage by insurer for the selected indication
     const coverageByInsurer = insurers.map(insurer => {
-      const total = indicationData.filter(item => item.insurer === insurer).length;
-      const covered = total; // Since we only have data for drugs that are covered
+      const totalDrugs = allDrugsForIndication.length;
+      const coveredDrugs = allDrugsForIndication.filter(
+        (item: any) => item[insurer.toLowerCase()] === 'Yes'
+      ).length;
+      
       return {
         insurer: insurer.toUpperCase(),
-        covered,
-        total,
-        coverage: total > 0 ? 100 : 0, // 100% since we only show covered drugs
+        covered: coveredDrugs,
+        total: totalDrugs,
+        coverage: totalDrugs > 0 ? Math.round((coveredDrugs / totalDrugs) * 100) : 0,
       };
     });
 
-    // Dominant brands for this indication
-    const brandCoverage = indicationData.reduce((acc, item) => {
-      if (!acc[item.brand_name]) {
-        acc[item.brand_name] = { total: 0, covered: 0 };
+    // Calculate brand-level coverage analysis
+    const brandCoverage = allDrugsForIndication.reduce((acc: any, item: any) => {
+      const brandName = item.brand_name;
+      if (!acc[brandName]) {
+        acc[brandName] = { 
+          totalRecords: 0,
+          coverageByInsurer: {} as Record<string, boolean>
+        };
       }
-      acc[item.brand_name].total += 1;
-      acc[item.brand_name].covered += 1; // Since we only have covered drugs
+      acc[brandName].totalRecords += 1;
+      
+      // Track coverage across insurers for this brand
+      insurers.forEach(insurer => {
+        const covered = item[insurer.toLowerCase()] === 'Yes';
+        if (!acc[brandName].coverageByInsurer[insurer]) {
+          acc[brandName].coverageByInsurer[insurer] = covered;
+        } else {
+          acc[brandName].coverageByInsurer[insurer] = acc[brandName].coverageByInsurer[insurer] || covered;
+        }
+      });
+
       return acc;
-    }, {} as Record<string, { total: number; covered: number }>);
+    }, {});
 
     const dominantBrands = Object.entries(brandCoverage)
-      .map(([brand, data]) => ({
-        brand,
-        totalRecords: data.total,
-        coverageScore: 100, // 100% since we only show covered drugs
-      }))
-      .sort((a, b) => b.totalRecords - a.totalRecords);
+      .map(([brand, data]: [string, any]) => {
+        // Calculate market presence based on how many insurers cover this brand
+        const insurersCovering = Object.values(data.coverageByInsurer).filter(Boolean).length;
+        const marketPresence = Math.round((insurersCovering / insurers.length) * 100);
+        
+        return {
+          brand,
+          totalRecords: data.totalRecords,
+          marketPresence,
+          coverageScore: marketPresence, // Use market presence as coverage score
+        };
+      })
+      .sort((a, b) => b.marketPresence - a.marketPresence || b.totalRecords - a.totalRecords);
 
     return {
       coverageByInsurer,
       dominantBrands,
-      totalDrugs: indicationData.length,
-      uniqueBrands: [...new Set(indicationData.map(item => item.brand_name))].length,
+      totalDrugs: allDrugsForIndication.length,
+      uniqueBrands: [...new Set(allDrugsForIndication.map((item: any) => item.brand_name))].length,
+      avgCoverageRate: Math.round(
+        coverageByInsurer.reduce((sum, insurer) => sum + insurer.coverage, 0) / coverageByInsurer.length
+      ),
     };
-  }, [selectedIndication, processedData]);
+  }, [selectedIndication]);
 
   const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
@@ -755,13 +787,21 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
             </Typography>
             </Typography>
             
+            <Alert severity="info" sx={{ mb: 3 }}>
+              <AlertTitle>✅ True Coverage Analysis</AlertTitle>
+              This analysis now shows <strong>accurate coverage percentages</strong> based on the complete drug universe. 
+              Coverage is calculated as: <em>Covered Drugs ÷ Total Available Drugs × 100</em>
+              <br />
+              <strong>Previous issue:</strong> Data only contained covered drugs, showing misleading 100% rates.
+            </Alert>
+            
             <Box display="flex" flexWrap="wrap" gap={3} mb={3}>
               <Paper sx={{ p: 2, minWidth: 120, textAlign: 'center' }}>
                 <Typography variant="h4" color="primary">
                   {indicationAnalytics.totalDrugs}
                 </Typography>
                 <Typography variant="caption">
-                  Total Drug Records
+                  Total Drugs Available
                 </Typography>
               </Paper>
               
@@ -773,38 +813,80 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
                   Unique Brands
                 </Typography>
               </Paper>
+              
+              <Paper sx={{ p: 2, minWidth: 120, textAlign: 'center' }}>
+                <Typography variant="h4" color={indicationAnalytics.avgCoverageRate >= 50 ? "success.main" : "warning.main"}>
+                  {indicationAnalytics.avgCoverageRate}%
+                </Typography>
+                <Typography variant="caption">
+                  Avg Coverage Rate
+                </Typography>
+              </Paper>
+              
+              <Paper sx={{ p: 2, minWidth: 120, textAlign: 'center' }}>
+                <Typography variant="h4" color="info.main">
+                  {indicationAnalytics.coverageByInsurer.reduce((sum, insurer) => sum + insurer.covered, 0)}
+                </Typography>
+                <Typography variant="caption">
+                  Total Covered Records
+                </Typography>
+              </Paper>
             </Box>
 
-            {/* Coverage Chart */}
+            {/* True Coverage Chart */}
             <Box display="flex" flexWrap="wrap" gap={4}>
               <Box sx={{ flex: 1, minWidth: 400 }}>
                 <Typography variant="subtitle1" gutterBottom>
-                  Coverage by Insurer (%)
+                  True Coverage by Insurer (%)
+                </Typography>
+                <Typography variant="caption" color="text.secondary" display="block" mb={2}>
+                  Based on {indicationAnalytics.totalDrugs} total drugs available for {selectedIndication}
                 </Typography>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={indicationAnalytics.coverageByInsurer}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="insurer" />
-                    <YAxis />
-                    <Tooltip />
-                    <Bar dataKey="coverage" fill="#3B82F6" />
+                    <YAxis domain={[0, 100]} />
+                    <Tooltip 
+                      formatter={(value, name) => [
+                        `${value}%`,
+                        'Coverage Rate'
+                      ]}
+                      labelFormatter={(label) => {
+                        const insurer = indicationAnalytics.coverageByInsurer.find(i => i.insurer === label);
+                        return `${label}: ${insurer?.covered}/${insurer?.total} drugs covered`;
+                      }}
+                    />
+                    <Bar 
+                      dataKey="coverage" 
+                      fill="#3B82F6"
+                      name="Coverage %"
+                    />
                   </BarChart>
                 </ResponsiveContainer>
               </Box>
 
               <Box sx={{ flex: 1, minWidth: 300 }}>
                 <Typography variant="subtitle1" gutterBottom>
-                  Dominant Brands (Coverage Score)
+                  Brand Market Presence
+                </Typography>
+                <Typography variant="caption" color="text.secondary" display="block" mb={2}>
+                  Percentage of insurers covering each brand
                 </Typography>
                 <Box>
                   {indicationAnalytics.dominantBrands.slice(0, 5).map((brand, index) => (
                     <Box key={brand.brand} display="flex" justifyContent="space-between" alignItems="center" py={1}>
-                      <Typography variant="body2" sx={{ fontWeight: index === 0 ? 'bold' : 'normal' }}>
-                        {brand.brand}
-                      </Typography>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography variant="body2" sx={{ fontWeight: index === 0 ? 'bold' : 'normal' }}>
+                          {brand.brand}
+                        </Typography>
+                        <Typography variant="caption" color="text.secondary">
+                          {brand.totalRecords} drug record{brand.totalRecords > 1 ? 's' : ''}
+                        </Typography>
+                      </Box>
                       <Chip 
-                        label={`${brand.coverageScore}%`}
-                        color={brand.coverageScore > 50 ? 'success' : brand.coverageScore > 25 ? 'warning' : 'error'}
+                        label={`${brand.marketPresence}%`}
+                        color={brand.marketPresence >= 80 ? 'success' : brand.marketPresence >= 40 ? 'warning' : 'default'}
                         size="small"
                       />
                     </Box>
