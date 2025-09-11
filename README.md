@@ -7,7 +7,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-# Insurance Management Dashboard
+# CoverageLens
 
 A responsive React application built with Material UI for managing insurance companies and their associated brands. This application provides a comprehensive interface for exploring insurance data with sorting, filtering, and search capabilities.
 

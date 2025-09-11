@@ -40,9 +40,12 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import aetnaNuroData from '../data/aetna_nuro.json';
 import anthemNuroData from '../data/anthem_nuro.json';
 import humanaNuroData from '../data/humana_nuro.json';
+import cignaCompetitorData from '../data/Cigna_competitor.json';
+import uhcCompetitorData from '../data/UHC_competitor.json';
 import { 
   getUniqueHCPCSCodesForCompetitorInsights, 
-  extractHCPCSCodes 
+  extractHCPCSCodes,
+  getHCPCSValueFromItem
 } from '../utils/hcpcsUtils';
 import { CompetitorInsightsHCPCSBadges } from './HCPCSBadges';
 
@@ -110,10 +113,14 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
     aetna: boolean;
     anthem: boolean;
     humana: boolean;
+    cigna: boolean;
+    uhc: boolean;
   }>({
     aetna: true,
     anthem: true,
     humana: true,
+    cigna: true,
+    uhc: true,
   });
 
   // Clinical criteria popup state
@@ -173,6 +180,36 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
       });
     });
 
+    // Process Cigna data
+    cignaCompetitorData.forEach((item: any, index: number) => {
+      mergedData.push({
+        id: `cigna-${index}`,
+        brand_name: item['Brand Name'] || '',
+        indication: item.indication || '',
+        indicated_population: item.indicated_population || '',
+        clinical_criteria: item.clinical_criteria || 'Not available',
+        prior_authorization: item['Prior Authorisation/Medical necessity/notification'] === 'Yes' ? 'Prior Authorization' : 'Medical Necessity',
+        insurer: 'Cigna',
+        source_link: item.link || '',
+        hcpcs_code: item['HCPCS Code'] || '',
+      });
+    });
+
+    // Process UHC data
+    uhcCompetitorData.forEach((item: any, index: number) => {
+      mergedData.push({
+        id: `uhc-${index}`,
+        brand_name: item['Brand Name'] || '',
+        indication: item.indication || '',
+        indicated_population: item.indicated_population || '',
+        clinical_criteria: item.clinical_criteria || 'Not available',
+        prior_authorization: item['Prior Authorisation/Medical necessity/notification'] === 'Yes' ? 'Prior Authorization' : 'Medical Necessity',
+        insurer: 'UHC',
+        source_link: item.link || '',
+        hcpcs_code: item['HCPCS Code'] || '',
+      });
+    });
+
     return mergedData;
   }, []);
 
@@ -199,7 +236,8 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
       
       // Use the new HCPCS utility for better filtering support
       const matchesHcpcsCode = !filters.hcpcsCode || (() => {
-        const codes = extractHCPCSCodes(item.hcpcs_code);
+        const hcpcsValue = getHCPCSValueFromItem(item);
+        const codes = extractHCPCSCodes(hcpcsValue);
         return codes.includes(filters.hcpcsCode.toUpperCase());
       })();
       
@@ -413,9 +451,11 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
       width: 160,
       headerClassName: 'data-grid-header',
       renderCell: (params: any) => {
+        // Use utility function to get HCPCS value supporting multiple field formats
+        const hcpcsValue = getHCPCSValueFromItem(params.row);
         return (
           <CompetitorInsightsHCPCSBadges 
-            hcpcsInput={params.value} 
+            hcpcsInput={hcpcsValue} 
             size="small"
             maxDisplay={3}
           />
@@ -686,6 +726,8 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
                 <MenuItem value="aetna">Aetna</MenuItem>
                 <MenuItem value="anthem">Anthem</MenuItem>
                 <MenuItem value="humana">Humana</MenuItem>
+                <MenuItem value="cigna">Cigna</MenuItem>
+                <MenuItem value="uhc">UHC</MenuItem>
               </Select>
             </FormControl>            <Button
               variant="outlined"
@@ -708,7 +750,9 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
         <Card sx={{ mb: 4 }}>
           <CardContent>
             <Typography variant="h6" gutterBottom>
-              {selectedIndication} - Competitive Landscape
+                          <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
+              {selectedIndication} - Comparative Analytics
+            </Typography>
             </Typography>
             
             <Box display="flex" flexWrap="wrap" gap={3} mb={3}>
@@ -856,9 +900,53 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
                     </Box>
                   }
                 />
+                <FormControlLabel
+                  control={
+                    <Switch
+                      checked={enabledInsurers.cigna}
+                      onChange={() => handleInsurerToggle('cigna')}
+                      color="primary"
+                    />
+                  }
+                  label={
+                    <Box display="flex" alignItems="center" gap={1}>
+                      <Chip 
+                        label="Cigna" 
+                        color="primary" 
+                        size="small" 
+                        variant={enabledInsurers.cigna ? "filled" : "outlined"}
+                      />
+                      <Typography variant="body2" color="text.secondary">
+                        ({processedData.filter(item => item.insurer === 'Cigna').length} records)
+                      </Typography>
+                    </Box>
+                  }
+                />
+                <FormControlLabel
+                  control={
+                    <Switch
+                      checked={enabledInsurers.uhc}
+                      onChange={() => handleInsurerToggle('uhc')}
+                      color="primary"
+                    />
+                  }
+                  label={
+                    <Box display="flex" alignItems="center" gap={1}>
+                      <Chip 
+                        label="UHC" 
+                        color="primary" 
+                        size="small" 
+                        variant={enabledInsurers.uhc ? "filled" : "outlined"}
+                      />
+                      <Typography variant="body2" color="text.secondary">
+                        ({processedData.filter(item => item.insurer === 'UHC').length} records)
+                      </Typography>
+                    </Box>
+                  }
+                />
               </FormGroup>
               {/* <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: 'block' }}>
-                Toggle insurers on/off to filter the data table below. Active filters: {Object.values(enabledInsurers).filter(Boolean).length}/3 insurers
+                Toggle insurers on/off to filter the data table below. Active filters: {Object.values(enabledInsurers).filter(Boolean).length}/5 insurers
               </Typography> */}
             </CardContent>
           </Card>

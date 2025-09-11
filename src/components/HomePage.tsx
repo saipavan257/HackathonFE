@@ -14,19 +14,18 @@ import {
   LocalOffer as BrandIcon,
   Analytics as AnalyticsIcon,
 } from '@mui/icons-material';
+import CustomIcon from './CustomIcon';
 
 interface HomePageProps {
   onNavigateToInsurers: () => void;
   onNavigateToBrands: () => void;
   onNavigateToCompetitorInsights: () => void;
-  onNavigateToInsurerDetails?: () => void;
 }
 
 const HomePage: React.FC<HomePageProps> = ({
   onNavigateToInsurers,
   onNavigateToBrands,
   onNavigateToCompetitorInsights,
-  onNavigateToInsurerDetails,
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -34,18 +33,29 @@ const HomePage: React.FC<HomePageProps> = ({
   return (
     <Container maxWidth="lg" sx={{ py: 6, px: { xs: 2, md: 4 } }}>
       <Box textAlign="center" mb={8}>
-        <Typography 
-          variant="h3" 
-          component="h1" 
-          gutterBottom
-          sx={{ 
-            fontWeight: 700,
-            color: 'text.primary',
-            mb: 3,
-          }}
-        >
-          Insurance Management Dashboard
-        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 3 }}>
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            mr: 2,
+            p: 1,
+            borderRadius: 2,
+            boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+          }}>
+            <CustomIcon size={64} />
+          </Box>
+          <Typography 
+            variant="h3" 
+            component="h1" 
+            sx={{ 
+              fontWeight: 700,
+            }}
+          >
+            <span style={{ color: '#1D4ED8' }}>Coverage</span>
+            <span style={{ color: '#10B981' }}>Lens</span>
+          </Typography>
+        </Box>
         <Typography 
           variant="h6" 
           sx={{ 
@@ -54,10 +64,10 @@ const HomePage: React.FC<HomePageProps> = ({
             mb: 6,
             color: 'text.secondary',
             lineHeight: 1.6,
-            fontWeight: 400,
+            fontWeight: 700,
           }}
         >
-          Navigate through insurers and brands to explore comprehensive insurance data with advanced analytics and insights
+          “Bringing payer drug coverage into sharp focus.”
         </Typography>
       </Box>
 

@@ -330,7 +330,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
         <Card sx={{ mb: 4 }}>
           <CardContent>
             <Typography variant="h6" gutterBottom>
-              {selectedIndication} - Competitive Landscape
+              {selectedIndication} - Comparative Analytics
             </Typography>
             
             <Box display="flex" flexWrap="wrap" gap={3} mb={3}>
