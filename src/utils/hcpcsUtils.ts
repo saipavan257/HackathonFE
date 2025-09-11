@@ -98,8 +98,8 @@ export function formatHCPCSCodesForBadges(
 /**
  * Extracts unique HCPCS codes from an array of data items
  * 
- * @param data - Array of data items with hcpcs_code or hcpc_code fields
- * @param fieldName - Name of the field containing HCPCS codes
+ * @param data - Array of data items with various HCPCS field names
+ * @param fieldName - Primary field name to look for
  * @returns Array of unique HCPCS codes
  */
 export function extractUniqueHCPCSFromData<T extends Record<string, any>>(
@@ -108,7 +108,13 @@ export function extractUniqueHCPCSFromData<T extends Record<string, any>>(
 ): string[] {
   const allCodes = data
     .map(item => {
-      const value = item[fieldName] || item['hcpc_code'] || '';
+      // Support multiple field name variations
+      const value = item[fieldName] || 
+                   item['hcpcs_code'] || 
+                   item['hcpc_code'] || 
+                   item['HCPCS Code'] || 
+                   item['hcpcsCode'] || 
+                   '';
       return extractHCPCSCodes(value.toString());
     })
     .flat();
@@ -137,7 +143,7 @@ export function isValidHCPCSCode(code: string): boolean {
  * 
  * @param data - Array of data items
  * @param filterCode - HCPCS code to filter by
- * @param fieldName - Name of the field containing HCPCS codes
+ * @param fieldName - Primary field name to look for
  * @returns Filtered array of data items
  */
 export function filterByHCPCSCode<T extends Record<string, any>>(
@@ -152,7 +158,13 @@ export function filterByHCPCSCode<T extends Record<string, any>>(
   const upperFilterCode = filterCode.trim().toUpperCase();
 
   return data.filter(item => {
-    const value = item[fieldName] || item['hcpc_code'] || '';
+    // Support multiple field name variations
+    const value = item[fieldName] || 
+                 item['hcpcs_code'] || 
+                 item['hcpc_code'] || 
+                 item['HCPCS Code'] || 
+                 item['hcpcsCode'] || 
+                 '';
     const codes = extractHCPCSCodes(value.toString());
     return codes.some(code => code.toUpperCase() === upperFilterCode);
   });
@@ -182,6 +194,19 @@ export function createHCPCSDisplayText(
   }
   
   return codesText;
+}
+
+/**
+ * Gets HCPCS value from an item supporting multiple field name variations
+ * Used across different data sources (Aetna, Anthem, Humana use hcpcs_code/hcpc_code, 
+ * while Cigna and UHC use "HCPCS Code")
+ */
+export function getHCPCSValueFromItem(item: Record<string, any>): string {
+  return item['hcpcs_code'] || 
+         item['hcpc_code'] || 
+         item['HCPCS Code'] || 
+         item['hcpcsCode'] || 
+         '';
 }
 
 /**

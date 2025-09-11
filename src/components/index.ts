@@ -11,3 +11,4 @@ export { default as InsurerCompareView } from './InsurerCompareView';
 export { default as BrandDetailsView } from './BrandDetailsView';
 export { default as InsurerDetailsPage } from './InsurerDetailsPage';
 export { default as HCPCSBadges, CompetitorInsightsHCPCSBadges, SimpleHCPCSBadges, ClickableHCPCSBadges } from './HCPCSBadges';
+export { default as CustomIcon } from './CustomIcon';

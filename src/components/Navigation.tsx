@@ -9,11 +9,11 @@ import {
   useTheme,
 } from '@mui/material';
 import {
-  Home as HomeIcon,
   LocalOffer as BrandIcon,
   Compare as CompareIcon,
   Analytics as AnalyticsIcon,
 } from '@mui/icons-material';
+import CustomIcon from './CustomIcon';
 
 interface NavigationProps {
   currentView: 'home' | 'insurers' | 'brands' | 'insurer-brands' | 'compare'  | 'brand-details' | 'competitor-insights' | 'insurer-details';
@@ -59,7 +59,7 @@ const Navigation: React.FC<NavigationProps> = ({
               },
             }}
           >
-            <HomeIcon />
+            <CustomIcon size={24} />
           </IconButton>
           {!isMobile && (
             <Typography 
@@ -71,7 +71,8 @@ const Navigation: React.FC<NavigationProps> = ({
                 color: 'white',
               }}
             >
-              Insurance Dashboard
+              <span style={{ color: '#BFDBFE' }}>Coverage</span>
+              <span style={{ color: '#A7F3D0' }}>Lens</span>
             </Typography>
           )}
         </Box>
