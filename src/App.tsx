@@ -18,7 +18,7 @@ function App() {
   const [currentView, setCurrentView] = useState<ViewType>('home');
   const [isLoading, setIsLoading] = useState(false);
   const [selectedBrandData, setSelectedBrandData] = useState<any>(null);
-  const [selectedInsurerKey, setSelectedInsurerKey] = useState<string>('uhc');
+  const selectedInsurerKey = 'uhc'; // Default insurer for details view
 
   const handleNavigation = async (view: ViewType) => {
     setIsLoading(true);
@@ -36,17 +36,11 @@ function App() {
     await handleNavigation('brand-details');
   };
 
-  const handleInsurerClick = async (insurerKey: string) => {
-    setSelectedInsurerKey(insurerKey);
-    await handleNavigation('insurer-details');
-  };
-
   const handleNavigateHome = () => handleNavigation('home');
   const handleNavigateToInsurers = () => handleNavigation('insurers');
   const handleNavigateToBrands = () => handleNavigation('brands');
   const handleNavigateToCompare = () => handleNavigation('compare');
   const handleNavigateToCompetitorInsights = () => handleNavigation('competitor-insights');
-  const handleNavigateToInsurerDetails = () => handleNavigation('insurer-details');
 
   const renderCurrentView = () => {
     if (isLoading) {
@@ -60,7 +54,6 @@ function App() {
             onNavigateToInsurers={handleNavigateToInsurers}
             onNavigateToBrands={handleNavigateToBrands}
             onNavigateToCompetitorInsights={handleNavigateToCompetitorInsights}
-            onNavigateToInsurerDetails={handleNavigateToInsurerDetails}
           />
         );
       
@@ -98,10 +91,10 @@ function App() {
           />
         ) : (
           <HomePage
-              onNavigateToInsurers={handleNavigateToInsurers}
-              onNavigateToBrands={handleNavigateToBrands} onNavigateToCompetitorInsights={function (): void {
-                throw new Error('Function not implemented.');
-              } }          />
+            onNavigateToInsurers={handleNavigateToInsurers}
+            onNavigateToBrands={handleNavigateToBrands}
+            onNavigateToCompetitorInsights={handleNavigateToCompetitorInsights}
+          />
         );
 
       case 'insurer-details':
@@ -125,7 +118,6 @@ function App() {
             onNavigateToInsurers={handleNavigateToInsurers}
             onNavigateToBrands={handleNavigateToBrands}
             onNavigateToCompetitorInsights={handleNavigateToCompetitorInsights}
-            onNavigateToInsurerDetails={handleNavigateToInsurerDetails}
           />
         );
     }
