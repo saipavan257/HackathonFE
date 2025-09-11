@@ -25,6 +25,7 @@ interface BrandDetailsProps {
   brandData: {
     brand_name: string;
     insurer: string;
+    state_policy_data?: string; // UHC specific
     [key: string]: any;
   };
   onBack: () => void;
@@ -269,7 +270,8 @@ const HCPCSBadges: React.FC<{ hcpcsString: string }> = ({ hcpcsString }) => {
 const BrandDetailsView: React.FC<BrandDetailsProps> = ({ brandData, onBack }) => {
   const isAetna = brandData.insurer === 'Aetna';
   const isAnthem = brandData.insurer === 'Anthem';
-
+  const isUHC = brandData.insurer === 'UHC';
+  const isCigna = brandData.insurer === 'Cigna';
   if (!brandData.brand_name) {
     return (
       <Container maxWidth="lg" sx={{ py: 4 }}>
@@ -373,7 +375,7 @@ const BrandDetailsView: React.FC<BrandDetailsProps> = ({ brandData, onBack }) =>
                   }}
                 />
               )}
-              {(brandData.link || brandData.links) && (
+              {(brandData.link || brandData.links || brandData.pdf_link) && (
                 <Link
                   href={brandData.link || brandData.links}
                   target="_blank"
@@ -446,7 +448,7 @@ const BrandDetailsView: React.FC<BrandDetailsProps> = ({ brandData, onBack }) =>
                 <InfoField label="Indication" value={brandData.indication} />
                 <InfoField label="Target Population" value={brandData.indicated_population} />
                 <InfoField label="Detailed Population Information" value={brandData.label_population} />
-                <InfoField label="Clinical Criteria" value={brandData.clinical_criteria} />
+                <InfoField label="Clinical Criteria" value={brandData.clinical_criteria || brandData.clinical_evidence_summary} />
                 {brandData.exclusion_criteria && (
                   <InfoField label="Exclusion Criteria" value={brandData.exclusion_criteria} />
                 )}
@@ -467,9 +469,13 @@ const BrandDetailsView: React.FC<BrandDetailsProps> = ({ brandData, onBack }) =>
                 )}
                 <InfoField 
                   label="HCPCS Codes" 
-                  value={<HCPCSBadges hcpcsString={brandData.hcpcs_code || brandData.hcpc_code || ''} />} 
+                  value={<HCPCSBadges hcpcsString={brandData.hcpcs_code || brandData.hcpc_code  || brandData.doc_hcpcs_code || ''} />} 
                 />
-                <InfoField label="Prior Authorization Required" value={brandData.prior_authorization_required} type="boolean" />
+                <InfoField label="Prior Authorization Required" value={brandData.prior_authorization_required || (brandData.medication_sourcing_required) ? "Yes" : "No"} type="boolean" />
+                {isUHC && (
+                  <InfoField label="Site of Care" value={(brandData.site_of_core_medical_necessity ? "Yes" : "No")} type="boolean" />
+                )}
+
                 {isAetna && (
                   <InfoField label="Step Therapy Required" value={brandData.step_therapy_required} type="boolean" />
                 )}
@@ -478,6 +484,42 @@ const BrandDetailsView: React.FC<BrandDetailsProps> = ({ brandData, onBack }) =>
                 )}
                 {isAnthem && brandData.quantity_limits && (
                   <InfoField label="Quantity Limits" value={brandData.quantity_limits} />
+                )}
+                {isUHC && brandData.state_policy_data && (
+                  <InfoField 
+                    label="State Policy Data" 
+                    value={
+                      <Box>
+                        <Typography variant="body2" sx={{ mb: 1, color: '#333333', fontStyle: 'italic' }}>
+                          This policy applies in all states except the following states:
+                        </Typography>
+                        <Stack direction="row" spacing={0.5} flexWrap="wrap" useFlexGap>
+                          {brandData.state_policy_data
+                            .toString()
+                            .split('\n')
+                            .map((line: string) => line.split(':')[0].trim())
+                            .filter((item: string) => item)
+                            .join(', ')
+                            .split(',')
+                            .map((state: string, index: number) => (
+                              <Chip
+                                key={index}
+                                label={state.trim()}
+                                size="small"
+                                sx={{
+                                  backgroundColor: '#FFF3CD',
+                                  color: '#856404',
+                                  border: '1px solid #FFEAA7',
+                                  fontWeight: 500,
+                                  fontSize: '0.75rem',
+                                }}
+                              />
+                            ))
+                          }
+                        </Stack>
+                      </Box>
+                    } 
+                  />
                 )}
               </InfoCard>
             </Box>
@@ -517,17 +559,17 @@ const BrandDetailsView: React.FC<BrandDetailsProps> = ({ brandData, onBack }) =>
                 {brandData.prior_authorization_summary && (
                   <InfoField label="Prior Authorization Summary" value={brandData.prior_authorization_summary} />
                 )}
-                {brandData.preferred_products && (
-                  <InfoField label="Preferred Products" value={brandData.preferred_products} />
+                {(brandData.preferred_products || brandData.preferred_products_required) && (
+                  <InfoField label="Preferred Products" value={brandData.preferred_products || brandData.preferred_products_required} />
                 )}
-                {brandData.exception_criteria && (
-                  <InfoField label="Exception Criteria" value={brandData.exception_criteria} />
+                {(brandData.exception_criteria || brandData.exclusion_criteria) && (
+                  <InfoField label="Exception Criteria" value={brandData.exception_criteria || brandData.exclusion_criteria} />
                 )}
                 {isAetna && brandData.policy_revised_date && (
                   <InfoField label="Policy Revised Date" value={brandData.policy_revised_date} type="date" />
                 )}
-                {isAetna && brandData.policy_effective_date && (
-                  <InfoField label="Policy Effective Date" value={brandData.policy_effective_date} type="date" />
+                {(isAetna || isUHC) && (brandData.policy_effective_date || brandData.effective_date) && (
+                  <InfoField label="Policy Effective Date" value={brandData.policy_effective_date || brandData.effective_date} type="date" />
                 )}
                 {isAetna && brandData.policy_approved_date && (
                   <InfoField label="Policy Approved Date" value={brandData.policy_approved_date} type="date" />
@@ -550,14 +592,14 @@ const BrandDetailsView: React.FC<BrandDetailsProps> = ({ brandData, onBack }) =>
               minWidth: { xs: '280px', lg: '0' }
             }}>
               <InfoCard title="Evidence & Documentation">
-                {brandData.evidence_rationale && (
-                  <InfoField label="Evidence & Rationale" value={brandData.evidence_rationale} />
+                {(brandData.evidence_rationale || brandData.rationale_for_use) && (
+                  <InfoField label="Evidence & Rationale" value={brandData.evidence_rationale || brandData.rationale_for_use} />
                 )}
-                {isAnthem && brandData.document_history && (
-                  <InfoField label="Document History" value={brandData.document_history} />
+                {(isAnthem || isUHC) && (brandData.document_history || brandData.policy_history_revision_info) && (
+                  <InfoField label="Document History" value={brandData.document_history || brandData.policy_history_revision_info} />
                 )}
-                {isAnthem && brandData.document_summary && (
-                  <InfoField label="Document Summary" value={brandData.document_summary} />
+                {(isAnthem || isUHC || isCigna) && (brandData.document_summary || brandData.summary) && (
+                  <InfoField label="Document Summary" value={brandData.document_summary || brandData.summary} />
                 )}
               </InfoCard>
             </Box>

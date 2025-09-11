@@ -14,6 +14,15 @@ export const parseInsurerData = async (insurerName: string): Promise<InsurerStat
       case 'humana':
         data = (await import('../data/humana_nuro.json')).default;
         break;
+      case 'centene':
+        data = (await import('../data/centene_nuro.json')).default;
+        break;
+      case 'cigna':
+        data = (await import('../data/cigna_nuro.json')).default;
+        break;
+      case 'uhc':
+        data = (await import('../data/uhc_nuro.json')).default;
+        break;
       default:
         throw new Error(`No data available for insurer: ${insurerName}`);
     }
@@ -22,13 +31,13 @@ export const parseInsurerData = async (insurerName: string): Promise<InsurerStat
     const uniqueBrands = new Set(data.map(item => item.brand_name)).size;
     const uniqueIndications = new Set(data.map(item => item.indication)).size;
     const priorAuthRequired = data.filter(item => 
-      item.prior_authorization_required?.toLowerCase() === 'yes'
+      item.prior_authorization_required?.toLowerCase() === 'yes' || item.medication_sourcing_required
     ).length;
     const stepTherapyRequired = data.filter(item => 
       item.step_therapy_required?.toLowerCase() === 'yes'
     ).length;
     const uniqueHCPCS = new Set(data.map(item => {
-      const code = item.hcpcs_code || item.hcpc_code;
+      const code = item.hcpcs_code || item.hcpc_code || item.doc_hcpcs_code;
       // Extract only the code part before the colon (e.g., "J0791" from "J0791: Injection, crizanlizumab-tmca, 5 mg [Adakveo]")
       return code ? code.toString().split(':')[0].trim() : '';
     }).filter(Boolean)).size;
@@ -40,7 +49,8 @@ export const parseInsurerData = async (insurerName: string): Promise<InsurerStat
         item.policy_effective_date,
         item.policy_approved_date,
         item.published_date,
-        item.last_review_date
+        item.last_review_date,
+        item.effective_date
       ].filter(Boolean);
       
       return dateFields.length > 0 ? new Date(Math.max(...dateFields.map(d => new Date(d!).getTime()))) : null;
@@ -67,7 +77,7 @@ export const parseInsurerData = async (insurerName: string): Promise<InsurerStat
 };
 
 export const getAllInsurerStats = async (): Promise<InsurerStats[]> => {
-  const insurers = ['Aetna', 'Anthem', 'Humana'];
+  const insurers = ['Aetna', 'Anthem', 'Humana', 'Centene', 'Cigna', 'UHC'];
   const results: InsurerStats[] = [];
   
   for (const insurer of insurers) {

@@ -45,7 +45,7 @@ interface BrandCoverage {
   uhc: string;
   aetna: string;
   anthem: string;
-  hcsc: string;
+  centene: string;
   cigna: string;
   humana: string;
 }
@@ -57,7 +57,7 @@ interface ProcessedBrandData {
   uhc: string;
   aetna: string;
   anthem: string;
-  hcsc: string;
+  centene: string;
   cigna: string;
   humana: string;
   brandRowspan?: number;
@@ -141,8 +141,8 @@ const BrandDataGrid: React.FC<BrandDataGridProps> = ({
     }
   }, [showCoverageView]);
 
-  const insurerNames = ['UHC', 'Aetna', 'Anthem', 'HCSC', 'Cigna', 'Humana'];
-  const insurerKeys = ['uhc', 'aetna', 'anthem', 'hcsc', 'cigna', 'humana'];
+  const insurerNames = ['UHC', 'Aetna', 'Anthem', 'Centene', 'Cigna', 'Humana'];
+  const insurerKeys = ['uhc', 'aetna', 'anthem', 'centene', 'cigna', 'humana'];
 
   const filteredData = useMemo(() => 
     processedData.filter(item =>

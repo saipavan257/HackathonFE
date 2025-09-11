@@ -289,8 +289,8 @@
 				"Coverage criteria may sometimes be more restrictive than FDA labeling"
 			],
 			"recentChangesAndInitiatives": {
-				"ACAExchangeExit": "Aetna will exit Affordable Care Act individual & family marketplace in 2026, affecting ~1 million members across 17 states; coverage continues through end of 2025. :contentReference[oaicite:0]{index=0}",
-				"MedicareAdvantageRatings": "CVS reported 88% of Aetna MA members enrolled in plans rated 4+ stars for 2025. :contentReference[oaicite:1]{index=1}"
+				"ACAExchangeExit": "Aetna will exit Affordable Care Act individual & family marketplace in 2026, affecting ~1 million members across 17 states; coverage continues through end of 2025.",
+				"MedicareAdvantageRatings": "CVS reported 88% of Aetna MA members enrolled in plans rated 4+ stars for 2025."
 			},
 			"keyLinks": {
 				"clinicalPolicyBulletins": "https://www.aetna.com/health-care-professionals/clinical-policy-bulletins.html",
@@ -479,10 +479,10 @@
 				"PA and UM often stricter under Medicaid constraints"
 			],
 			"recentChangesAndInitiatives": {
-				"membershipGrowth": "Total at-risk membership ≈28.0M as of Q2 2025 (Medicaid ≈12.82M; Marketplace ≈5.86M; Medicare ≈1.03M; Commercial ≈6.31M; PDP ≈7.85M) :contentReference[oaicite:0]{index=0}",
-				"acaMembershipUpdate": "ACA Marketplace members increased to ~5.8M across 29 states :contentReference[oaicite:1]{index=1}",
-				"withdrawnGuidance": "Withdrew 2025 EPS guidance after actuarial data revealed higher morbidity and lower Marketplace morbidity assumptions, reducing risk adjustment by ~$1.8B (~$2.75 EPS impact) :contentReference[oaicite:2]{index=2}",
-				"2024Performance": "Marketplace membership up 12% and Medicare PDP up 50% from Q4 2023; repurchased $3B in shares; adjusted EPS $7.17 full year :contentReference[oaicite:3]{index=3}"
+				"membershipGrowth": "Total at-risk membership ≈28.0M as of Q2 2025 (Medicaid ≈12.82M; Marketplace ≈5.86M; Medicare ≈1.03M; Commercial ≈6.31M; PDP ≈7.85M) :",
+				"acaMembershipUpdate": "ACA Marketplace members increased to ~5.8M across 29 states.",
+				"withdrawnGuidance": "Withdrew 2025 EPS guidance after actuarial data revealed higher morbidity and lower Marketplace morbidity assumptions, reducing risk adjustment by ~$1.8B (~$2.75 EPS impact).",
+				"2024Performance": "Marketplace membership up 12% and Medicare PDP up 50% from Q4 2023; repurchased $3B in shares; adjusted EPS $7.17 full year."
 			},
 			"keyLinks": {
 				"clinicalPolicies": "https://www.centene.com/providers/clinical-policies.html",
@@ -570,10 +570,10 @@
 				"ASP+% margin details not publicly disclosed"
 			],
 			"recentChangesAndInitiatives": {
-				"Q1Financials": "Reported Q1 2025 adjusted EPS of $11.58; affirmed full-year guidance of ~$16.25 and Insurance benefit ratio near 87.5%. Membership decline of ~550K in Medicare Advantage anticipated. :contentReference[oaicite:0]{index=0}",
-				"Q2OutlookBoost": "Raised full-year adjusted EPS guidance to ~$17.00, revenue projection to ≥ $128B, owing to better-than-expected MA enrollment and CenterWell performance. :contentReference[oaicite:1]{index=1}",
-				"StarRatingsDrop": "Only ~25% of MA members will be in 4-star or higher plans for 2025—down from 94% in 2024—following CMS downgrades. Humana is appealing the rating. :contentReference[oaicite:2]{index=2}",
-				"EmployerMarketExit": "Exited employer-sponsored commercial insurance to focus on Medicare and government programs. :contentReference[oaicite:3]{index=3}"
+				"Q1Financials": "Reported Q1 2025 adjusted EPS of $11.58; affirmed full-year guidance of ~$16.25 and Insurance benefit ratio near 87.5%. Membership decline of ~550K in Medicare Advantage anticipated.",
+				"Q2OutlookBoost": "Raised full-year adjusted EPS guidance to ~$17.00, revenue projection to ≥ $128B, owing to better-than-expected MA enrollment and CenterWell performance.",
+				"StarRatingsDrop": "Only ~25% of MA members will be in 4-star or higher plans for 2025—down from 94% in 2024—following CMS downgrades. Humana is appealing the rating.",
+				"EmployerMarketExit": "Exited employer-sponsored commercial insurance to focus on Medicare and government programs."
 			},
 			"keyLinks": {
 				"clinicalPolicies": "https://mcp.humana.com/tad/tad_new/home.aspx?type=provider",

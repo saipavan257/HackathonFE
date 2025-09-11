@@ -173,8 +173,8 @@ const InsurerCharts: React.FC<InsurerChartsProps> = ({ selectedFilters = {} }) =
       'Cigna Healthcare': 'cigna', 
       'Aetna': 'aetna',
       'Anthem': 'anthem',
-      'Centene Corporation': 'centene',
-      'Humana Inc.': 'humana'
+      'Centene': 'centene',
+      'Humana': 'humana'
     };
 
     const key = insurerKeyMap[insurerName] || insurerName.toLowerCase().replace(/\s+/g, '');
