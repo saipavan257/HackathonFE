@@ -21,7 +21,6 @@ import {
   SmartToy as BotIcon,
   Person as PersonIcon,
 } from '@mui/icons-material';
-import { useTheme } from '@mui/material/styles';
 import brandCoverageData from '../data/brand_coverage_analysis.json';
 // Import competitor insights data
 import aetnaData from '../data/aetna_nuro.json';
@@ -29,6 +28,74 @@ import anthemData from '../data/anthem_nuro.json';
 import humanaData from '../data/humana_nuro.json';
 import cignaData from '../data/Cigna_competitor.json';
 import uhcData from '../data/UHC_competitor.json';
+
+// Simple text formatter for bot messages
+const formatBotMessage = (text: string) => {
+  const lines = text.split('\n');
+  return lines.map((line, index) => {
+    // Handle bullet points
+    if (line.trim().startsWith('•') || line.trim().startsWith('-')) {
+      return (
+        <Typography 
+          key={index} 
+          component="div" 
+          sx={{ 
+            fontSize: '0.95rem', 
+            lineHeight: 1.6,
+            ml: 2,
+            mb: 0.5,
+            '&::before': {
+              content: '"•"',
+              color: '#667eea',
+              fontWeight: 'bold',
+              marginRight: 1
+            }
+          }}
+        >
+          {line.replace(/^[•-]\s*/, '')}
+        </Typography>
+      );
+    }
+    
+    // Handle bold text **text**
+    if (line.includes('**')) {
+      const parts = line.split(/(\*\*.*?\*\*)/);
+      return (
+        <Typography 
+          key={index} 
+          component="div" 
+          sx={{ fontSize: '0.95rem', lineHeight: 1.6, mb: line.trim() ? 1 : 0 }}
+        >
+          {parts.map((part, partIndex) => {
+            if (part.startsWith('**') && part.endsWith('**')) {
+              return (
+                <Box component="span" key={partIndex} sx={{ fontWeight: 700, color: '#1976d2' }}>
+                  {part.slice(2, -2)}
+                </Box>
+              );
+            }
+            return part;
+          })}
+        </Typography>
+      );
+    }
+    
+    // Regular text
+    if (line.trim()) {
+      return (
+        <Typography 
+          key={index} 
+          component="div" 
+          sx={{ fontSize: '0.95rem', lineHeight: 1.6, mb: 1 }}
+        >
+          {line}
+        </Typography>
+      );
+    }
+    
+    return <Box key={index} sx={{ height: 8 }} />; // Empty line spacing
+  });
+};
 
 interface Message {
   id: string;
@@ -42,7 +109,6 @@ interface ChatBoxProps {
 }
 
 const ChatBox: React.FC<ChatBoxProps> = ({ isVisible = true }) => {
-  const theme = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -146,8 +212,8 @@ const ChatBox: React.FC<ChatBoxProps> = ({ isVisible = true }) => {
     // Special analysis for Adakveo VOC criteria
     if (lowerDrugName === 'adakveo') {
       response += `🎯 **Population Coverage Differences:**\n`;
-      response += `• **Cigna**: Allows ≥1 VOC in 12 months (easier initial access)\n`;
-      response += `• **UHC/Others**: Typically require ≥2 VOCs in 12 months\n\n`;
+      response += ` **Cigna** : Allows ≥1 VOC in 12 months (easier initial access)\n`;
+      response += ` **UHC/Others**: Typically require ≥2 VOCs in 12 months\n\n`;
       response += `🏆 **Recommendation**: Cigna offers easier access with lower VOC threshold\n\n`;
     }
     
@@ -538,47 +604,112 @@ const ChatBox: React.FC<ChatBoxProps> = ({ isVisible = true }) => {
         onClick={toggleChat}
         sx={{
           position: 'fixed',
-          bottom: 24,
-          right: 24,
+          bottom: 32,
+          right: 32,
           zIndex: 1000,
-          backgroundColor: '#1976d2',
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          width: 64,
+          height: 64,
           '&:hover': {
-            backgroundColor: '#1565c0',
-            transform: 'scale(1.1)',
+            background: 'linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%)',
+            transform: 'scale(1.1) rotate(5deg)',
+            boxShadow: '0 8px 25px rgba(102, 126, 234, 0.4)',
           },
-          transition: 'all 0.3s ease-in-out',
-          boxShadow: '0 4px 12px rgba(25, 118, 210, 0.3)',
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          boxShadow: '0 8px 25px rgba(102, 126, 234, 0.3)',
+          border: '3px solid white',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: -2,
+            left: -2,
+            right: -2,
+            bottom: -2,
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            borderRadius: '50%',
+            zIndex: -1,
+            opacity: 0.3,
+            animation: 'pulse 2s ease-in-out infinite',
+          },
+          '@keyframes pulse': {
+            '0%': {
+              transform: 'scale(1)',
+              opacity: 0.3,
+            },
+            '50%': {
+              transform: 'scale(1.2)',
+              opacity: 0.1,
+            },
+            '100%': {
+              transform: 'scale(1)',
+              opacity: 0.3,
+            },
+          },
         }}
       >
-        <ChatIcon />
+        <ChatIcon sx={{ fontSize: 32 }} />
       </Fab>
 
       {/* Chat Dialog */}
       <Dialog
         open={isOpen}
         onClose={toggleChat}
-        maxWidth="sm"
+        maxWidth="md"
         fullWidth
         PaperProps={{
           sx: {
-            height: '600px',
+            height: '650px',
             display: 'flex',
-            flexDirection: 'column'
+            flexDirection: 'column',
+            borderRadius: 4,
+            boxShadow: '0 25px 50px rgba(0, 0, 0, 0.25)',
+            overflow: 'hidden',
+            background: 'white',
+            '@keyframes fadeIn': {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            },
+            animation: 'fadeIn 0.3s ease-out'
           }
         }}
       >
         <DialogTitle sx={{ 
-          backgroundColor: '#1976d2', 
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
           color: 'white',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          padding: 3,
+          boxShadow: '0 4px 20px rgba(102, 126, 234, 0.2)'
         }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <BotIcon />
-            <Typography variant="h6">Insurance Data Assistant</Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <Avatar sx={{ 
+              bgcolor: 'rgba(255, 255, 255, 0.2)', 
+              width: 40, 
+              height: 40 
+            }}>
+              <BotIcon sx={{ fontSize: 24 }} />
+            </Avatar>
+            <Box>
+              <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                Insurance Data Assistant
+              </Typography>
+              <Typography variant="caption" sx={{ opacity: 0.9 }}>
+                AI-powered coverage analysis
+              </Typography>
+            </Box>
           </Box>
-          <IconButton onClick={toggleChat} sx={{ color: 'white' }}>
+          <IconButton 
+            onClick={toggleChat} 
+            sx={{ 
+              color: 'white',
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                transform: 'scale(1.1)',
+              },
+              transition: 'all 0.2s ease-in-out'
+            }}
+          >
             <CloseIcon />
           </IconButton>
         </DialogTitle>
@@ -593,8 +724,9 @@ const ChatBox: React.FC<ChatBoxProps> = ({ isVisible = true }) => {
           <Box sx={{ 
             flex: 1, 
             overflow: 'auto', 
-            padding: 2,
-            backgroundColor: '#f5f5f5'
+            padding: 3,
+            backgroundColor: '#fafafa',
+            backgroundImage: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)'
           }}>
             {messages.map((message) => (
               <Box
@@ -602,36 +734,112 @@ const ChatBox: React.FC<ChatBoxProps> = ({ isVisible = true }) => {
                 sx={{
                   display: 'flex',
                   justifyContent: message.sender === 'user' ? 'flex-end' : 'flex-start',
-                  mb: 2
+                  mb: 3,
+                  animation: 'fadeIn 0.3s ease-in-out'
                 }}
               >
                 <Box sx={{ 
                   display: 'flex', 
                   alignItems: 'flex-start',
-                  gap: 1,
-                  maxWidth: '80%'
+                  gap: 2,
+                  maxWidth: '85%'
                 }}>
                   {message.sender === 'bot' && (
-                    <Avatar sx={{ bgcolor: '#1976d2', width: 32, height: 32 }}>
-                      <BotIcon sx={{ fontSize: 16 }} />
+                    <Avatar sx={{ 
+                      bgcolor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
+                      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                      width: 40, 
+                      height: 40,
+                      border: '2px solid white',
+                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.3)'
+                    }}>
+                      <BotIcon sx={{ fontSize: 20 }} />
                     </Avatar>
                   )}
                   
                   <Paper sx={{
-                    p: 2,
-                    backgroundColor: message.sender === 'user' ? '#1976d2' : 'white',
-                    color: message.sender === 'user' ? 'white' : 'black',
-                    borderRadius: 2,
-                    whiteSpace: 'pre-line'
+                    p: 3,
+                    backgroundColor: message.sender === 'user' 
+                      ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
+                      : 'white',
+                    background: message.sender === 'user' 
+                      ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
+                      : 'white',
+                    color: message.sender === 'user' ? '#ffffff' : '#333333',
+                    borderRadius: message.sender === 'user' ? '20px 20px 4px 20px' : '20px 20px 20px 4px',
+                    boxShadow: message.sender === 'user' 
+                      ? '0 8px 25px rgba(102, 126, 234, 0.25)' 
+                      : '0 8px 25px rgba(0, 0, 0, 0.1)',
+                    border: message.sender === 'user' ? 'none' : '1px solid rgba(0, 0, 0, 0.05)',
+                    minHeight: '48px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    position: 'relative',
+                    '&::before': message.sender === 'user' ? {
+                      content: '""',
+                      position: 'absolute',
+                      bottom: 0,
+                      right: -8,
+                      width: 0,
+                      height: 0,
+                      borderLeft: '8px solid transparent',
+                      borderTop: '8px solid #764ba2',
+                    } : {
+                      content: '""',
+                      position: 'absolute',
+                      bottom: 0,
+                      left: -8,
+                      width: 0,
+                      height: 0,
+                      borderRight: '8px solid white',
+                      borderTop: '8px solid white',
+                    }
                   }}>
-                    <Typography variant="body2">
-                      {message.text}
-                    </Typography>
+                    {message.sender === 'bot' ? (
+                      <Box sx={{ 
+                        '& p': { margin: 0, marginBottom: 1 },
+                        '& p:last-child': { marginBottom: 0 },
+                        '& ul': { paddingLeft: 2, margin: 0 },
+                        '& li': { marginBottom: 0.5 },
+                        '& strong': { fontWeight: 700, color: '#1976d2' },
+                        '& em': { fontStyle: 'italic', color: '#666' },
+                        '& code': { 
+                          backgroundColor: '#f5f5f5', 
+                          padding: '2px 4px', 
+                          borderRadius: 1,
+                          fontFamily: 'monospace',
+                          fontSize: '0.9em'
+                        },
+                        fontSize: '0.95rem',
+                        lineHeight: 1.6
+                      }}>
+                        {formatBotMessage(message.text)}
+                      </Box>
+                    ) : (
+                      <Typography 
+                        variant="body2" 
+                        sx={{ 
+                          whiteSpace: 'pre-line',
+                          fontSize: '0.95rem',
+                          lineHeight: 1.6,
+                          fontWeight: 500,
+                          color: '#ffffff'
+                        }}
+                      >
+                        {message.text}
+                      </Typography>
+                    )}
                   </Paper>
 
                   {message.sender === 'user' && (
-                    <Avatar sx={{ bgcolor: '#666', width: 32, height: 32 }}>
-                      <PersonIcon sx={{ fontSize: 16 }} />
+                    <Avatar sx={{ 
+                      bgcolor: '#34495e', 
+                      width: 40, 
+                      height: 40,
+                      border: '2px solid white',
+                      boxShadow: '0 4px 12px rgba(52, 73, 94, 0.3)'
+                    }}>
+                      <PersonIcon sx={{ fontSize: 20 }} />
                     </Avatar>
                   )}
                 </Box>
@@ -639,12 +847,35 @@ const ChatBox: React.FC<ChatBoxProps> = ({ isVisible = true }) => {
             ))}
             
             {isLoading && (
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                <Avatar sx={{ width: 32, height: 32, bgcolor: theme.palette.primary.main }}>
+              <Box sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: 2,
+                justifyContent: 'flex-start',
+                mb: 3
+              }}>
+                <Avatar sx={{ 
+                  width: 40, 
+                  height: 40, 
+                  bgcolor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  border: '2px solid white',
+                  boxShadow: '0 4px 12px rgba(102, 126, 234, 0.3)'
+                }}>
                   <BotIcon />
                 </Avatar>
-                <Paper sx={{ p: 1.5, borderRadius: 2 }}>
-                  <CircularProgress size={20} />
+                <Paper sx={{ 
+                  p: 2, 
+                  borderRadius: '20px 20px 20px 4px',
+                  boxShadow: '0 8px 25px rgba(0, 0, 0, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 2
+                }}>
+                  <CircularProgress size={20} sx={{ color: '#667eea' }} />
+                  <Typography variant="body2" sx={{ color: '#666', fontSize: '0.9rem' }}>
+                    Analyzing...
+                  </Typography>
                 </Paper>
               </Box>
             )}
@@ -660,53 +891,124 @@ const ChatBox: React.FC<ChatBoxProps> = ({ isVisible = true }) => {
           
           {/* Input Area */}
           <Box sx={{ 
-            p: 2, 
-            borderTop: '1px solid #e0e0e0',
-            backgroundColor: 'white'
+            p: 3, 
+            borderTop: '1px solid rgba(0, 0, 0, 0.08)',
+            backgroundColor: 'white',
+            boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.05)'
           }}>
-            <Box sx={{ display: 'flex', gap: 1, mb: 1, flexWrap: 'wrap' }}>
+            <Box sx={{ display: 'flex', gap: 1.5, mb: 2, flexWrap: 'wrap' }}>
               <Chip 
                 label="Which insurer covers Abecma?" 
-                size="small" 
+                size="medium" 
                 variant="outlined" 
                 onClick={() => setInputValue("Which insurer has more coverage for Abecma?")}
-                sx={{ cursor: 'pointer' }}
+                sx={{ 
+                  cursor: 'pointer',
+                  borderColor: '#667eea',
+                  color: '#667eea',
+                  '&:hover': {
+                    backgroundColor: '#667eea',
+                    color: 'white',
+                    transform: 'translateY(-1px)',
+                    boxShadow: '0 4px 12px rgba(102, 126, 234, 0.3)'
+                  },
+                  transition: 'all 0.2s ease-in-out',
+                  fontWeight: 500
+                }}
               />
               <Chip 
                 label="Compare Abecma coverage" 
-                size="small" 
+                size="medium" 
                 variant="outlined" 
                 onClick={() => setInputValue("Compare coverage for Abecma across insurers")}
-                sx={{ cursor: 'pointer' }}
+                sx={{ 
+                  cursor: 'pointer',
+                  borderColor: '#667eea',
+                  color: '#667eea',
+                  '&:hover': {
+                    backgroundColor: '#667eea',
+                    color: 'white',
+                    transform: 'translateY(-1px)',
+                    boxShadow: '0 4px 12px rgba(102, 126, 234, 0.3)'
+                  },
+                  transition: 'all 0.2s ease-in-out',
+                  fontWeight: 500
+                }}
               />
               <Chip 
                 label="Easiest access for Adakveo?" 
-                size="small" 
+                size="medium" 
                 variant="outlined" 
                 onClick={() => setInputValue("Which insurer has easiest access for Adakveo?")}
-                sx={{ cursor: 'pointer' }}
+                sx={{ 
+                  cursor: 'pointer',
+                  borderColor: '#667eea',
+                  color: '#667eea',
+                  '&:hover': {
+                    backgroundColor: '#667eea',
+                    color: 'white',
+                    transform: 'translateY(-1px)',
+                    boxShadow: '0 4px 12px rgba(102, 126, 234, 0.3)'
+                  },
+                  transition: 'all 0.2s ease-in-out',
+                  fontWeight: 500
+                }}
               />
             </Box>
             
-            <Box sx={{ display: 'flex', gap: 1, alignItems: 'flex-end' }}>
+            <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-end' }}>
               <TextField
                 fullWidth
                 multiline
-                maxRows={3}
+                maxRows={4}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ask me about insurers, brands, coverage, HCPCS codes..."
                 variant="outlined"
-                size="small"
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: 3,
+                    backgroundColor: '#fafafa',
+                    '&:hover fieldset': {
+                      borderColor: '#667eea',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#667eea',
+                      borderWidth: 2,
+                    },
+                  },
+                  '& .MuiInputBase-input': {
+                    fontSize: '1rem',
+                    padding: '16px'
+                  }
+                }}
               />
               <IconButton
                 color="primary"
                 onClick={handleSendMessage}
                 disabled={!inputValue.trim() || isLoading}
-                sx={{ minWidth: 'auto', px: 2 }}
+                sx={{ 
+                  minWidth: 'auto', 
+                  width: 56,
+                  height: 56,
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  color: 'white',
+                  borderRadius: 3,
+                  '&:hover': {
+                    background: 'linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%)',
+                    transform: 'scale(1.05)',
+                    boxShadow: '0 6px 20px rgba(102, 126, 234, 0.4)'
+                  },
+                  '&:disabled': {
+                    background: '#e0e0e0',
+                    color: '#999'
+                  },
+                  transition: 'all 0.2s ease-in-out',
+                  boxShadow: '0 4px 15px rgba(102, 126, 234, 0.3)'
+                }}
               >
-                <SendIcon />
+                <SendIcon sx={{ fontSize: 24 }} />
               </IconButton>
             </Box>
           </Box>
