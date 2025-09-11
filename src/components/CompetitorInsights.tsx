@@ -40,6 +40,11 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import aetnaNuroData from '../data/aetna_nuro.json';
 import anthemNuroData from '../data/anthem_nuro.json';
 import humanaNuroData from '../data/humana_nuro.json';
+import { 
+  getUniqueHCPCSCodesForCompetitorInsights, 
+  extractHCPCSCodes 
+} from '../utils/hcpcsUtils';
+import { CompetitorInsightsHCPCSBadges } from './HCPCSBadges';
 
 interface CompetitorInsightsProps {
   onBack: () => void;
@@ -183,17 +188,7 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
   }, [processedData]);
 
   const uniqueHcpcsCodes = useMemo(() => {
-    const codes = [...new Set(processedData
-      .map(item => {
-        // Extract HCPCS codes from the hcpcs_code field
-        const code = item.hcpcs_code || '';
-        // Extract only the code part before the colon (e.g., "J0791" from "J0791: Injection, crizanlizumab-tmca, 5 mg [Adakveo]")
-        const codeOnly = code.toString().split(':')[0].trim();
-        return codeOnly;
-      })
-      .filter(code => code && code !== '' && code !== 'N/A')
-    )];
-    return codes.sort();
+    return getUniqueHCPCSCodesForCompetitorInsights(processedData);
   }, [processedData]);
 
   // Filter data based on current filters and enabled insurers
@@ -201,8 +196,13 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
     return processedData.filter(item => {
       const matchesIndication = !filters.indication || item.indication === filters.indication;
       const matchesBrand = !filters.brand || item.brand_name === filters.brand;
-      const matchesHcpcsCode = !filters.hcpcsCode || 
-        (item.hcpcs_code && item.hcpcs_code.toString().split(':')[0].trim() === filters.hcpcsCode);
+      
+      // Use the new HCPCS utility for better filtering support
+      const matchesHcpcsCode = !filters.hcpcsCode || (() => {
+        const codes = extractHCPCSCodes(item.hcpcs_code);
+        return codes.includes(filters.hcpcsCode.toUpperCase());
+      })();
+      
       const matchesInsurer = !filters.insurer || item.insurer.toLowerCase() === filters.insurer.toLowerCase();
       
       // Filter by enabled insurers
@@ -410,28 +410,15 @@ const CompetitorInsights: React.FC<CompetitorInsightsProps> = ({ onBack }) => {
     {
       field: 'hcpcs_code',
       headerName: 'HCPCS Code',
-      width: 120,
+      width: 160,
       headerClassName: 'data-grid-header',
       renderCell: (params: any) => {
-        const code = params.value;
-        // Extract only the code part before the colon (e.g., "J0791" from "J0791: Injection, crizanlizumab-tmca, 5 mg [Adakveo]")
-        const codeOnly = code ? code.toString().split(':')[0].trim() : '';
-        
         return (
-          <Typography 
-            variant="body2" 
-            sx={{ 
-              fontFamily: 'monospace',
-              fontWeight: 'bold',
-              color: theme.palette.primary.main,
-              backgroundColor: theme.palette.primary.main + '0A',
-              padding: '2px 6px',
-              borderRadius: 1,
-              border: `1px solid ${theme.palette.primary.main}30`
-            }}
-          >
-            {codeOnly || 'N/A'}
-          </Typography>
+          <CompetitorInsightsHCPCSBadges 
+            hcpcsInput={params.value} 
+            size="small"
+            maxDisplay={3}
+          />
         );
       },
     },
