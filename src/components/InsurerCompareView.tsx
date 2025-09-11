@@ -169,12 +169,20 @@ const InsurerCompareView: React.FC<InsurerCompareViewProps> = ({ onBack, onBrand
   };
 
   const formatDate = (dateString: string) => {
-    if (dateString === 'Unknown') return dateString;
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
+    if (!dateString || dateString === 'Unknown' || dateString.trim() === '') return 'Unknown';
+    
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) return 'Unknown';
+      
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      });
+    } catch {
+      return 'Unknown';
+    }
   };
 
   const getInsurerColor = (name: string) => {
@@ -182,6 +190,9 @@ const InsurerCompareView: React.FC<InsurerCompareViewProps> = ({ onBack, onBrand
       'Aetna': theme.palette.primary.main,
       'Anthem': theme.palette.secondary.main,
       'Humana': theme.palette.success.main,
+      'Cigna': theme.palette.info.main,
+      'UHC': theme.palette.warning.main,
+      'Centene': theme.palette.error.main,
     };
     return colors[name as keyof typeof colors] || theme.palette.grey[500];
   };
@@ -276,15 +287,17 @@ const InsurerCompareView: React.FC<InsurerCompareViewProps> = ({ onBack, onBrand
               </CardContent>
             </Card>
             
-            <Card sx={{ backgroundColor: theme.palette.success.light, color: 'white' }}>
-              <CardContent>
-                <Box display="flex" alignItems="center" gap={1}>
-                  <ScheduleIcon />
-                  <Typography variant="body2">Last Updated</Typography>
-                </Box>
-                <Typography variant="h6">{formatDate(selectedInsurer.lastUpdated)}</Typography>
-              </CardContent>
-            </Card>
+            {selectedInsurer.lastUpdated && selectedInsurer.lastUpdated !== "Unknown" && selectedInsurer.lastUpdated.trim() !== "" && (
+              <Card sx={{ backgroundColor: theme.palette.success.light, color: 'white' }}>
+                <CardContent>
+                  <Box display="flex" alignItems="center" gap={1}>
+                    <ScheduleIcon />
+                    <Typography variant="body2">Last Updated</Typography>
+                  </Box>
+                  <Typography variant="h6">{formatDate(selectedInsurer.lastUpdated)}</Typography>
+                </CardContent>
+              </Card>
+            )}
           </Box>
         </Box>
 
@@ -297,7 +310,9 @@ const InsurerCompareView: React.FC<InsurerCompareViewProps> = ({ onBack, onBrand
                   <TableCell sx={{ fontWeight: 600 }}>Indication</TableCell>
                   <TableCell sx={{ fontWeight: 600 }}>Population</TableCell>
                   <TableCell sx={{ fontWeight: 600 }} align="center">Prior Auth</TableCell>
-                  <TableCell sx={{ fontWeight: 600 }} align="center">Step Therapy</TableCell>
+                  <TableCell sx={{ fontWeight: 600 }} align="center">
+                    {selectedInsurer.name === 'UHC' || selectedInsurer.name === 'Cigna' ? 'Site of Care' : 'Step Therapy'}
+                  </TableCell>
                   <TableCell sx={{ fontWeight: 600, minWidth: 160 }}>HCPCS Codes</TableCell>
                 </TableRow>
               </TableHead>
@@ -334,21 +349,40 @@ const InsurerCompareView: React.FC<InsurerCompareViewProps> = ({ onBack, onBrand
                       {item.indicated_population}
                     </TableCell>
                     <TableCell align="center">
-                      {item.prior_authorization_required?.toLowerCase() === 'yes' ? (
+                      {item.prior_authorization_required?.toLowerCase() === 'yes' || item.medication_sourcing_required ? (
                         <CheckCircleIcon color="success" />
                       ) : (
                         <CancelIcon color="error" />
                       )}
                     </TableCell>
                     <TableCell align="center">
-                      {item.step_therapy_required?.toLowerCase() === 'yes' ? (
-                        <CheckCircleIcon color="success" />
-                      ) : (
-                        <CancelIcon color="error" />
-                      )}
+                      {(() => {
+                        if (selectedInsurer.name === 'UHC') {
+                          // For UHC, use site_of_core_medical_necessity - if not empty then yes
+                          return item.site_of_core_medical_necessity && item.site_of_core_medical_necessity.trim() !== '' ? (
+                            <CheckCircleIcon color="success" />
+                          ) : (
+                            <CancelIcon color="error" />
+                          );
+                        } else if (selectedInsurer.name === 'Cigna') {
+                          // For Cigna, use site_of_care field
+                          return item.site_of_care?.toLowerCase() === 'yes' ? (
+                            <CheckCircleIcon color="success" />
+                          ) : (
+                            <CancelIcon color="error" />
+                          );
+                        } else {
+                          // For other insurers, use step_therapy_required
+                          return item.step_therapy_required?.toLowerCase() === 'yes' ? (
+                            <CheckCircleIcon color="success" />
+                          ) : (
+                            <CancelIcon color="error" />
+                          );
+                        }
+                      })()}
                     </TableCell>
                     <TableCell sx={{ maxWidth: 200 }}>
-                      <HCPCSBadges hcpcsString={item.hcpcs_code || item.hcpc_code || ''} />
+                      <HCPCSBadges hcpcsString={item.hcpcs_code || item.hcpc_code || item.doc_hcpcs_code || ''} />
                     </TableCell>
                   </TableRow>
                 ))}
@@ -530,14 +564,16 @@ const InsurerCompareView: React.FC<InsurerCompareViewProps> = ({ onBack, onBrand
 
                   <Divider sx={{ my: 1 }} />
 
-                  <Box display="flex" justifyContent="space-between" alignItems="center">
-                    <Typography variant="caption" color="text.secondary">
-                      Last Updated
-                    </Typography>
-                    <Typography variant="caption" sx={{ fontWeight: 500 }}>
-                      {formatDate(stats.lastUpdated)}
-                    </Typography>
-                  </Box>
+                  {stats.lastUpdated && stats.lastUpdated !== "Unknown" && stats.lastUpdated.trim() !== "" && (
+                    <Box display="flex" justifyContent="space-between" alignItems="center">
+                      <Typography variant="caption" color="text.secondary">
+                        Last Updated
+                      </Typography>
+                      <Typography variant="caption" sx={{ fontWeight: 500 }}>
+                        {formatDate(stats.lastUpdated)}
+                      </Typography>
+                    </Box>
+                  )}
                 </Box>
               </CardContent>
 
